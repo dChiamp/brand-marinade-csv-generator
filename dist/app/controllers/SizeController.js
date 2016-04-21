@@ -15,6 +15,7 @@ function SizeController ($scope) {
                 "XXL",
                 "XXXL"
                 ]
+  // $scope.hoodie.size = ["xxl"]
 
   // $scope.items = [1,2,3,4,5];
   $scope.selected = [];

@@ -46,17 +46,56 @@
     <h1>Welcome to Brand Marinade</h1>
     <p> Upload a product </p>
 
-    <div ng-show="true" id="brand-name-form"> 
-      <h3> Enter Brand Name </h3>
-      <form ng-submit="mc.skuGenerator()">
+    <div ng-controller="ColorsController as cc" ng-show="true" id="brand-name-form"> 
+      <h3> Enter Client Name </h3>
+      <form ng-submit="skuGenerator()">
         <div class="form-group">
-         <input type="text" ng-model="mc.newProduct.brand" placeholder="brand">
+           <input type="text" ng-model="newProduct.clientName" placeholder="brand-name">
+        </div>
+        <h3> Enter Design Name </h3>
+        <div class="form-group">
+         <input type="text" ng-model="newProduct.designName" placeholder="design-name">
+        <input type="submit" value="submit" class="btn btn-sm btn-success">&nbsp;
         </div>
       </form>
-
     </div>
 
-  <div ng-controller="TypeController as tc ">
+  <div ng-controller="ColorsController as cc" class="md-padding checkboxdemoBasicUsage" ng-cloak="">
+    <div>
+      <fieldset class="standard">
+        <legend> Products </legend>
+        <div layout="column" layout-wrap="" layout-gt-sm="row">
+          <div flex-xs="" flex="50">
+            <md-checkbox ng-model="newProduct.item" aria-label="product" ng-click="checkedTrue()" ng-checked="" ng-repeat="product in products">
+              Product: {{ product.item }}
+              <div ng-if="checkedParent">
+                <div> Sizes: 
+                  <md-checkbox ng-model="newProduct.sizes" aria-label="size" ng-repeat="size in product.sizes track by $index">
+                    {{ size }}
+                  </md-checkbox> 
+                </div>
+                <div> Colors:
+                  <md-checkbox ng-model="newProduct.colors" aria-label="color" ng-repeat="color in product.colors track by $index">
+                  {{ color }}
+                  </md-checkbox> 
+                </div>
+                <form ng-submit="skuGenerator()">
+                  <div class="form-group"> Price:
+                   <input type="text" ng-model="newProduct.price" placeholder="{{product.price}}">
+                  <input type="submit" value="submit" class="btn btn-sm btn-success">&nbsp;
+                  </div>
+                </form>
+              </div>
+
+            </md-checkbox>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <p> test parsing: {{crewneck.sizes}}  </p>
+  </div>
+
+  <div ng-controller="ColorsController as cc">
     <div class="md-padding demo checkboxdemoSelectAll">
       <h3> Select Product Type </h3>
       <div layout="row" layout-wrap="">
@@ -64,15 +103,10 @@
           <div>
             <fieldset class="demo-fieldset">
               <div layout="row" layout-wrap="" flex="">
-              <div flex-xs="" flex="50">
-                <md-checkbox aria-label="Select All" ng-checked="isChecked()" md-indeterminate="isIndeterminate()" ng-click="toggleAll()">
-                  <span ng-if="isChecked()">Un-</span>Select All Types
-                </md-checkbox>
-              </div>
-                <div class="demo-select-all-checkboxes" flex="100" ng-repeat="item in items">
-                  <md-checkbox ng-checked="exists(item, selected)" ng-click="toggle(item, selected)">
-                   {{ item }}
-                  </md-checkbox>
+                <div class="demo-select-all-checkboxes" flex="100">
+                  <md-switch ng-repeat="(key, value) in crewneck.sizes[0]" 
+                    <p ng-model="crewneck.sizes[0].small"> size: {{key}} | {{value}} </p>
+                  </md-switch>
                 </div>
               </div>
             </fieldset>
@@ -80,55 +114,9 @@
         </div>
       </div>
     </div>
+    {{crewneck.sizes.small}}
   </div>
 
-  <div ng-controller="ColorsController as cc" class="md-padding demo checkboxdemoSelectAll">
-     <h3> Select Colors </h3>
-    <div layout="row" layout-wrap="">
-      <div flex="100" layout="column">
-        <div>
-          <fieldset class="demo-fieldset">
-            <div layout="row" layout-wrap="" flex="">
-            <div flex-xs="" flex="50">
-              <md-checkbox aria-label="Select All" ng-checked="isChecked()" md-indeterminate="isIndeterminate()" ng-click="toggleAll()">
-                <span ng-if="isChecked()">Un-</span>Select All Colors
-              </md-checkbox>
-            </div>
-              <div class="demo-select-all-checkboxes" flex="100" ng-repeat="item in items">
-                <md-checkbox ng-checked="exists(item, selected)" ng-click="toggle(item, selected)">
-                 {{ item }}
-                </md-checkbox>
-              </div>
-            </div>
-          </fieldset>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div ng-controller="SizeController as cc" class="md-padding demo checkboxdemoSelectAll">
-     <h3> Select Colors </h3>
-    <div layout="row" layout-wrap="">
-      <div flex="100" layout="column">
-        <div>
-          <fieldset class="demo-fieldset">
-            <div layout="row" layout-wrap="" flex="">
-            <div flex-xs="" flex="50">
-              <md-checkbox aria-label="Select All" ng-checked="isChecked()" md-indeterminate="isIndeterminate()" ng-click="toggleAll()">
-                <span ng-if="isChecked()">Un-</span>Select All Colors
-              </md-checkbox>
-            </div>
-              <div class="demo-select-all-checkboxes" flex="100" ng-repeat="item in items">
-                <md-checkbox ng-checked="exists(item, selected)" ng-click="toggle(item, selected)">
-                 {{ item }}
-                </md-checkbox>
-              </div>
-            </div>
-          </fieldset>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
 

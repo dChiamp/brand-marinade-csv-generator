@@ -21,37 +21,68 @@ function ColorsController ($scope) {
                 "Vintage Red"
                 ]
 
+  $scope.selected = [];
+  $scope.data = {};
+  $scope.data.cb1 = false;
+  // refactor items as objects to nest atrributes onCheck
+  $scope.products = [{
+                  item: "Crewneck",
+                  sizes: ["small", "medium", "large"],
+                  colors: ["red", "blue", "green"],
+                  brands: [],
+                  tags: [],
+                  price: 45
+                  },
+                  {
+                  item: "Hoodie",
+                  sizes: ["small", "medium", "large"],
+                  colors: ["red", "blue", "green"],
+                  brands: [],
+                  tags: [],
+                  price: 45
+                  }
+                  ];
+
+    $scope.crewneck = {
+                      item: "Crewneck",
+                      sizes: [ {small: true}, {medium: true}, {large: true} ],
+                      colors: [ {red: true}, {blue: true}, {green: true} ],
+                      brands: [],
+                      tags: [],
+                      price: 50
+                    };
+
+  $scope.newProduct = {}
+
+  $scope.skuGenerator = function () {
+    var sku = $scope.newProduct.clientName + "-" + $scope.newProduct.designName;
+    console.log("newProduct:", $scope.newProduct, "sku:", sku)
+  }
+
   // $scope.items = [1,2,3,4,5];
   $scope.selected = [];
 
-  $scope.toggle = function (item, list) {
-    var idx = list.indexOf(item);
-    if (idx > -1) {
-      list.splice(idx, 1);
-    }
-    else {
-      list.push(item);
-    }
+  $scope.checkedParent = false;
+
+  $scope.checkedTrue = function(){
+    // $scope.checkedParent = !$scope.checkedParent
+    $scope.checkedParent = true;
+    console.log("$scope.checkedParent:", $scope.checkedParent)
+    // return true;
   };
 
-  $scope.exists = function (item, list) {
-    return list.indexOf(item) > -1;
-  };
-
-  // $scope.isIndeterminate = function() {
-  //   return ($scope.selected.length !== 0 &&
-  //       $scope.selected.length !== $scope.items.length);
-  // };
+  $scope.isParentChecked = function (e) {
+    e.prevent.default()
+    if ($scope.checkedParent) {
+      console.log("isParentChecked?","true")
+      return true;
+    }
+  }
 
   $scope.isChecked = function() {
-    return $scope.selected.length === $scope.items.length;
+    // return $scope.selected.length === $scope.items.length;
+    !$scope.checkedParent 
+    // return true
   };
 
-  $scope.toggleAll = function() {
-    if ($scope.selected.length === $scope.items.length) {
-      $scope.selected = [];
-    } else if ($scope.selected.length === 0 || $scope.selected.length > 0) {
-      $scope.selected = $scope.items.slice(0);
-    }
-  };
 } 

@@ -4,23 +4,26 @@ app.controller('TypeController', TypeController)
 function TypeController ($scope) {
   console.log("Type Controller");
 
-  $scope.items =[ 
-                "Crewneck",
-                "Hoodie",
-                "Kid's T",
-                "Mug",
-                "Onesie",
-                "Poster",
-                "Sweatshirt",
-                "Tank Top",
-                "Tote Bag",
-                "Men's T-shirt",
-                "Mens's V-neck",
-                "Women's V-neck",
-                "Women's T-shirt"
-                ]
 
   $scope.selected = [];
+  // refactor items as objects to nest atrributes onCheck
+  $scope.items = [{item: "Crewneck",
+                  sizes: ["small", "medium", "large"],
+                  colors: ["red", "blue", "green"],
+                  brands: [],
+                  tags: []
+                  },
+                  {item: "Hoodie",
+                  sizes: ["small", "medium", "large"],
+                  colors: ["red", "blue", "green"],
+                  brands: [],
+                  tags: []
+                  }
+                  ]
+
+console.log("sizes: ", $scope.items[0].sizes)
+
+
 
   $scope.toggle = function (item, list) {
     var idx = list.indexOf(item);
