@@ -104,9 +104,26 @@
             <fieldset class="demo-fieldset">
               <div layout="row" layout-wrap="" flex="">
                 <div class="demo-select-all-checkboxes" flex="100">
-                  <md-switch ng-repeat="(key, value) in crewneck.sizes[0]" 
-                    <p ng-model="crewneck.sizes[0].small"> size: {{key}} | {{value}} </p>
-                  </md-switch>
+                  <div>
+                    <p> product </p>
+                    <md-checkbox ng-click="checkedTrue()"> 
+                      {{crewneck.item}}
+                    </md-checkbox>
+                  </div>
+                  <div ng-if="isChecked">
+                    <div>
+                      <p> Sizes </p>
+                      <md-switch ng-repeat="(key, value) in crewneck.sizes" ng-model="value"> 
+                        <p> {{key}} | {{value}} </p>
+                      </md-switch>
+                    </div>
+                    <div>
+                      <p> Colors </p>
+                      <md-switch ng-repeat="(key, value) in crewneck.colors" ng-model="value">
+                        <p> {{key}} | {{value}} </p>
+                      </md-switch>
+                    </div>
+                  </div>
                 </div>
               </div>
             </fieldset>
@@ -114,7 +131,6 @@
         </div>
       </div>
     </div>
-    {{crewneck.sizes.small}}
   </div>
 
 

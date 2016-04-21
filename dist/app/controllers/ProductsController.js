@@ -14,32 +14,49 @@ function ProductsController ($scope, $http) {
   $scope.selected = [];
   $scope.data = {};
   // refactor items as objects to nest atrributes onCheck
-  $scope.products = [{
+  $scope.products = [
+                {
                   item: "Crewneck",
-                  sizes: ["small", "medium", "large"],
-                  colors: ["red", "blue", "green"],
-                  brands: [],
-                  tags: [],
-                  price: 45
-                  },
-                  {
+                  colors: {red: true,
+                        green: true,
+                        blue: false
+                      },
+                  sizes: {small: false,
+                        medium: true,
+                        large: true
+                      },
+                  brands: ["American Apparel"],
+                  tags: ["hella cool"],
+                  price: 50
+                },
+                {
                   item: "Hoodie",
-                  sizes: ["small", "medium", "large"],
-                  colors: ["red", "blue", "green"],
-                  brands: [],
-                  tags: [],
+                  colors: {red: false,
+                          green: true,
+                          blue: false
+                        },
+                  sizes: {small: true,
+                          medium: true,
+                          large: true
+                        },
+                  brands: ["Galvins"],
+                  tags: ["super sweet"],
                   price: 45
-                  }
-                  ];
+                }
+              ]
 
     $scope.crewneck = {
-                      item: "Crewneck",
-                      sizes: [ {small: true}, {medium: true}, {large: true} ],
-                      colors: [ {red: true}, {blue: true}, {green: true} ],
-                      brands: [],
-                      tags: [],
-                      price: 50
-                    };
+                        item: "Crewneck",
+                        colors: {red: true,
+                                green: true,
+                                blue: false},
+                        sizes: {small: false,
+                                medium: true,
+                                large: true },
+                        brands: ["American Apparel"],
+                        tags: ["hella cool"],
+                        price: 50
+                      },
 
   $scope.newProduct = {}
 
@@ -50,9 +67,12 @@ function ProductsController ($scope, $http) {
 
 
   $scope.checkedParent = false;
+  $scope.isChecked = false
+
   $scope.checkedTrue = function(){
     // $scope.checkedParent = !$scope.checkedParent
-    $scope.checkedParent = true;
+    // $scope.checkedParent = true;
+    $scope.isChecked = true
     console.log("$scope.checkedParent:", $scope.checkedParent)
     // return true;
   };
@@ -65,11 +85,11 @@ function ProductsController ($scope, $http) {
     }
   }
 
-  $scope.isChecked = function() {
-    // return $scope.selected.length === $scope.items.length;
-    !$scope.checkedParent 
-    // return true
-  };
+  // $scope.isChecked = function() {
+  //   return $scope.selected.length === $scope.items.length;
+  //   !$scope.checkedParent 
+  //   return true
+  // };
 
   function getAllProducts() {
     $http
