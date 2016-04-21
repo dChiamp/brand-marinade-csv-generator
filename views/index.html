@@ -21,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href="/app/public/stylesheets/style.css">
     <!-- local scripts-->
     <script type="text/javascript" src="/app/app.js"></script>
-    <script type="text/javascript" src="/app/controllers/ColorsController.js"></script>
+    <script type="text/javascript" src="/app/controllers/ProductsController.js"></script>
     <script type="text/javascript" src="/app/controllers/TypeController.js"></script>
     <script type="text/javascript" src="/app/controllers/SizeController.js"></script>
 
@@ -46,7 +46,7 @@
     <h1>Welcome to Brand Marinade</h1>
     <p> Upload a product </p>
 
-    <div ng-controller="ColorsController as cc" ng-show="true" id="brand-name-form"> 
+    <div ng-controller="ProductsController as pc" ng-show="true" id="brand-name-form"> 
       <h3> Enter Client Name </h3>
       <form ng-submit="skuGenerator()">
         <div class="form-group">
@@ -60,7 +60,7 @@
       </form>
     </div>
 
-  <div ng-controller="ColorsController as cc" class="md-padding checkboxdemoBasicUsage" ng-cloak="">
+  <div ng-controller="ProductsController as pc" class="md-padding checkboxdemoBasicUsage" ng-cloak="">
     <div>
       <fieldset class="standard">
         <legend> Products </legend>
@@ -95,7 +95,7 @@
     <p> test parsing: {{crewneck.sizes}}  </p>
   </div>
 
-  <div ng-controller="ColorsController as cc">
+  <div ng-controller="ProductsController as pc">
     <div class="md-padding demo checkboxdemoSelectAll">
       <h3> Select Product Type </h3>
       <div layout="row" layout-wrap="">
@@ -118,7 +118,10 @@
   </div>
 
 
-
+<div ng-controller="ProductsController as pc" ng-init="pc.getAllProducts()">
+ <p>  {{pc.allProducts}} </p>
+  
+</div>
 
 
   </body>

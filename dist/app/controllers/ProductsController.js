@@ -1,29 +1,18 @@
-app.controller('ColorsController', ColorsController)
+app.controller('ProductsController', ProductsController)
 
-ColorsController.$inject = ['$scope'];
+ProductsController.$inject = ['$scope', '$http'];
 
-function ColorsController ($scope) {
-  console.log("test");
+function ProductsController ($scope, $http) {
+  console.log("products controller")
 
-  $scope.foo = "TEST"
-  console.log($scope.foo);
+  var vm = this;
+  vm.getAllProducts = getAllProducts;
 
-  $scope.items =[ 
-                "Heather Grey",
-                "Lavender",
-                "White",
-                "Baby Blue",
-                "Yellow",
-                "Pink",
-                "Silver",
-                "Tan",
-                "Ash",
-                "Vintage Red"
-                ]
+  vm.allProducts = [];
+
 
   $scope.selected = [];
   $scope.data = {};
-  $scope.data.cb1 = false;
   // refactor items as objects to nest atrributes onCheck
   $scope.products = [{
                   item: "Crewneck",
@@ -59,11 +48,8 @@ function ColorsController ($scope) {
     console.log("newProduct:", $scope.newProduct, "sku:", sku)
   }
 
-  // $scope.items = [1,2,3,4,5];
-  $scope.selected = [];
 
   $scope.checkedParent = false;
-
   $scope.checkedTrue = function(){
     // $scope.checkedParent = !$scope.checkedParent
     $scope.checkedParent = true;
@@ -84,5 +70,15 @@ function ColorsController ($scope) {
     !$scope.checkedParent 
     // return true
   };
+
+  function getAllProducts() {
+    $http
+      .get('/api/products')
+      .then(function(response) {
+        console.log("get all products", response.data)
+        vm.allProducts.push(response.data);
+      })
+  }
+
 
 } 
