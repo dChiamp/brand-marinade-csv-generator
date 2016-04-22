@@ -76,7 +76,6 @@
       </form>
     </div>
 
-
   <product-directive ng-controller="HoodieController"> </product-directive>
   
   <div ng-controller="MenstController" class="md-padding demo checkboxdemoSelectAll">
@@ -115,13 +114,24 @@
   </div>
 
 
+  <div ng-controller="HoodieController">
+    <p> Test Data Binding to Color Objects </p>
+    <div ng-repeat="(key, value) in product.colors">
+      <md-switch ng-model="value"> 
+          <p> {{key}} | {{value}} </p>
+      </md-switch>
+    </div>
+    <button ng-click="save()"> save </button>
+  </div>
+
   <div ng-controller="HoodieController as hc">
     <p> Test Size </p>
-      <md-switch ng-model="product.sizes.small"> 
+      <md-switch ng-model="product.sizes.small" > 
           small: {{product.sizes.small}}
       </md-switch>
       <button ng-click="save()"> save</button>
   </div>
+
 
   </body>
 

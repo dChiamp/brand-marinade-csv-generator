@@ -154,8 +154,8 @@
     <button ng-click="save()"> save </button>
   </div>
 
-
-    <div ng-controller="HoodieController as hc">
+  // working w/ hardcoded ng-model
+  <div ng-controller="HoodieController as hc">
     <p> Test Size </p>
       <md-switch ng-model="product.sizes.small"> 
           small: {{product.sizes.small}}
