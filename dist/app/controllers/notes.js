@@ -140,3 +140,25 @@
                   price: 45
                 }
               ]
+
+
+// test data binding to model with ng-model= value
+
+  <div ng-controller="HoodieController as hc">
+    <p> Test Size </p>
+    <div ng-repeat="(key, value) in product.colors">
+      <md-switch ng-model="value"> 
+          <p> {{key}} | {{value}} </p>
+      </md-switch>
+    </div>
+    <button ng-click="save()"> save </button>
+  </div>
+
+
+    <div ng-controller="HoodieController as hc">
+    <p> Test Size </p>
+      <md-switch ng-model="product.sizes.small"> 
+          small: {{product.sizes.small}}
+      </md-switch>
+      <button ng-click="save()"> save</button>
+  </div>

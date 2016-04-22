@@ -78,16 +78,49 @@
 
 
   <product-directive ng-controller="HoodieController"> </product-directive>
-  <product-directive ng-controller="MenstController"> </product-directive>
+  
+  <div ng-controller="MenstController" class="md-padding demo checkboxdemoSelectAll">
+    <div layout="row" layout-wrap="">
+      <div flex="100" layout="column">
+        <div>
+          <fieldset class="demo-fieldset">
+            <div layout="row" layout-wrap="" flex="">
+              <div class="demo-select-all-checkboxes" flex="100">
+                <div>
+                  <md-checkbox ng-click="checkedTrue()"> 
+                    product: {{product.item}}
+                  </md-checkbox>
+                </div>
+                <div ng-if="isChecked">
+                  <div>
+                    <p> Sizes </p>
+                    <md-switch ng-repeat="(key, value) in product.sizes" ng-model="value"> 
+                      <p> {{key}} | {{value}} </p>
+                    </md-switch>
+                  </div>
+                  <div>
+                    <p> Colors </p>
+                    <md-switch ng-repeat="(key, value) in product.colors" ng-model="value">
+                      <p> {{key}} | {{value}} </p>
+                      <button ng-click="save()"> save </button>
+                    </md-switch>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-  <div ng-controller="HoodieController as hc" ng-init="pc.getAllProducts()">
-    <!-- <p>  {{pc.allProducts}} </p> -->
+  <div ng-controller="HoodieController as hc">
     <p> Test Size </p>
-    <form>
-      <input type="checkbox" ng-model="newProduct">Cold Drinks
-      <button ng-click="save()"> Send </button>
-    </form>
+      <md-switch ng-model="product.sizes.small"> 
+          small: {{product.sizes.small}}
+      </md-switch>
+      <button ng-click="save()"> save</button>
   </div>
 
   </body>

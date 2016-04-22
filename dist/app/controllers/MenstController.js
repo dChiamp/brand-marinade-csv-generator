@@ -15,4 +15,23 @@ function MenstController ($scope, $http) {
                     tags: ["hella cool"],
                     price: 50
                   }
+
+  $scope.checkedParent = false;
+  $scope.isChecked = false
+
+  $scope.checkedTrue = function(){
+    $scope.isChecked = !$scope.isChecked
+    console.log("$scope.checkedParent:", $scope.checkedParent)
+  };
+
+  $scope.checkedFalse = function(){
+    // $scope.checkedParent = !$scope.checkedParent
+    $scope.isChecked = false;
+    console.log("$scope.checkedParent:", $scope.checkedParent)
+  };
+
+  $scope.save = function() {
+    productService.saveProductSettings($scope.product);
+  };
+
 }
