@@ -3,7 +3,7 @@ app.controller('OnesieController', OnesieController)
 function OnesieController ($scope, $http) {
   console.log("Onesie controller")
 
-  $scope.onesie = {
+  $scope.product = {
                     item: "Onesie",
                     colors: {red: true,
                             green: true,

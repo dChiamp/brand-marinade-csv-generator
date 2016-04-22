@@ -1,0 +1,33 @@
+<div class="md-padding demo checkboxdemoSelectAll">
+  <div layout="row" layout-wrap="">
+    <div flex="100" layout="column">
+      <div>
+        <fieldset class="demo-fieldset">
+          <div layout="row" layout-wrap="" flex="">
+            <div class="demo-select-all-checkboxes" flex="100">
+              <div>
+                <md-checkbox ng-click="checkedTrue()"> 
+                  product: {{product.item}}
+                </md-checkbox>
+              </div>
+              <div ng-if="isChecked">
+                <div>
+                  <p> Sizes </p>
+                  <md-switch ng-repeat="(key, value) in product.sizes" ng-model="value"> 
+                    <p> {{key}} | {{value}} </p>
+                  </md-switch>
+                </div>
+                <div>
+                  <p> Colors </p>
+                  <md-switch ng-repeat="(key, value) in product.colors" ng-model="value">
+                    <p> {{key}} | {{value}} </p>
+                  </md-switch>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>

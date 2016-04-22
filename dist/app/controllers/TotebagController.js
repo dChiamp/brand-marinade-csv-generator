@@ -3,7 +3,7 @@ app.controller('TotebagController', TotebagController)
 function TotebagController ($scope, $http) {
   console.log("Sweatshirt controller")
 
-  $scope.totebag = {
+  $scope.product = {
                     item: "Totebag",
                     colors: {red: true,
                             green: true,

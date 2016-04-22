@@ -23,6 +23,7 @@
     <script type="text/javascript" src="/app/app.js"></script>
     <script type="text/javascript" src="/app/controllers/ProductsController.js"></script>
     <script type="text/javascript" src="/app/services/productService.js"></script>
+      <script type="text/javascript" src="/app/directives/productDirective.js"></script>
     <!-- products controllers -->
     <script type="text/javascript" src="/app/controllers/CrewneckController.js"></script>
     <script type="text/javascript" src="/app/controllers/HoodieController.js"></script>
@@ -75,54 +76,19 @@
       </form>
     </div>
 
-  <div ng-controller="ProductsController as pc">
-    <div class="md-padding demo checkboxdemoSelectAll">
-      <h3> Select Product Type </h3>
-      <div layout="row" layout-wrap="">
-        <div flex="100" layout="column">
-          <div>
-            <fieldset class="demo-fieldset">
-              <div layout="row" layout-wrap="" flex="">
-                <div class="demo-select-all-checkboxes" flex="100">
-                  <div>
-                    <p> product </p>
-                    <md-checkbox ng-click="checkedTrue()"> 
-                      {{crewneck.item}}
-                    </md-checkbox>
-                  </div>
-                  <div ng-if="isChecked">
-                    <div>
-                      <p> Sizes </p>
-                      <md-switch ng-repeat="(key, value) in crewneck.sizes" ng-model="value"> 
-                        <p> {{key}} | {{value}} </p>
-                      </md-switch>
-                    </div>
-                    <div>
-                      <p> Colors </p>
-                      <md-switch ng-repeat="(key, value) in crewneck.colors" ng-model="value">
-                        <p> {{key}} | {{value}} </p>
-                      </md-switch>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </fieldset>
-          </div>
-        </div>
-      </div>
-    </div>
+
+  <product-directive ng-controller="HoodieController"> </product-directive>
+  <product-directive ng-controller="MenstController"> </product-directive>
+
+
+  <div ng-controller="HoodieController as hc" ng-init="pc.getAllProducts()">
+    <!-- <p>  {{pc.allProducts}} </p> -->
+    <p> Test Size </p>
+    <form>
+      <input type="checkbox" ng-model="newProduct">Cold Drinks
+      <button ng-click="save()"> Send </button>
+    </form>
   </div>
-
-
-<div ng-controller="ProductsController as pc" ng-init="pc.getAllProducts()">
-  <!-- <p>  {{pc.allProducts}} </p> -->
-  <p> Test Size </p>
-  <form>
-    <input type="checkbox" ng-model="newProduct">Cold Drinks
-    <button ng-click="save()"> Send </button>
-  </form>
-</div>
-
 
   </body>
 

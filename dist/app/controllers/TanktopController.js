@@ -3,7 +3,7 @@ app.controller('TanktopController', TanktopController)
 function TanktopController ($scope, $http) {
   console.log("Sweatshirt controller")
 
-  $scope.tanktop = {
+  $scope.product = {
                     item: "Tanktop",
                     colors: {red: true,
                             green: true,

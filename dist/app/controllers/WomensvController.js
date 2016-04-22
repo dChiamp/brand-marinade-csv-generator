@@ -3,7 +3,7 @@ app.controller('WomensvController', WomensvController)
 function WomensvController ($scope, $http) {
   console.log("Sweatshirt controller")
 
-  $scope.womensV = {
+  $scope.product = {
                     item: "Women's V-neck",
                     colors: {red: true,
                             green: true,

@@ -3,7 +3,7 @@ app.controller('MenstController', MenstController)
 function MenstController ($scope, $http) {
   console.log("MensT controller")
 
-  $scope.mensT = {
+  $scope.product = {
                     item: "MensT",
                     colors: {red: true,
                             green: true,

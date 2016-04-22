@@ -3,7 +3,7 @@ app.controller('PosterController', PosterController)
 function PosterController ($scope, $http) {
   console.log("Poster controller")
 
-  $scope.poster = {
+  $scope.product = {
                     item: "Poster",
                     colors: {red: true,
                             green: true,

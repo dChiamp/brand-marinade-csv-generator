@@ -1,9 +1,12 @@
 app.controller('HoodieController', HoodieController)
-// ProductsController.$inject = ['$scope', '$http'];
-function HoodieController ($scope, $http) {
+
+HoodieController.$inject = ['$scope', '$http', 'productService'];
+
+function HoodieController ($scope, $http, productService) {
+
   console.log("hoodie controller")
 
-  $scope.hoodie = {
+  $scope.product = {
                     item: "hoodie",
                     colors: {red: true,
                             green: true,
@@ -15,4 +18,10 @@ function HoodieController ($scope, $http) {
                     tags: ["hella cool"],
                     price: 50
                   }
+
+  
+
+  $scope.save = function() {
+    productService.saveProductSettings();
+  };
 }

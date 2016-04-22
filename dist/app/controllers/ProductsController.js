@@ -1,8 +1,8 @@
 app.controller('ProductsController', ProductsController)
 
-ProductsController.$inject = ['$scope', '$http', 'productService'];
+ProductsController.$inject = ['$scope', '$http'];
 
-function ProductsController ($scope, $http, productService) {
+function ProductsController ($scope, $http) {
   console.log("products controller")
 
   var vm = this;
@@ -25,7 +25,7 @@ function ProductsController ($scope, $http, productService) {
                       brands: ["American Apparel"],
                       tags: ["hella cool"],
                       price: 50
-                    },
+                    }
 
   $scope.newProduct = {}
 

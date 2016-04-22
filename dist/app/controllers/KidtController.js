@@ -3,7 +3,7 @@ app.controller('KidtController', KidtController)
 function KidtController ($scope, $http) {
   console.log("KidsT controller")
 
-  $scope.kidsT = {
+  $scope.product = {
                     item: "KidsT",
                     colors: {red: true,
                             green: true,

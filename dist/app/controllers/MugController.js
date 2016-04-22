@@ -3,7 +3,7 @@ app.controller('MugController', MugController)
 function MugController ($scope, $http) {
   console.log("Mug controller")
 
-  $scope.mug = {
+  $scope.product = {
                     item: "Mug",
                     colors: {red: true,
                             green: true,
