@@ -22,9 +22,24 @@
     <!-- local scripts-->
     <script type="text/javascript" src="/app/app.js"></script>
     <script type="text/javascript" src="/app/controllers/ProductsController.js"></script>
+    <script type="text/javascript" src="/app/services/productService.js"></script>
+    <!-- products controllers -->
+    <script type="text/javascript" src="/app/controllers/CrewneckController.js"></script>
+    <script type="text/javascript" src="/app/controllers/HoodieController.js"></script>
+    <script type="text/javascript" src="/app/controllers/KidtController.js"></script>
+    <script type="text/javascript" src="/app/controllers/MenstController.js"></script>
+    <script type="text/javascript" src="/app/controllers/MensvController.js"></script>
+    <script type="text/javascript" src="/app/controllers/MugController.js"></script>
+    <script type="text/javascript" src="/app/controllers/OnesieController.js"></script>
+    <script type="text/javascript" src="/app/controllers/PosterController.js"></script>
+    <script type="text/javascript" src="/app/controllers/SweatshirtController.js"></script>
+    <script type="text/javascript" src="/app/controllers/TanktopController.js"></script>
+    <script type="text/javascript" src="/app/controllers/TotebagController.js"></script>
+    <script type="text/javascript" src="/app/controllers/WomenstController.js"></script>
+    <script type="text/javascript" src="/app/controllers/WomensvController.js"></script>
+    <!-- old controllers -->
     <script type="text/javascript" src="/app/controllers/TypeController.js"></script>
     <script type="text/javascript" src="/app/controllers/SizeController.js"></script>
-
   </head>
   <body>
     <header>
@@ -59,41 +74,6 @@
         </div>
       </form>
     </div>
-
-  <div ng-controller="ProductsController as pc" class="md-padding checkboxdemoBasicUsage" ng-cloak="">
-    <div>
-      <fieldset class="standard">
-        <legend> Products </legend>
-        <div layout="column" layout-wrap="" layout-gt-sm="row">
-          <div flex-xs="" flex="50">
-            <md-checkbox ng-model="newProduct.item" aria-label="product" ng-click="checkedTrue()" ng-checked="" ng-repeat="product in products">
-              Product: {{ product.item }}
-              <div ng-if="checkedParent">
-                <div> Sizes: 
-                  <md-checkbox ng-model="newProduct.sizes" aria-label="size" ng-repeat="size in product.sizes track by $index">
-                    {{ size }}
-                  </md-checkbox> 
-                </div>
-                <div> Colors:
-                  <md-checkbox ng-model="newProduct.colors" aria-label="color" ng-repeat="color in product.colors track by $index">
-                  {{ color }}
-                  </md-checkbox> 
-                </div>
-                <form ng-submit="skuGenerator()">
-                  <div class="form-group"> Price:
-                   <input type="text" ng-model="newProduct.price" placeholder="{{product.price}}">
-                  <input type="submit" value="submit" class="btn btn-sm btn-success">&nbsp;
-                  </div>
-                </form>
-              </div>
-
-            </md-checkbox>
-          </div>
-        </div>
-      </fieldset>
-    </div>
-    <p> test parsing: {{crewneck.sizes}}  </p>
-  </div>
 
   <div ng-controller="ProductsController as pc">
     <div class="md-padding demo checkboxdemoSelectAll">
@@ -135,8 +115,12 @@
 
 
 <div ng-controller="ProductsController as pc" ng-init="pc.getAllProducts()">
- <p>  {{pc.allProducts}} </p>
-  
+  <!-- <p>  {{pc.allProducts}} </p> -->
+  <p> Test Size </p>
+  <form>
+    <input type="checkbox" ng-model="newProduct">Cold Drinks
+    <button ng-click="save()"> Send </button>
+  </form>
 </div>
 
 

@@ -1,8 +1,8 @@
 app.controller('ProductsController', ProductsController)
 
-ProductsController.$inject = ['$scope', '$http'];
+ProductsController.$inject = ['$scope', '$http', 'productService'];
 
-function ProductsController ($scope, $http) {
+function ProductsController ($scope, $http, productService) {
   console.log("products controller")
 
   var vm = this;
@@ -10,53 +10,22 @@ function ProductsController ($scope, $http) {
 
   vm.allProducts = [];
 
-
   $scope.selected = [];
   $scope.data = {};
   // refactor items as objects to nest atrributes onCheck
-  $scope.products = [
-                {
-                  item: "Crewneck",
-                  colors: {red: true,
-                        green: true,
-                        blue: false
-                      },
-                  sizes: {small: false,
-                        medium: true,
-                        large: true
-                      },
-                  brands: ["American Apparel"],
-                  tags: ["hella cool"],
-                  price: 50
-                },
-                {
-                  item: "Hoodie",
-                  colors: {red: false,
-                          green: true,
-                          blue: false
-                        },
-                  sizes: {small: true,
-                          medium: true,
-                          large: true
-                        },
-                  brands: ["Galvins"],
-                  tags: ["super sweet"],
-                  price: 45
-                }
-              ]
 
-    $scope.crewneck = {
-                        item: "Crewneck",
-                        colors: {red: true,
-                                green: true,
-                                blue: false},
-                        sizes: {small: false,
-                                medium: true,
-                                large: true },
-                        brands: ["American Apparel"],
-                        tags: ["hella cool"],
-                        price: 50
-                      },
+  $scope.crewneck = {
+                      item: "Crewneck",
+                      colors: {red: true,
+                              green: true,
+                              blue: false},
+                      sizes: {small: false,
+                              medium: true,
+                              large: true },
+                      brands: ["American Apparel"],
+                      tags: ["hella cool"],
+                      price: 50
+                    },
 
   $scope.newProduct = {}
 
@@ -72,7 +41,15 @@ function ProductsController ($scope, $http) {
   $scope.checkedTrue = function(){
     // $scope.checkedParent = !$scope.checkedParent
     // $scope.checkedParent = true;
-    $scope.isChecked = true
+    $scope.isChecked = !$scope.isChecked
+    console.log("$scope.checkedParent:", $scope.checkedParent)
+    // return true;
+  };
+
+  $scope.checkedFalse = function(){
+    // $scope.checkedParent = !$scope.checkedParent
+    // $scope.checkedParent = true;
+    $scope.isChecked = false;
     console.log("$scope.checkedParent:", $scope.checkedParent)
     // return true;
   };
@@ -100,5 +77,9 @@ function ProductsController ($scope, $http) {
       })
   }
 
+  $scope.save = function() {
+    productService.saveProductSettings();
+  };
 
 } 
+

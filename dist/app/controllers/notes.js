@@ -73,3 +73,70 @@
     </div>
     {{crewneck.sizes.small}}
   </div>
+
+    <div ng-controller="ProductsController as pc" class="md-padding checkboxdemoBasicUsage" ng-cloak="">
+    <div>
+      <fieldset class="standard">
+        <legend> Products </legend>
+        <div layout="column" layout-wrap="" layout-gt-sm="row">
+          <div flex-xs="" flex="50">
+            <md-checkbox ng-model="newProduct.item" aria-label="product" ng-click="checkedTrue()" ng-checked="" ng-repeat="product in products">
+              Product: {{ product.item }}
+              <div ng-if="checkedParent">
+                <div> Sizes: 
+                  <md-checkbox ng-model="newProduct.sizes" aria-label="size" ng-repeat="size in product.sizes track by $index">
+                    {{ size }}
+                  </md-checkbox> 
+                </div>
+                <div> Colors:
+                  <md-checkbox ng-model="newProduct.colors" aria-label="color" ng-repeat="color in product.colors track by $index">
+                  {{ color }}
+                  </md-checkbox> 
+                </div>
+                <form ng-submit="skuGenerator()">
+                  <div class="form-group"> Price:
+                   <input type="text" ng-model="newProduct.price" placeholder="{{product.price}}">
+                  <input type="submit" value="submit" class="btn btn-sm btn-success">&nbsp;
+                  </div>
+                </form>
+              </div>
+
+            </md-checkbox>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <p> test parsing: {{crewneck.sizes}}  </p>
+  </div>
+
+// products
+    $scope.products = [
+                {
+                  item: "Crewneck",
+                  colors: {red: true,
+                        green: true,
+                        blue: false
+                      },
+                  sizes: {small: false,
+                        medium: true,
+                        large: true
+                      },
+                  brands: ["American Apparel"],
+                  tags: ["hella cool"],
+                  price: 50
+                },
+                {
+                  item: "Hoodie",
+                  colors: {red: false,
+                          green: true,
+                          blue: false
+                        },
+                  sizes: {small: true,
+                          medium: true,
+                          large: true
+                        },
+                  brands: ["Galvins"],
+                  tags: ["super sweet"],
+                  price: 45
+                }
+              ]
