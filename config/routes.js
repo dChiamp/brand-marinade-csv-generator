@@ -15,5 +15,6 @@ router.route('/api/products')
 
 router.route('/api/convert')
   .get(jsonexportController.convertJson)
+  .post(jsonexportController.updateProduct)
 
 module.exports = router;
