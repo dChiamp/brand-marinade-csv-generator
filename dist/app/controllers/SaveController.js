@@ -11,7 +11,32 @@ function SaveController ($scope, FileSaver, Blob) {
  
   vm.download = function(text) {
     var data = new Blob([text], { type: 'text/plain;charset=utf-8' });
-    FileSaver.saveAs(data, 'text.txt');
+    // var data = new Blob([json], {type: "application/json"});
+    FileSaver.saveAs(data, 'text.json');
   };
 
+  $scope.fileName = "arrayOfAttrs";
+
+  $scope.headerFieldA = "testFieldA";
+
+  $scope.getArray = function () {
+    // console.log("get")
+    /*cant export embedded objects
+    // if attr.val = true, push to array
+    var colors: {red: true,
+            green: true,
+            blue: false}
+    var colorsArray = ["red", "green"]
+    */
+    var product = [{
+                    item: "hoodie",
+                    colors: ["red", "green", "blue"],
+                    sizes: ["small", "medium"],
+                    brands: ["American Apparel"],
+                    tags: ["hella cool"],
+                    price: 50
+                  }]
+    // var product = [1,2,3,4];
+    return product;
+  }
 }

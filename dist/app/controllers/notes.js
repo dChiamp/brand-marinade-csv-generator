@@ -163,4 +163,9 @@
       <button ng-click="save()"> save</button>
   </div>
 
+// file saver
 
+  <div class="wrapper" ng-controller="SaveController as vm">
+    <a href="" class="btn btn-dark btn-small" ng-click="vm.download(vm.val.text)">
+    Download </a>
+  </div>

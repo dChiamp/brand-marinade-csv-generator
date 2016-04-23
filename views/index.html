@@ -19,6 +19,9 @@ Javascript -->
     <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-css-only/css/bootstrap.css">
     <!-- angular file saver -->
     <script type="text/javascript" src="/bower_components/angular-file-saver/dist/angular-file-saver.bundle.js"></script>
+    <!-- ng-csv -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ng-csv/0.3.6/ng-csv.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.5/angular-sanitize.js"></script>
     <!-- local css -->
     <link rel="stylesheet" type="text/css" href="/app/public/stylesheets/style.css">
     <!-- local scripts-->
@@ -114,8 +117,7 @@ Javascript -->
       </div>
     </div>
   </div>
-
-
+  <!-- dynamic -->
   <div ng-controller="HoodieController">
     <p> Test Data Binding to Color Objects </p>
     <div ng-repeat="(key, value) in product.colors">
@@ -125,7 +127,7 @@ Javascript -->
     </div>
     <button ng-click="save()"> save </button>
   </div>
-
+  <!-- hard coded -->
   <div ng-controller="HoodieController as hc">
     <p> Test Size </p>
       <md-switch ng-model="product.sizes.small" > 
@@ -134,10 +136,11 @@ Javascript -->
       <button ng-click="save()"> save</button>
   </div>
 
-
   <div class="wrapper" ng-controller="SaveController as vm">
     <a href="" class="btn btn-dark btn-small" ng-click="vm.download(vm.val.text)">
     Download </a>
+
+    <button type="button" ng-csv="getArray()" csv-header="['Item', 'colors', 'sizes', 'brands', 'tags', 'price']" filename="{{fileName}}.csv">Export</button>
   </div>
 
   </body>
