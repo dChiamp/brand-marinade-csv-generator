@@ -169,3 +169,37 @@
     <a href="" class="btn btn-dark btn-small" ng-click="vm.download(vm.val.text)">
     Download </a>
   </div>
+// ng-CSV
+  /*cant handle embedded objects
+  // if attr.val = true, push to array
+  var colors: {red: true,
+          green: true,
+          blue: false}
+  var colorsArray = ["red", "green"]
+  // also flattens arrays, so gotta do it row by row
+  var product = [{
+                  item: "hoodie",
+                  colors: ["red", "green", "blue"],
+                  sizes: ["small", "medium"],
+                  brands: ["American Apparel"],
+                  tags: ["hella cool"],
+                  price: 50
+                }]
+  //makes more sense now to handle this on server
+  */
+  // $scope.getArray = function () {
+  //   var product = [{
+  //                   item: "Crewneck",
+  //                   colors: {red: true,
+  //                           green: true,
+  //                           blue: false},
+  //                   sizes: {small: false,
+  //                           medium: true,
+  //                           large: true },
+  //                   brands: ["American Apparel"],
+  //                   tags: ["hella cool"],
+  //                   price: 50
+  //                 }]
+  //   return product;
+
+  // }
