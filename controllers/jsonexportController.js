@@ -2,7 +2,7 @@ var Product = require('../models/products')
 var jsonexport = require('jsonexport')
 
 jsonexportController = {
-  convertJson: function () {
+  convertJson: function (req, res) {
     var contacts = [{
         name: 'Bob',
         lastname: 'Smith'
@@ -20,6 +20,7 @@ jsonexportController = {
     jsonexport(contacts,function(err, csv){
       if(err) return console.log(err);
       console.log("CSV:", csv);
+      res.send(csv)
     });
 
   }
