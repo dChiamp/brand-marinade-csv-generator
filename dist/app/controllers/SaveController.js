@@ -69,8 +69,6 @@ function SaveController ($scope, $http, FileSaver, Blob) {
 
   $scope.newProduct = {}
 
-
-
     // put product model in service?
     function convertAndDowload () {
       console.log("product obj to be converted: ", product)
@@ -82,7 +80,7 @@ function SaveController ($scope, $http, FileSaver, Blob) {
           var productCSV = response.data
 
           vm.download(productCSV)
-        
+
     
       // //     $scope.newProduct = {response.data}
       // //     // call download function
