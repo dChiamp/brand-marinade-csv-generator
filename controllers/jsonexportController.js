@@ -33,24 +33,15 @@ jsonexportController = {
   },
   updateProduct: function (req, res) {
     // get product from DOM
-    // var productObj = req.body
-    // console.log("REQ.BODY:", productObj)
-    // convert to csv
-    // jsonexport(productObj,function(err, csv){
-    //   if(err) return console.log(err);
-    //   console.log("CSV:", csv);
-    //   // send back to front end for download
-    //   res.send(csv)
-    // });
-
-
-    // get product from DOM
-    var myData = req.body.myData
+    var myCars = req.body.myCars
     var fields = req.body.fields
-    console.log("MY DATA:", mydata, "FIELDS: ", fields)
-    json2csv({ data: myData, fields: fields }, function(err, csv) {
+    // convert to csv
+    console.log("MY DATA:", req.body.myCars, "FIELDS:", req.body.fields)
+    json2csv({ data: myCars, fields: fields }, function(err, csv) {
       if (err) console.log(err);
+      // send back to front end for download
       console.log(csv);
+      res.send(csv)
     });
   }
 }

@@ -103,24 +103,24 @@ function SaveController ($scope, $http, FileSaver, Blob) {
                 }
               ]
 
-    var product2 = {}
+    $scope.product2 = {}
 
-    // var product2.fields = ['car', 'price', 'color'];
-    // var product2.myCars = [
-    //   {
-    //     "car": "Audi",
-    //     "price": 40000,
-    //     "color": "blue"
-    //   }, {
-    //     "car": "BMW",
-    //     "price": 35000,
-    //     "color": "black"
-    //   }, {
-    //     "car": "Porsche",
-    //     "price": 60000,
-    //     "color": "green"
-    //   }
-    // ];
+    $scope.product2.fields = ['car', 'price', 'color'];
+    $scope.product2.myCars = [
+      {
+        "car": "Audi",
+        "price": 40000,
+        "color": "blue"
+      }, {
+        "car": "BMW",
+        "price": 35000,
+        "color": "black"
+      }, {
+        "car": "Porsche",
+        "price": 60000,
+        "color": "green"
+      }
+    ];
 
 
 var arrayOfArrays = [ ["Joe", "jon", "jack"], ["Sue", "sam", "sal" ] ]
@@ -128,12 +128,12 @@ var arrayOfArrays = [ ["Joe", "jon", "jack"], ["Sue", "sam", "sal" ] ]
   $scope.newProduct = {}
     // put product model in service?
   function convertAndDowload () {
-      console.log("product obj to be converted: ", product2)
+      console.log("product obj to be converted: ", $scope.product2)
       // $http
       //   .post('/api/convert', $scope.product)
       //   .then(function(response){
       $http
-        .post('/api/convert', product2)
+        .post('/api/convert', $scope.product2)
         .then(function(response) {
           console.log("CSV from server", response.data)
           var productCSV = response.data
