@@ -19,7 +19,6 @@ function SaveController ($scope, FileSaver, Blob) {
 
   $scope.headerFieldA = "testFieldA";
 
-  $scope.getArray = function () {
     // console.log("get")
     /*cant export embedded objects
     // if attr.val = true, push to array
@@ -27,7 +26,7 @@ function SaveController ($scope, FileSaver, Blob) {
             green: true,
             blue: false}
     var colorsArray = ["red", "green"]
-    */
+    // also flattens arrays, so gotta do it row by row
     var product = [{
                     item: "hoodie",
                     colors: ["red", "green", "blue"],
@@ -36,7 +35,22 @@ function SaveController ($scope, FileSaver, Blob) {
                     tags: ["hella cool"],
                     price: 50
                   }]
-    // var product = [1,2,3,4];
+    */
+  $scope.getArray = function () {
+    var product = [{
+                    item: "Crewneck",
+                    colors: {red: true,
+                            green: true,
+                            blue: false},
+                    sizes: {small: false,
+                            medium: true,
+                            large: true },
+                    brands: ["American Apparel"],
+                    tags: ["hella cool"],
+                    price: 50
+                  }]
     return product;
+
   }
+
 }
