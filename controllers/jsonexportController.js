@@ -20,7 +20,7 @@ var csvTemplateFields = [
 jsonexportController = {
   convertJson: function (req, res) {
     // test get req
-    var mydata = [{
+    var myData = [{
                     "Handle": sku, 
                     "Title": title,
                     "Body (HTML)": body + title,
@@ -34,8 +34,8 @@ jsonexportController = {
                     "Option2 Value": size
                     }]
 
-    console.log("MY DATA:", myCars, "FIELDS: ", csvTemplateFields)
-    json2csv({ data: myCars, fields: csvTemplateFields }, function(err, csv) {
+    console.log("MY DATA:", mydata, "FIELDS: ", csvTemplateFields)
+    json2csv({ data: myData, fields: csvTemplateFields }, function(err, csv) {
       if (err) console.log(err);
       console.log(csv);
       res.send(csv);
@@ -44,9 +44,41 @@ jsonexportController = {
   updateProduct: function (req, res) {
     // get product from DOM
     var myData = req.body.data;
+
+     var myTestData = [{
+                  "Handle": "sku", 
+                  "Title": "title",
+                  "Body (HTML)": "body",
+                  "Vendor": "vendor",
+                  "Type": "type",
+                  "Tags": "tags",
+                  "Published": "False",
+                  "Option1 Name": "Color",
+                  "Option1 Value": "color",
+                  "Option2 Name": "Size",
+                  "Option2 Value": "size"
+                  }]
+
+
+    // maybe it iterates through here
+      // initialize array
+      // var newProduct = [];
+      // newProduct.push(req.body.testData);
+      // you can push each attr ind or grouped in obj
+
+      console.log("CSV TEST DATA DRILL:", req.body.testData["Handle"]);
+      console.log("CSV TEST DATA:", req.body.testData);
+      // console.log("NEW PRODUCT ARRAY:", newProduct)
+      var myTestData2 = [{
+                    "Handle": req.body.testData["Handle"]
+                    }]
+
+      // add in default full attr before pushing
+      // figure out how to merge them in so you can map weight to size and merge t
+      myTestData.push(req.body.testData);
     // convert to csv
     // console.log("MY DATA:", myCars, "FIELDS:", fields)
-    json2csv({ data: myData, fields: csvTemplateFields }, function(err, csv) {
+    json2csv({ data: myTestData, fields: csvTemplateFields }, function(err, csv) {
       if (err) console.log(err);
       // send back to front end for download
       // console.log(csv);
