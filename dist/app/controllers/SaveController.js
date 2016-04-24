@@ -7,6 +7,9 @@ function SaveController ($scope, $http, FileSaver, Blob) {
   vm.convertAndDowload = convertAndDowload;
 
   $scope.fileName;
+
+  // obj to bind product data to
+  $scope.csvTemplate = {};
 // name file from browser
   $scope.nameFile = function (fileName) {
     var fileName = $scope.fileName;
@@ -21,18 +24,60 @@ function SaveController ($scope, $http, FileSaver, Blob) {
 // test for taking header in dom w/ ngcsv
   $scope.headerFieldA = "testFieldA";
 
-  var product = [{
-                    item: "Crewneck",
-                    colors: {red: true,
-                            green: true,
-                            blue: false},
-                    sizes: {small: false,
-                            medium: true,
-                            large: true },
-                    brands: ["American Apparel", "gildan", "china merch"],
-                    tags: ["hella cool"],
-                    price: 50
-                  }]
+  var product = {
+                item: "Crewneck",
+                colors: {red: true,
+                        green: true,
+                        blue: false},
+                sizes: {small: false,
+                        medium: true,
+                        large: true },
+                brands: ["American Apparel", "gildan", "china merch"],
+                tags: ["hella cool"],
+                price: 50
+              }
+
+ console.log("product color", product.colors.red)
+
+  for (key in product) {
+    // iterate thru prod obj, and get all keys and vals
+    var value = product[key]
+    // console.log("for key in product:", key)
+    // console.log("for value in product", value);
+    // bind data to scope 
+    if (key === "item") {
+      // console.log("ITEM", value)
+      $scope.csvTemplate.item = value
+      console.log("SCOPE ITEM", $scope.csvTemplate.item)
+    }
+    if (key === "price") {
+      $scope.csvTemplate.price = value
+      console.log("SCOPE PRICE", $scope.csvTemplate.price)
+    }
+    if (key === "brands") {
+      $scope.csvTemplate.brands = value
+      console.log("SCOPE BRANDS", $scope.csvTemplate.brands)
+    }
+    if (key === "tags") {
+      $scope.csvTemplate.tags = value
+      console.log("SCOPE TAGS", $scope.csvTemplate.tags)
+    }
+    // iterate thru colors
+    if (key === "colors") {
+      for (val in value) {
+        var colorVal = value[val]
+        // console.log("for key in COLORS:", val);
+        // console.log("for value of colors", colorVal )
+        if (colorVal == true ) {
+        // if colors val = true, then iterate through sizes
+          console.log("INCLUDE THIS COLOR")
+        } else {
+          // console.log("DONT INCLUDE THIS COLOR")
+        }
+        // only push if size = true
+      }
+    }
+  }
 
 
   var sku = "derek-geo-test";
@@ -45,8 +90,6 @@ function SaveController ($scope, $http, FileSaver, Blob) {
   var body = "dereks design " + type;
 
   console.log(body)
-
-  $scope.csvTemplate = {};
 
   $scope.csvTestTemplate = {}
 
@@ -77,7 +120,7 @@ function SaveController ($scope, $http, FileSaver, Blob) {
   // now i just need to figure out how to 
   // push the objects in the right order
 
-  // order for each prod 
+  // 2.0 order for each prod 
   // the first obj has everything
   // the next obj only push fields that change / always full
     //selects first color, then iterates through all sizes if true
@@ -91,8 +134,7 @@ function SaveController ($scope, $http, FileSaver, Blob) {
   // map weight to sizes //refactor it in later in backend
 
   $scope.csvTemplate.testData = {
-                    "Handle": sku,
-                    "Option1 Value": color,
+                    "Handle": sku
                      }
 
   $scope.csvTemplate.data = [{
@@ -129,6 +171,8 @@ function SaveController ($scope, $http, FileSaver, Blob) {
     $scope.product2 = {}
 
   $scope.newProduct = {}
+
+  console.log("$scope.csvTemplate",$scope.csvTemplate)
     // put product model in service?
   function convertAndDowload () {
       console.log("product obj to be converted: ", $scope.product2)

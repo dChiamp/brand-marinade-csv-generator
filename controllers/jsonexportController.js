@@ -59,29 +59,36 @@ jsonexportController = {
                   "Option2 Value": "size"
                   }]
 
-
     // maybe it iterates through here
       // initialize array
       // var newProduct = [];
       // newProduct.push(req.body.testData);
-      // you can push each attr ind or grouped in obj
+      // you can push each attr individualy or grouped in obj
 
       console.log("CSV TEST DATA DRILL:", req.body.testData["Handle"]);
       console.log("CSV TEST DATA:", req.body.testData);
       // console.log("NEW PRODUCT ARRAY:", newProduct)
-      var myTestData2 = [{
-                    "Handle": req.body.testData["Handle"]
-                    }]
 
       // add in default full attr before pushing
       // figure out how to merge them in so you can map weight to size and merge t
-      myTestData.push(req.body.testData);
+
+      // getting data from each updated product 
+      var myTestData2 = {
+                    "Handle": req.body.testData["Handle"],
+                    "Item": req.body.item,
+                    "Price": req.body.price,
+                    "Tags": req.body.tags
+                    };
+
+      // push that to full csv 
+      myTestData.push(myTestData2);
+
+      console.log("FULL PRODUCT:", myTestData)
+
     // convert to csv
-    // console.log("MY DATA:", myCars, "FIELDS:", fields)
     json2csv({ data: myTestData, fields: csvTemplateFields }, function(err, csv) {
       if (err) console.log(err);
       // send back to front end for download
-      // console.log(csv);
       res.send(csv)
     });
   }
