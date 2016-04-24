@@ -5,7 +5,7 @@ var json2csv = require('json2csv');
 
 jsonexportController = {
   convertJson: function (req, res) {
-
+    // test get req
     var fields = ['car', 'price', 'color'];
     var myCars = [
       {
@@ -22,8 +22,7 @@ jsonexportController = {
         "color": "green"
       }
     ];
-
-
+    
     console.log("MY DATA:", myCars, "FIELDS: ", fields)
     json2csv({ data: myCars, fields: fields }, function(err, csv) {
       if (err) console.log(err);
@@ -36,11 +35,11 @@ jsonexportController = {
     var myCars = req.body.myCars
     var fields = req.body.fields
     // convert to csv
-    console.log("MY DATA:", req.body.myCars, "FIELDS:", req.body.fields)
+    // console.log("MY DATA:", myCars, "FIELDS:", fields)
     json2csv({ data: myCars, fields: fields }, function(err, csv) {
       if (err) console.log(err);
       // send back to front end for download
-      console.log(csv);
+      // console.log(csv);
       res.send(csv)
     });
   }

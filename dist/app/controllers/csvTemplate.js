@@ -44,7 +44,51 @@ var csvTemplate = [{Handle: "SKU_Name",
                     VariantWeightUnit: "oz"
                   }]
 
-
-
+var csvTemplateFields = [
+                    "Handle", 
+                    "Title",
+                    "Body(HTML)",
+                    "Vendor",
+                    "Type",
+                    "Tags",
+                    "Published",
+                    "Option1 Name",
+                    "Option1 Value",
+                    "Option2 Name",
+                    "Option2 Value",
+                    "Option3 Name",
+                    "Option3 Value",
+                    "Variant SKU",
+                    "Variant Grams",
+                    "Variant Inventory Tracker",
+                    "Variant Inventory Qty",
+                    "Variant Inventory Policy",
+                    "Variant Fulfillment Service",
+                    "VariantPrice", 
+                    "Variant Compare At Price",
+                    "Variant Requires",
+                    "ShippingVariant",
+                    "TaxableVariant Barcode",
+                    "Image Src",
+                    "Image Alt",
+                    "GiftCard",
+                    "Google Shopping / MPN",
+                    "Google Shopping/Age Group",
+                    "Google Shopping / Gender",
+                    "Google Shopping / Google Product Category",
+                    "SEO Title",
+                    "Description",
+                    "Google Shopping / AdWords Grouping",
+                    "Google Shopping / AdWordsLabels",
+                    "Google Shopping / Condition",
+                    "Google Shopping / Custom Product",
+                    "Google Shopping / Custom Label0",
+                    "Google Shopping / Custom Label1",
+                    "Google Shopping / Custom Label2",
+                    "Google Shopping / Custom Label3",
+                    "Google Shopping / Custom Label4",
+                    "VariantImage",
+                    "VariantWeightUnit"
+                    ]
 
 

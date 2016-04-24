@@ -106,6 +106,7 @@ function SaveController ($scope, $http, FileSaver, Blob) {
     $scope.product2 = {}
 
     $scope.product2.fields = ['car', 'price', 'color'];
+    // arr of objs, so push prod obj to it
     $scope.product2.myCars = [
       {
         "car": "Audi",

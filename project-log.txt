@@ -1,0 +1,113 @@
+commit 0344b6c6cae777ec40ebd38150c30f53b43ec781
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sat Apr 23 16:00:07 2016 -0700
+
+    client can download csv from db
+
+commit 8151b8d96f886d1934839c6da8dd2e4b952c6e27
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sat Apr 23 15:42:30 2016 -0700
+
+    sets up json2csv in backend
+
+commit c0f19048d8927beed5bdc32b4799c4f8b5cd09d4
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sat Apr 23 15:19:36 2016 -0700
+
+    fuck jsonexporter, switching to json2csv
+
+commit fb18521f57c871c3784a8c03ecc7bffe07153322
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sat Apr 23 12:46:54 2016 -0700
+
+    names file to download
+
+commit a336f259b1662e0217967436a3c511961eae6921
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sat Apr 23 12:11:11 2016 -0700
+
+    gets csv from server, downloads it from front end
+
+commit 71faad88aaab3ea49afff73a51f44f0cbe135547
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sat Apr 23 12:10:27 2016 -0700
+
+    gets obj from fron end and converts it to csv on server
+
+commit bf5e3e016502be43bd8bea230adcc842bf55efb6
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sat Apr 23 00:52:25 2016 -0700
+
+    csv res from server
+
+commit 0cc3e5c11bfeb15e7aa484596e3c06122465e25d
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 22 23:56:15 2016 -0700
+
+    adds working jsonexports
+
+commit 4e5b874a551482e39b08c81261f59c42d7d9e6aa
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 22 21:19:03 2016 -0700
+
+    adds ng-csv
+
+commit f53940254813c7957d3068ff6a189b75e7b51ef9
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 22 16:40:57 2016 -0700
+
+    adds filesaver, works for txt
+
+commit a118a07e120d9d32b772e46f0a52301a89934aff
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 22 16:20:33 2016 -0700
+
+    prepares for fileSaver integration
+
+commit c7e36a0a972b5a221ee94790434beb0d8b1aebf1
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 22 14:52:48 2016 -0700
+
+    prepares for hard coding of attributes in template
+
+commit 2594d541a48a0402002232c3590893c7f8aaf8d1
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 22 14:08:56 2016 -0700
+
+    cleans up index
+
+commit cac1efb0687db810c791b9634208803dc77c0e08
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 22 13:51:24 2016 -0700
+
+    adds working directive
+
+commit ddc922544078feda8788504fb03b0bf486cd76fb
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 22 12:42:33 2016 -0700
+
+    adds controller for each product
+
+commit a24456a132c73d028351489074df1bbc83dfe866
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu Apr 21 16:55:30 2016 -0700
+
+    adds working switches
+
+commit 10effddd77cd1ab194a6ff2bdb58099920a4bede
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu Apr 21 16:05:06 2016 -0700
+
+    adds backend
+
+commit b514002e2dd15aa8e6c995ac477553c47e79fb99
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu Apr 21 15:07:29 2016 -0700
+
+    adds front end expirements
+
+commit ee9ed50f2d63c3ca8913eb03bdb75b5efcfcf3fc
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu Apr 21 10:41:15 2016 -0700
+
+    adds basic structure
