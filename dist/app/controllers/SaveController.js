@@ -24,7 +24,7 @@ function SaveController ($scope, $http, FileSaver, Blob) {
 // test for setting header in dom w/ ngcsv
   $scope.headerFieldA = "testFieldA";
 
-  var product = {
+  $scope.csvTemplate.product = {
                 item: "Crewneck",
                 colors: {red: true,
                         green: true,
@@ -38,24 +38,6 @@ function SaveController ($scope, $http, FileSaver, Blob) {
               }
 
   function createColorSizeObj () {
-      for (prodKey in product) {
-      // iterate thru prod obj, and get all prodKeys and vals
-      var prodKeyVal = product[prodKey]
-      if (prodKey === "colors") {
-        for (colorKeyName in prodKeyVal) {
-          console.log("color name", colorKeyName)
-          var colorBoolean = prodKeyVal[colorKeyName]
-          // if color is true
-          if (colorBoolean) {
-            $scope.csvTemplate[colorKeyName] = {}
-          }
-        }
-      }
-    }
-  }
-  // createColorSizeObj();
-
-  function testProdFnc () {
     for (colorName in product.colors) {
       var colorBoolean = product.colors[colorName]
       // if color is true, iterate through sizes
@@ -77,7 +59,7 @@ function SaveController ($scope, $http, FileSaver, Blob) {
     }
   }
 
-  testProdFnc();
+  // createColorSizeObj();
 
    // console.log("product color", product.colors.red)
   function iterateThruNewProd () {
@@ -150,7 +132,7 @@ function SaveController ($scope, $http, FileSaver, Blob) {
   var size = "Large";
   var body = "dereks design " + type;
 
-  console.log(body)
+  // console.log(body)
 
   $scope.csvTestTemplate = {}
 

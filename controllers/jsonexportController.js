@@ -44,10 +44,45 @@ jsonexportController = {
   updateProduct: function (req, res) {
     // get product from DOM
     var myData = req.body.data;
-    
-    console.log("CSV TEST DATA DRILL:", req.body.testData["Handle"]);
-    console.log("CSV TEST DATA:", req.body.testData);
+    console.log("REQ.PRODUCT", req.body.product)
+    // console.log("CSV TEST DATA DRILL:", req.body.testData["Handle"]);
+    // console.log("CSV TEST DATA:", req.body.testData);
     // console.log("NEW PRODUCT ARRAY:", newProduct)
+
+    var product = req.body.product
+    var colorSizeArr = []
+
+    // function createColorSizeObj () {
+      for (colorName in product.colors) {
+        var colorBoolean = product.colors[colorName]
+        // if color is true, iterate through sizes
+        if (colorBoolean) {
+          for (sizeName in product.sizes) {
+            var sizeBoolean = product.sizes[sizeName]
+            //if both are true, create obj and bind
+            if(colorBoolean && sizeBoolean) {
+              // name obj
+              var colorSize = colorName + sizeName;
+              console.log("COLORSiZE", colorSize)
+              colorSize = {}
+              // add color and size attributes
+              colorSize.color = colorName;
+              colorSize.size = sizeName;
+              console.log("PRODCUT COLORSiZE OBJ", colorSize)
+              // push to array
+              // colorSizeArr.push(colorSize)
+              myData.push(colorSize)
+            }
+            
+            console.log("colorSizeArr", colorSizeArr)
+          }
+        }
+      }
+    // };
+
+    // now you need to iterate through each product and add size weights 
+
+    // createColorSizeObj();
 
      var myTestData = [{
                   "Handle": "sku", 
@@ -83,7 +118,7 @@ jsonexportController = {
       // push that to full csv 
       myTestData.push(myTestData2);
 
-      console.log("FULL PRODUCT:", myTestData)
+      // console.log("FULL PRODUCT:", myTestData)
 
     // convert to csv
     json2csv({ data: myTestData, fields: csvTemplateFields }, function(err, csv) {
