@@ -12,6 +12,7 @@
     "express": "~4.13.1",
     "hbs": "~3.1.0",
     "json2csv": "^3.3.0",
+    "merge": "^1.2.0",
     "method-override": "^2.3.5",
     "mongoose": "^4.4.10",
     "morgan": "~1.6.1",
