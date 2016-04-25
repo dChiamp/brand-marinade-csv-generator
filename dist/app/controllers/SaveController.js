@@ -37,37 +37,38 @@ function SaveController ($scope, $http, FileSaver, Blob) {
                 price: 50
               }
 
- console.log("product color", product.colors.red)
+ // console.log("product color", product.colors.red)
 
   for (prodKey in product) {
     // iterate thru prod obj, and get all prodKeys and vals
-    var prodKeyName = product[prodKey]
+    var prodKeyVal = product[prodKey]
     // console.log("for prodKey in product:", prodKey)
-    // console.log("for value in product", value);
-    // bind data to scope 
+    // console.log("for prodKeyVal", prodKeyVal);
+    // bind each data to scope 
     if (prodKey === "item") {
-      // console.log("ITEM", value)
-      $scope.csvTemplate.item = prodKeyName
+      $scope.csvTemplate.item = prodKeyVal
       console.log("SCOPE ITEM", $scope.csvTemplate.item)
     }
     if (prodKey === "price") {
-      $scope.csvTemplate.price = prodKeyName
+      $scope.csvTemplate.price = prodKeyVal
     }
     if (prodKey === "brands") {
-      $scope.csvTemplate.brands = prodKeyName
+      $scope.csvTemplate.brands = prodKeyVal
     }
     if (prodKey === "tags") {
-      $scope.csvTemplate.tags = prodKeyName
+      $scope.csvTemplate.tags = prodKeyVal
     }
     // iterate thru colors
     if (prodKey === "colors") {
-      for (colorKeyName in prodKeyName) {
+      for (colorKeyName in prodKeyVal) {
         console.log("color name", colorKeyName)
-        var colorBoolean = prodKeyName[colorKeyName]
+        var colorBoolean = prodKeyVal[colorKeyName]
         // if color is true(selected)
-        if (prodKeyName.red) {
-          console.log("COLOR RED SLCTD, now iterate thru ")
-          console.log("what is prodKey within colors?", prodKey)
+        // if (prodKeyVal.red) {
+          if (colorBoolean) {
+          $scope.csvTemplate.color = colorKeyName;
+          console.log("SCOPE.COLOR:",  $scope.csvTemplate.color)
+          // console.log("COLOR" +colorKeyName+ " SLCTD")
           // iterate through all sizes
           for (sizeKeyName in product.sizes) {
             sizeBoolean = product.sizes[sizeKeyName]
@@ -75,29 +76,22 @@ function SaveController ($scope, $http, FileSaver, Blob) {
             // if size is true (selected)
             if(sizeBoolean) {
               // bind it as color.size
-              $scope.csvTemplate.colorKeyName.size = sizeKeyName
-              console.log
+              console.log("sizeKeyName:", sizeKeyName)
+              // need to figure out how to add size to color
+              // $scope.csvTemplate.color.size = sizeKeyName;
+              $scope.csvTemplate.size = sizeKeyName;
+              console.log("DATa.Size", $scope.csvTemplate.size);
             }
-
           }
-          // if (prodKey === "sizes") {
-          //   console.log("searching sizes...")
-          //   for(sizeKeyName in prodKeyName) {
-          //     console.log("sizeKeyName", sizeKeyName)
-          //     if (prodKeyName.small) {
-          //       console.log("SIZE SMALL SELECTED")
-          //     }
-          //   }
-          // }
         }
         // console.log("for prodKey in COLORS:", val);
-        console.log("colorBoolean", colorBoolean )
-        if (colorBoolean == true ) {
+        // console.log("colorBoolean", colorBoolean )
+        // if (colorBoolean == true ) {
         // if colors val = true, then iterate through sizes
-          console.log("INCLUDE THIS COLOR")
-        } else {
+          // console.log("INCLUDE THIS COLOR")
+        // } else {
           // console.log("DONT INCLUDE THIS COLOR")
-        }
+        // }
         // only push if size = true
       }
     }
@@ -148,7 +142,7 @@ function SaveController ($scope, $http, FileSaver, Blob) {
   // the next obj only push fields that change / always full
     //selects first color, then iterates through all sizes if true
       // ALWAYS INCLUDE: handle, option1 val, size, sku, price, grams, imgsource
-      // stringify prodKeyname to insert in obj
+      // stringify prodKeyVal to insert in obj
       // call recursvely until it goes through all colors marked true
 
 
@@ -197,10 +191,12 @@ function SaveController ($scope, $http, FileSaver, Blob) {
 
   $scope.newProduct = {}
 
-  console.log("$scope.csvTemplate",$scope.csvTemplate)
+  $scope.csvTemplate.colorsTest = {red: true, blue: true};
+  console.log("$scope.csvTemplate.colorsTest.red",$scope.csvTemplate.colorsTest.red )
+  console.log("$scope.csvTemplate:", $scope.csvTemplate)
     // put product model in service?
   function convertAndDowload () {
-      console.log("product obj to be converted: ", $scope.product2)
+      // console.log("product obj to be converted: ", $scope.product2)
       $http
         .post('/api/convert', $scope.csvTemplate)
         .then(function(response) {
