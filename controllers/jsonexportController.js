@@ -1,21 +1,7 @@
 var Product = require('../models/products')
-var jsonexport = require('jsonexport')
-
 var json2csv = require('json2csv');
 
-var csvTemplateFields = [
-                "Handle", 
-                "Title",
-                "Body(HTML)",
-                "Vendor",
-                "Type",
-                "Tags",
-                "Published",
-                "Option1 Name",
-                "Option1 Value",
-                "Option2 Name",
-                "Option2 Value"
-                ]
+var csvTemplateHeaderFields = require('../csvTemplateHeaderFields')
 
 jsonexportController = {
   convertJson: function (req, res) {
@@ -49,19 +35,37 @@ jsonexportController = {
     // console.log("CSV TEST DATA:", req.body.testData);
     // console.log("NEW PRODUCT ARRAY:", newProduct)
 
-     var myTestData = [{
-                  "Handle": "sku", 
-                  "Title": "title",
-                  "Body (HTML)": "body",
-                  "Vendor": "vendor",
-                  "Type": "type",
-                  "Tags": "tags",
-                  "Published": "False",
+
+    // these are set on DOM
+    // added only to first row obj
+     var productAttributes = [{
+                  // "Title": "req.body.title",
+                  "Body (HTML)": "req.body.name",
+                  "Vendor": "req.body.vendor",
+                  "Published": "FALSE",
+                  "Type": req.body.product.item,
+                  "Tags": "req.body.tags",
                   "Option1 Name": "Color",
-                  "Option1 Value": "color",
+                  "Option1 Value": "merge color",
                   "Option2 Name": "Size",
-                  "Option2 Value": "size"
+                  "Option2 Value": "merge size",
                   }]
+
+    // defualt to merge each colorsize prod obj with
+    // added to every obj
+    var defaultProductAttributes = [{
+                  // "Published": "False",
+                  // "Option1 Name": "Color",
+                  // "Option2 Name": "Size",
+                  "Variant Inventory Qty": 1,
+                  "Variant Inventory Policy": "deny",
+                  "Variant Fulfillment Service": "manual",
+                  "Variant Requires Shipping": "TRUE",
+                  "Variant Taxable": "TRUE",
+                  "Gift Card": "FALSE",
+                  "Variant Weight Unit": "oz"
+                  }]
+
 
     var product = req.body.product
     var item = req.body.product.item
@@ -79,18 +83,26 @@ jsonexportController = {
               // name obj
               var colorSize = colorName + sizeName;
               console.log("COLORSiZE", colorSize)
-              colorSize = {
-                "Handle": item,
-                "Option1 Value": colorName,
-                "Option2 Value": sizeName
-              }
               // add color and size attributes
               // colorSize.color = colorName;
               // colorSize.size = sizeName;
+
+              // *also add dynamic fields
+              colorSize = {
+                "Handle": item,
+                "Option1 Value": colorName,
+                "Option2 Value": sizeName,
+                "Variant Price": product.price
+                // add dynamic
+                // "Variant SKU": "sku",
+                // "Variant Grams": "merge"
+              }
+              
               console.log("PRODCUT COLORSiZE OBJ", colorSize)
-              // push to array
+              // push to global array instead of my data
+              // then on save + export csv button click, download full array of prod objs
               colorSizeArr.push(colorSize)
-              myTestData.push(colorSize)
+              productAttributes.push(colorSize)
             }
             
             console.log("colorSizeArr", colorSizeArr)
@@ -127,7 +139,7 @@ jsonexportController = {
 
     // convert to csv
     
-    json2csv({ data: myTestData, fields: csvTemplateFields }, function(err, csv) {
+    json2csv({ data: productAttributes, fields: csvTemplateHeaderFields }, function(err, csv) {
       if (err) console.log(err);
       // send back to front end for download
       res.send(csv)
