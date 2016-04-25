@@ -49,7 +49,22 @@ jsonexportController = {
     // console.log("CSV TEST DATA:", req.body.testData);
     // console.log("NEW PRODUCT ARRAY:", newProduct)
 
+     var myTestData = [{
+                  "Handle": "sku", 
+                  "Title": "title",
+                  "Body (HTML)": "body",
+                  "Vendor": "vendor",
+                  "Type": "type",
+                  "Tags": "tags",
+                  "Published": "False",
+                  "Option1 Name": "Color",
+                  "Option1 Value": "color",
+                  "Option2 Name": "Size",
+                  "Option2 Value": "size"
+                  }]
+
     var product = req.body.product
+    var item = req.body.product.item
     var colorSizeArr = []
 
     // function createColorSizeObj () {
@@ -64,14 +79,18 @@ jsonexportController = {
               // name obj
               var colorSize = colorName + sizeName;
               console.log("COLORSiZE", colorSize)
-              colorSize = {}
+              colorSize = {
+                "Handle": item,
+                "Option1 Value": colorName,
+                "Option2 Value": sizeName
+              }
               // add color and size attributes
-              colorSize.color = colorName;
-              colorSize.size = sizeName;
+              // colorSize.color = colorName;
+              // colorSize.size = sizeName;
               console.log("PRODCUT COLORSiZE OBJ", colorSize)
               // push to array
-              // colorSizeArr.push(colorSize)
-              myData.push(colorSize)
+              colorSizeArr.push(colorSize)
+              myTestData.push(colorSize)
             }
             
             console.log("colorSizeArr", colorSizeArr)
@@ -83,20 +102,6 @@ jsonexportController = {
     // now you need to iterate through each product and add size weights 
 
     // createColorSizeObj();
-
-     var myTestData = [{
-                  "Handle": "sku", 
-                  "Title": "title",
-                  "Body (HTML)": "body",
-                  "Vendor": "vendor",
-                  "Type": "type",
-                  "Tags": "tags",
-                  "Published": "False",
-                  "Option1 Name": "Color",
-                  "Option1 Value": "color",
-                  "Option2 Name": "Size",
-                  "Option2 Value": "size"
-                  }]
 
       // maybe it iterates through here
       // initialize array
@@ -116,11 +121,12 @@ jsonexportController = {
       // figure out how to merge them in so you can map weight to size and merge t
 
       // push that to full csv 
-      myTestData.push(myTestData2);
+      // myTestData.push(myTestData2);
 
       // console.log("FULL PRODUCT:", myTestData)
 
     // convert to csv
+    
     json2csv({ data: myTestData, fields: csvTemplateFields }, function(err, csv) {
       if (err) console.log(err);
       // send back to front end for download
