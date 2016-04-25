@@ -21,7 +21,7 @@ function SaveController ($scope, $http, FileSaver, Blob) {
     // var data = new Blob([json], {type: "application/json"});
     FileSaver.saveAs(data, $scope.fileName || "newProduct" + '.txt');
   };
-// test for taking header in dom w/ ngcsv
+// test for setting header in dom w/ ngcsv
   $scope.headerFieldA = "testFieldA";
 
   var product = {
@@ -39,36 +39,60 @@ function SaveController ($scope, $http, FileSaver, Blob) {
 
  console.log("product color", product.colors.red)
 
-  for (key in product) {
-    // iterate thru prod obj, and get all keys and vals
-    var value = product[key]
-    // console.log("for key in product:", key)
+  for (prodKey in product) {
+    // iterate thru prod obj, and get all prodKeys and vals
+    var prodKeyName = product[prodKey]
+    // console.log("for prodKey in product:", prodKey)
     // console.log("for value in product", value);
     // bind data to scope 
-    if (key === "item") {
+    if (prodKey === "item") {
       // console.log("ITEM", value)
-      $scope.csvTemplate.item = value
+      $scope.csvTemplate.item = prodKeyName
       console.log("SCOPE ITEM", $scope.csvTemplate.item)
     }
-    if (key === "price") {
-      $scope.csvTemplate.price = value
-      console.log("SCOPE PRICE", $scope.csvTemplate.price)
+    if (prodKey === "price") {
+      $scope.csvTemplate.price = prodKeyName
     }
-    if (key === "brands") {
-      $scope.csvTemplate.brands = value
-      console.log("SCOPE BRANDS", $scope.csvTemplate.brands)
+    if (prodKey === "brands") {
+      $scope.csvTemplate.brands = prodKeyName
     }
-    if (key === "tags") {
-      $scope.csvTemplate.tags = value
-      console.log("SCOPE TAGS", $scope.csvTemplate.tags)
+    if (prodKey === "tags") {
+      $scope.csvTemplate.tags = prodKeyName
     }
     // iterate thru colors
-    if (key === "colors") {
-      for (val in value) {
-        var colorVal = value[val]
-        // console.log("for key in COLORS:", val);
-        // console.log("for value of colors", colorVal )
-        if (colorVal == true ) {
+    if (prodKey === "colors") {
+      for (colorKeyName in prodKeyName) {
+        console.log("color name", colorKeyName)
+        var colorBoolean = prodKeyName[colorKeyName]
+        // if color is true(selected)
+        if (prodKeyName.red) {
+          console.log("COLOR RED SLCTD, now iterate thru ")
+          console.log("what is prodKey within colors?", prodKey)
+          // iterate through all sizes
+          for (sizeKeyName in product.sizes) {
+            sizeBoolean = product.sizes[sizeKeyName]
+            console.log("SIZE BooLEAN", sizeBoolean)
+            // if size is true (selected)
+            if(sizeBoolean) {
+              // bind it as color.size
+              $scope.csvTemplate.colorKeyName.size = sizeKeyName
+              console.log
+            }
+
+          }
+          // if (prodKey === "sizes") {
+          //   console.log("searching sizes...")
+          //   for(sizeKeyName in prodKeyName) {
+          //     console.log("sizeKeyName", sizeKeyName)
+          //     if (prodKeyName.small) {
+          //       console.log("SIZE SMALL SELECTED")
+          //     }
+          //   }
+          // }
+        }
+        // console.log("for prodKey in COLORS:", val);
+        console.log("colorBoolean", colorBoolean )
+        if (colorBoolean == true ) {
         // if colors val = true, then iterate through sizes
           console.log("INCLUDE THIS COLOR")
         } else {
@@ -78,7 +102,6 @@ function SaveController ($scope, $http, FileSaver, Blob) {
       }
     }
   }
-
 
   var sku = "derek-geo-test";
   var title = "octa-death";
@@ -99,7 +122,7 @@ function SaveController ($scope, $http, FileSaver, Blob) {
   // push to an obj
   // then push that obj to csvTemplate.data
 
-  // ?in template.data the field key should call a fnc to iterate through
+  // ?in template.data the field prodKey should call a fnc to iterate through
 
   // 1.0
   // move all of this to back end
@@ -108,7 +131,7 @@ function SaveController ($scope, $http, FileSaver, Blob) {
   // the first obj in the csvTemplate is the defualt settings,
 
   // then iterate through each product,
-  // and push that obj with only *changed* fields to array
+  // and push that obj with only *changed* fields to obj (not array)
 
   // defualt settings template in backend 
   // $scope.csvTemplate.template //arrray of objs
@@ -125,7 +148,7 @@ function SaveController ($scope, $http, FileSaver, Blob) {
   // the next obj only push fields that change / always full
     //selects first color, then iterates through all sizes if true
       // ALWAYS INCLUDE: handle, option1 val, size, sku, price, grams, imgsource
-      // stringify keyname to insert in obj
+      // stringify prodKeyname to insert in obj
       // call recursvely until it goes through all colors marked true
 
 
@@ -133,10 +156,12 @@ function SaveController ($scope, $http, FileSaver, Blob) {
 
   // map weight to sizes //refactor it in later in backend
 
+  // to test parsing objs in backend
   $scope.csvTemplate.testData = {
                     "Handle": sku
                      }
 
+// moved to back end
   $scope.csvTemplate.data = [{
                     "Handle": sku, 
                     "Title": title,
@@ -168,7 +193,7 @@ function SaveController ($scope, $http, FileSaver, Blob) {
                     "Option1 Value": color
                     }]
 
-    $scope.product2 = {}
+  $scope.product2 = {}
 
   $scope.newProduct = {}
 
@@ -176,9 +201,6 @@ function SaveController ($scope, $http, FileSaver, Blob) {
     // put product model in service?
   function convertAndDowload () {
       console.log("product obj to be converted: ", $scope.product2)
-      // $http
-      //   .post('/api/convert', $scope.product)
-      //   .then(function(response){
       $http
         .post('/api/convert', $scope.csvTemplate)
         .then(function(response) {
@@ -190,4 +212,4 @@ function SaveController ($scope, $http, FileSaver, Blob) {
 
     }
 
-  }
+}

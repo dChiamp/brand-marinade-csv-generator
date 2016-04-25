@@ -44,6 +44,10 @@ jsonexportController = {
   updateProduct: function (req, res) {
     // get product from DOM
     var myData = req.body.data;
+    
+    console.log("CSV TEST DATA DRILL:", req.body.testData["Handle"]);
+    console.log("CSV TEST DATA:", req.body.testData);
+    // console.log("NEW PRODUCT ARRAY:", newProduct)
 
      var myTestData = [{
                   "Handle": "sku", 
@@ -59,18 +63,11 @@ jsonexportController = {
                   "Option2 Value": "size"
                   }]
 
-    // maybe it iterates through here
+      // maybe it iterates through here
       // initialize array
       // var newProduct = [];
       // newProduct.push(req.body.testData);
       // you can push each attr individualy or grouped in obj
-
-      console.log("CSV TEST DATA DRILL:", req.body.testData["Handle"]);
-      console.log("CSV TEST DATA:", req.body.testData);
-      // console.log("NEW PRODUCT ARRAY:", newProduct)
-
-      // add in default full attr before pushing
-      // figure out how to merge them in so you can map weight to size and merge t
 
       // getting data from each updated product 
       var myTestData2 = {
@@ -79,6 +76,9 @@ jsonexportController = {
                     "Price": req.body.price,
                     "Tags": req.body.tags
                     };
+      
+      // add in default full attr before pushing
+      // figure out how to merge them in so you can map weight to size and merge t
 
       // push that to full csv 
       myTestData.push(myTestData2);
