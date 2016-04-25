@@ -97,6 +97,7 @@ function SaveController ($scope, $http, FileSaver, Blob) {
     }
   }
 
+
   var sku = "derek-geo-test";
   var title = "octa-death";
   var vendor = "American Apparel";
@@ -145,8 +146,13 @@ function SaveController ($scope, $http, FileSaver, Blob) {
       // stringify prodKeyVal to insert in obj
       // call recursvely until it goes through all colors marked true
 
-
+  // 3.0
   // create a series of helper functions to get right format
+  // first function, bind everything to scope accords to name (scope.item)
+  // second, map colors to sizes
+  // 
+  // maybe scope.csvTemplate.colorsize = {color: "red", size: "small"}
+
 
   // map weight to sizes //refactor it in later in backend
 
@@ -192,6 +198,18 @@ function SaveController ($scope, $http, FileSaver, Blob) {
   $scope.newProduct = {}
 
   $scope.csvTemplate.colorsTest = {red: true, blue: true};
+  $scope.csvTemplate.colorSizeTest = {};
+
+  // test to name obj programmatically w/ vars
+  var colorNameTest = "red";
+  var sizeNameTest = "small"
+  var colorSizeName = colorNameTest + sizeNameTest;
+  $scope.csvTemplate[colorSizeName] = {}
+  // its works!
+  
+  $scope.csvTemplate.colorSizeTest.color = "red"
+  $scope.csvTemplate.colorSizeTest.size = "small"
+
   console.log("$scope.csvTemplate.colorsTest.red",$scope.csvTemplate.colorsTest.red )
   console.log("$scope.csvTemplate:", $scope.csvTemplate)
     // put product model in service?
