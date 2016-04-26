@@ -104,7 +104,7 @@
                   </div>
                   <div>
                     <p> Colors </p>
-                    <md-switch ng-repeat="(key, value) in product.colors" ng-model="product.colors[key]">
+                    <md-switch ng-repeat="(key, value) in product.colors" ng-model="value">
                       <p> {{key}} | {{value}} </p>
                       <button ng-click="save(product.colors[key])"> save </button>
                     </md-switch>

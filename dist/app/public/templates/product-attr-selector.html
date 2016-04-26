@@ -13,13 +13,13 @@
               <div ng-if="isChecked">
                 <div>
                   <p> Sizes </p>
-                  <md-switch ng-repeat="(key, value) in product.sizes" ng-model="value"> 
+                  <md-switch ng-repeat="(key, value) in product.sizes" ng-model="product.sizes[key]"> 
                     <p> {{key}} | {{value}} </p>
                   </md-switch>
                 </div>
                 <div>
                   <p> Colors </p>
-                  <md-switch ng-repeat="(key, value) in product.colors" ng-model="value">
+                  <md-switch ng-repeat="(key, value) in product.colors" ng-model="product.colors[key]">
                     <p> {{key}} | {{value}} </p>
                   </md-switch>
                 </div>
