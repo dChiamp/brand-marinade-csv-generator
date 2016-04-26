@@ -1,6 +1,7 @@
 var Product = require('../models/products')
 var json2csv = require('json2csv');
-var merge = require('merge'), original, cloned;
+var merge = require('merge');
+// , original, cloned;
 
 var csvTemplateHeaderFields = require('../csvTemplateHeaderFields')
 
@@ -31,13 +32,11 @@ jsonexportController = {
   updateProduct: function (req, res) {
     // get product from DOM
     var myData = req.body.data;
+    var csvTemplate = []
     // console.log("REQ.PRODUCT", req.body.product)
     // console.log("CSV TEST DATA DRILL:", req.body.testData["Handle"]);
     // console.log("CSV TEST DATA:", req.body.testData);
     // console.log("NEW PRODUCT ARRAY:", newProduct)
-
-
-    var csvTemplate = []
 
     // these are set on DOM
     // added only to first row obj
@@ -49,9 +48,10 @@ jsonexportController = {
                   "Type": req.body.product.item,
                   "Tags": "req.body.tags",
                   "Option1 Name": "Color",
-                  "Option1 Value": "merge color",
+                  // "Option1 Value": "merge color",
                   "Option2 Name": "Size",
-                  "Option2 Value": "merge size",
+                  "Gift Card": "FALSE"
+                  // "Option2 Value": "merge size",
                   }
 
     // defualt to merge each colorsize prod obj with
@@ -65,10 +65,8 @@ jsonexportController = {
                   "Variant Fulfillment Service": "manual",
                   "Variant Requires Shipping": "TRUE",
                   "Variant Taxable": "TRUE",
-                  "Gift Card": "FALSE",
                   "Variant Weight Unit": "oz"
                   }
-
 
     var product = req.body.product
     var item = req.body.product.item
@@ -107,12 +105,8 @@ jsonexportController = {
               // push to global array instead of my data
               // then on save + export csv button click, download full array of prod objs
               colorSizeArr.push(fullProd)
-
               csvTemplate.push(fullProd)
-          
-
             }
-            
           }
         }
       }
@@ -121,7 +115,6 @@ jsonexportController = {
     // 1. merge colorsizearray[0] w/ productAttributesDetailed then productAttributesDefaults
     // colorSizeArr[0] 
     
-    // for 
     var firstRow = merge(colorSizeArr[0], productAttributesDetailed);
     // holy fuck this works!
     colorSizeArr[0] = firstRow;
@@ -129,12 +122,9 @@ jsonexportController = {
     // csvTemplate.push(firstRow)
     console.log("colorSizeArr", colorSizeArr)
 
-
-
     // 2. merge colorsizearray[1++] w/ productAttributesDefaults
 
     // now you need to iterate through each product and add size weights 
-
 
     // createColorSizeObj();
 
