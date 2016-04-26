@@ -68,6 +68,20 @@ jsonexportController = {
                   "Variant Weight Unit": "oz"
                   }
 
+    var sizeWeight = [{"item": "Crewneck", 
+                      "size": "small",
+                      "Variant Grams": 350}, 
+                      {"item": "Crewneck", 
+                      "size": "medium",
+                      "Variant Grams": 360}, 
+                      {"item": "Crewneck", 
+                      "size": "large",
+                      "Variant Grams": 570}]
+
+    // test merge 
+    var mergeTest = merge({item: "Crewneck", size: "small", weight: 350}, {item: "Crewneck", color: "red"})
+    console.log("MERGETEST", mergeTest)
+
     var product = req.body.product
     var item = req.body.product.item
     var colorSizeArr = []
@@ -99,12 +113,28 @@ jsonexportController = {
                 // "Variant Grams": "merge"
               }
 
+              // merge size weights:
+                for(var i = 0; i< sizeWeight.length; i++) {
+                  if(colorSize["Handle"] === sizeWeight[i]["item"] 
+                    && colorSize["Option2 Value"] === sizeWeight[i]["size"] ) {
+                      var colorSizeWight = merge(colorSize, sizeWeight[i])
+                    console.log("colorSizeWight****", colorSizeWight)
+                  // // for ()
+                  // var sizeWeightKeyValue = sizeWeight[sizeWeightKey]
+                  // console.log("sizeWieghtKEY VALUE:", sizeWeightKey)
+                  // // if colorSize size matches weight size, merge
+                  // if(colorSize["Option2 Value"] === sizeWeightKey) {
+                  //   // merge(sizeWeightKeyValue color)
+                  // }
+                }
+              }
+
               var fullProd = merge(colorSize, productAttributesDefaults)
+              console.log("FULLPRODSIZE:", fullProd["Option2 Value"])
               
               // console.log("FUll PRODCUT OBJ", fullProd)
               // push to global array instead of my data
               // then on save + export csv button click, download full array of prod objs
-              colorSizeArr.push(fullProd)
               csvTemplate.push(fullProd)
             }
           }
@@ -115,12 +145,10 @@ jsonexportController = {
     // 1. merge colorsizearray[0] w/ productAttributesDetailed then productAttributesDefaults
     // colorSizeArr[0] 
     
-    var firstRow = merge(colorSizeArr[0], productAttributesDetailed);
+    var firstRow = merge(csvTemplate[0], productAttributesDetailed);
     // holy fuck this works!
-    colorSizeArr[0] = firstRow;
-    // console.log("FIRST ROW", firstRow)
-    // csvTemplate.push(firstRow)
-    console.log("colorSizeArr", colorSizeArr)
+    csvTemplate[0] = firstRow;
+    console.log("csvTemplate", csvTemplate)
 
     // 2. merge colorsizearray[1++] w/ productAttributesDefaults
 
@@ -133,14 +161,6 @@ jsonexportController = {
       // var newProduct = [];
       // newProduct.push(req.body.testData);
       // you can push each attr individualy or grouped in obj
-
-      // getting data from each updated product 
-      var myTestData2 = {
-                    "Handle": req.body.testData["Handle"],
-                    "Item": req.body.item,
-                    "Price": req.body.price,
-                    "Tags": req.body.tags
-                    };
       
       // add in default full attr before pushing
       // figure out how to merge them in so you can map weight to size and merge t
