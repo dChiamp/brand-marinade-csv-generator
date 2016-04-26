@@ -34,9 +34,6 @@ jsonexportController = {
     var myData = req.body.data;
     var csvTemplate = []
     // console.log("REQ.PRODUCT", req.body.product)
-    // console.log("CSV TEST DATA DRILL:", req.body.testData["Handle"]);
-    // console.log("CSV TEST DATA:", req.body.testData);
-    // console.log("NEW PRODUCT ARRAY:", newProduct)
 
     // these are set on DOM
     // added only to first row obj
@@ -78,13 +75,8 @@ jsonexportController = {
                       "size": "large",
                       "Variant Grams": 570}]
 
-    // test merge 
-    var mergeTest = merge({item: "Crewneck", size: "small", weight: 350}, {item: "Crewneck", color: "red"})
-    console.log("MERGETEST", mergeTest)
-
     var product = req.body.product
     var item = req.body.product.item
-    var colorSizeArr = []
 
     // function createColorSizeObj () {
       for (colorName in product.colors) {
@@ -97,11 +89,7 @@ jsonexportController = {
             if(colorBoolean && sizeBoolean) {
               // name obj
               var colorSize = colorName + sizeName;
-              // console.log("COLORSiZE", colorSize)
               // add color and size attributes
-              // colorSize.color = colorName;
-              // colorSize.size = sizeName;
-
               // *also add dynamic fields
               colorSize = {
                 "Handle": item,
@@ -112,27 +100,16 @@ jsonexportController = {
                 // "Variant SKU": "sku",
                 // "Variant Grams": "merge"
               }
-
               // merge size weights:
                 for(var i = 0; i< sizeWeight.length; i++) {
                   if(colorSize["Handle"] === sizeWeight[i]["item"] 
                     && colorSize["Option2 Value"] === sizeWeight[i]["size"] ) {
                       var colorSizeWight = merge(colorSize, sizeWeight[i])
                     console.log("colorSizeWight****", colorSizeWight)
-                  // // for ()
-                  // var sizeWeightKeyValue = sizeWeight[sizeWeightKey]
-                  // console.log("sizeWieghtKEY VALUE:", sizeWeightKey)
-                  // // if colorSize size matches weight size, merge
-                  // if(colorSize["Option2 Value"] === sizeWeightKey) {
-                  //   // merge(sizeWeightKeyValue color)
-                  // }
                 }
               }
-
               var fullProd = merge(colorSize, productAttributesDefaults)
-              console.log("FULLPRODSIZE:", fullProd["Option2 Value"])
-              
-              // console.log("FUll PRODCUT OBJ", fullProd)
+              // console.log("FULLPRODSIZE:", fullProd["Option2 Value"])
               // push to global array instead of my data
               // then on save + export csv button click, download full array of prod objs
               csvTemplate.push(fullProd)
@@ -140,37 +117,15 @@ jsonexportController = {
           }
         }
       }
-    // };
 
-    // 1. merge colorsizearray[0] w/ productAttributesDetailed then productAttributesDefaults
-    // colorSizeArr[0] 
-    
+    // 1. merge colorsizearray[0] w/ productAttributesDetailed then productAttributesDefaults    
     var firstRow = merge(csvTemplate[0], productAttributesDetailed);
     // holy fuck this works!
     csvTemplate[0] = firstRow;
     console.log("csvTemplate", csvTemplate)
-
     // 2. merge colorsizearray[1++] w/ productAttributesDefaults
-
     // now you need to iterate through each product and add size weights 
 
-    // createColorSizeObj();
-
-      // maybe it iterates through here
-      // initialize array
-      // var newProduct = [];
-      // newProduct.push(req.body.testData);
-      // you can push each attr individualy or grouped in obj
-      
-      // add in default full attr before pushing
-      // figure out how to merge them in so you can map weight to size and merge t
-
-      // push that to full csv 
-      // myTestData.push(myTestData2);
-
-      // console.log("FULL PRODUCT:", myTestData)
-
-    // convert to csv
     // console.log("TEMPLATE", csvTemplate)
     
     json2csv({ data: csvTemplate, fields: csvTemplateHeaderFields }, function(err, csv) {

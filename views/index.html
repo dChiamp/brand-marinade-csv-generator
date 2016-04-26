@@ -121,7 +121,7 @@
   <div ng-controller="HoodieController">
     <p> Test Data Binding to Color Objects </p>
     <div ng-repeat="(key, value) in product.colors">
-      <md-switch ng-model="value"> 
+      <md-switch ng-model="product.colors[key]"> 
           <p> {{key}} | {{value}} </p>
       </md-switch>
     </div>
