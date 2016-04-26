@@ -7,13 +7,13 @@ function HoodieController ($scope, $http, productService) {
   console.log("hoodie controller")
 
   $scope.product = {
-                    item: "hoodie",
+                    item: "Hoodie",
                     colors: {red: true,
                             green: true,
                             blue: false},
-                    sizes: {small: false,
-                            medium: true,
-                            large: true },
+                    sizes: {small: true,
+                            medium: false,
+                            large: false },
                     brands: ["American Apparel"],
                     tags: ["hella cool"],
                     price: 50
