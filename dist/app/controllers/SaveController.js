@@ -22,18 +22,6 @@ function SaveController ($scope, $http, FileSaver, Blob) {
     FileSaver.saveAs(data, $scope.fileName || "newProduct" + '.txt');
   };
 
-  $scope.product = {
-                item: "Crewneck",
-                colors: {red: true,
-                        green: true,
-                        blue: false},
-                sizes: {small: false,
-                        medium: true,
-                        large: true },
-                brands: ["American Apparel", "gildan", "china merch"],
-                tags: ["hella cool"],
-                price: 50
-              }
   // console.log("$scope.csvTemplate.colorsTest.red",$scope.csvTemplate.colorsTest.red )
   console.log("$scope.product:", $scope.product)
     // put product model in service?

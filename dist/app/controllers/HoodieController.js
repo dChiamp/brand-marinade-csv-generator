@@ -8,6 +8,7 @@ function HoodieController ($scope, $http, productService) {
 
   $scope.product = {
                     item: "Hoodie",
+                    title: "",
                     colors: {red: true,
                             green: true,
                             blue: false},

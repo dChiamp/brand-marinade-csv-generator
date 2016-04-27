@@ -19,13 +19,25 @@ jsonexportController = {
   updateProduct: function (req, res) {
     // get product from DOM
     // var myData = req.body.data;
+
+    var product = req.body
+    var item = req.body.item
+    var conditionalTitle = req.body.title
+
+    if(conditionalTitle) {
+      var title = merge(product, title)
+      console.log("TITLE:", title)
+    }
+    console.log("PRODUCT colors", product.colors)
+    console.log("ITEM", item)
+
     var csvTemplate = []
     console.log("REQ.PRODUCT", req.body)
 
     // these are set on DOM
     // added only to first row obj
      var productAttributesDetailed = {
-                  // "Title": "req.body.title",
+                  // "Title": title,
                   "Body (HTML)": "req.body.name",
                   "Vendor": "req.body.vendor",
                   "Published": "FALSE",
@@ -76,10 +88,6 @@ jsonexportController = {
                       ]
 
 
-    var product = req.body
-    var item = req.body.item
-    console.log("PRODUCT colors", product.colors)
-    console.log("ITEM", item)
 
     // function createColorSizeObj () {
       for (colorName in product.colors) {
@@ -96,6 +104,7 @@ jsonexportController = {
               // *also add dynamic fields
               colorSize = {
                 "Handle": item,
+                // "Title": title,
                 "Option1 Value": colorName,
                 "Option2 Value": sizeName,
                 "Variant Price": product.price
