@@ -31,7 +31,7 @@ jsonexportController = {
     console.log("REQ.PRODUCT", req.body)
 
     // these are set on DOM
-    // added only to first row obj
+    // add only to first row obj
      var productAttributesDetailed = {
                   // "Title": title,
                   "Body (HTML)": "req.body.name",
@@ -47,7 +47,7 @@ jsonexportController = {
                   }
 
     // defualt to merge each colorsize prod obj with
-    // added to every obj
+    // add to every obj
     var productAttributesDefaults = {
                   // "Published": "False",
                   // "Option1 Name": "Color",
@@ -74,16 +74,14 @@ jsonexportController = {
                       {"item": "Hoodie", 
                       "size": "small",
                       "Variant Grams": 350}, 
-                      {"item": "hoodie", 
+                      {"item": "Hoodie", 
                       "size": "medium",
                       "Variant Grams": 360}, 
-                      {"item": "hoodie", 
+                      {"item": "Hoodie", 
                       "size": "large",
                       "Variant Grams": 570}
 
                       ]
-
-
 
     // function createColorSizeObj () {
       for (colorName in product.colors) {
@@ -135,19 +133,14 @@ jsonexportController = {
     // 2. merge colorsizearray[1++] w/ productAttributesDefaults
     // now you need to iterate through each product and add size weights 
 
-    console.log("TEMPLATE", csvTemplate)
+    // console.log("TEMPLATE", csvTemplate)
 
     // now send each obj within local template to master template:
     for(var i=0; i <= csvTemplate.length; i++) {
       masterProductCsvTemplate.push(csvTemplate[i])
     }
     
-    console.log("MASTER TEMPLATE", masterProductCsvTemplate)
-    // json2csv({ data: csvTemplate, fields: csvTemplateHeaderFields }, function(err, csv) {
-    //   if (err) console.log(err);
-    //   // send back to front end for download
-    //   res.send(csv)
-    // });
+    // console.log("MASTER TEMPLATE", masterProductCsvTemplate)
   }
 }
 
