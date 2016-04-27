@@ -68,17 +68,18 @@
     <p> Upload a product </p>
 
     <div ng-controller="ProductsController as pc" ng-show="true" id="brand-name-form"> 
-      <!-- <h3> Enter Client Name </h3> -->
       <form ng-submit="addDesignName()">
-<!--         <div class="form-group">
-           <input type="text" ng-model="product.handle[" placeholder="brand-name">
-        </div> -->
+      <h3> Choose Marketplace </h3>
+    <div class="form-group">
+           <input type="text" ng-model="product.handle" placeholder="website-name">
+        </div>
         <h3> Enter Design Name </h3>
         <div class="form-group">
-         <input type="text" ng-model="designName" placeholder="design-name">
-        <input type="submit" value="submit" class="btn btn-sm btn-success">&nbsp;
+          <input type="text" ng-model="designName" placeholder="design-name">
+          <input type="submit" value="submit" class="btn btn-sm btn-success">&nbsp;
         </div>
       </form>
+
     </div>
 
   <product-directive ng-controller="HoodieController"> </product-directive>
@@ -93,7 +94,7 @@
       </div>
     </form>
 
-    <button type="button" ng-click="vm.convertAndDowload()"> Download CSV </button>
+    <button type="button" class="btn btn-default" ng-click="vm.convertAndDowload()"> Download CSV </button>
   </div>
 
   <br>
