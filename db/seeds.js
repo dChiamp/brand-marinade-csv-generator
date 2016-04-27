@@ -14,7 +14,7 @@ var products = [
                         blue: false
                       },
                   colors: {small: false,
-                        medium: true,
+                        medium: true,cd 
                         large: true
                       },
                   brands: ["American Apparel"],

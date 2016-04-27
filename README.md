@@ -1,7 +1,3 @@
-Basic MEAN stack directory structure
+Brand Marinade Product CSV Generator
 
-all angular (app) stuff inside dist
-
-in server js comment out app.get('/')[...]
-
-then uncomment angular route to connect front end to api
+A MEAN stack app to expedite uploading Brand Marinade designs to e-commerce sites.
