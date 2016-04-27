@@ -12,9 +12,10 @@ function CrewneckController ($scope, $http, productService) {
                       sizes: {small: false,
                               medium: true,
                               large: true },
-                      brands: ["American Apparel"],
+                      // brands: ["American Apparel"],
                       tags: ["hella cool"],
-                      price: 50
+                      price: 50,
+                      short: "crew"
                     }
   // console.log("product scope:", $scope.product)
   

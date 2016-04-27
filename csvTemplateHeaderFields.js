@@ -1,7 +1,7 @@
 var csvTemplateHeaderFields = [
                     "Handle", 
                     "Title",
-                    "Body(HTML)",
+                    "Body (HTML)",
                     "Vendor",
                     "Type",
                     "Tags",

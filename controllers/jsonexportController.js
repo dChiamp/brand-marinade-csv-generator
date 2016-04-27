@@ -22,20 +22,26 @@ jsonexportController = {
 
     var product = req.body
     var item = req.body.item
-    var title = req.body.title
+    var title = req.body.title + " " + req.body.item
+    var vendor = req.body["Vendor"]
+    var handle = req.body.handle + "-" + req.body.short
+    // var sku = handle + "-" + product.color
 
-    console.log("PRODUCT colors", product.colors)
+    console.log("PRODUCT", product)
     console.log("ITEM", item)
+    console.log("title", title)
+    console.log("vendor", vendor)
+    console.log("handle", handle)
 
     var csvTemplate = []
-    console.log("REQ.PRODUCT", req.body)
+    // console.log("REQ.PRODUCT", req.body)
 
     // these are set on DOM
     // add only to first row obj
      var productAttributesDetailed = {
-                  // "Title": title,
-                  "Body (HTML)": "req.body.name",
-                  "Vendor": "req.body.vendor",
+                  "Title": title,
+                  "Body (HTML)": title,
+                  "Vendor": vendor,
                   "Published": "FALSE",
                   "Type": req.body.item,
                   "Tags": "req.body.tags",
@@ -52,6 +58,8 @@ jsonexportController = {
                   // "Published": "False",
                   // "Option1 Name": "Color",
                   // "Option2 Name": "Size",
+                  "Handle": handle,
+                  "Variant Price": product.price,
                   "Variant Inventory Qty": 1,
                   "Variant Inventory Policy": "deny",
                   "Variant Fulfillment Service": "manual",
@@ -94,21 +102,23 @@ jsonexportController = {
             if(colorBoolean && sizeBoolean) {
               // name obj
               var colorSize = colorName + sizeName;
+              var sku = handle + "-" + colorName + "-" + sizeName
               // add color and size attributes
               // *also add dynamic fields
               colorSize = {
-                "Handle": item,
-                "Title": title,
+                // "Handle": handle,
+                "Item": item,
                 "Option1 Value": colorName,
                 "Option2 Value": sizeName,
-                "Variant Price": product.price
+                "Variant SKU": sku
+                // "Variant Price": product.price
                 // add dynamic
                 // "Variant SKU": "sku",
                 // "Variant Grams": "merge"
               }
               // merge size weights:
                 for(var i = 0; i< sizeWeight.length; i++) {
-                  if(colorSize["Handle"] === sizeWeight[i]["item"] 
+                  if(colorSize["Item"] === sizeWeight[i]["item"] 
                     && colorSize["Option2 Value"] === sizeWeight[i]["size"] ) {
                       var colorSizeWeight = merge(colorSize, sizeWeight[i])
                       console.log("colorSizeWight****", colorSizeWeight)

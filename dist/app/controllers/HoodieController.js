@@ -8,7 +8,7 @@ function HoodieController ($scope, $http, productService) {
 
   $scope.product = {
                     item: "Hoodie",
-                    title: "",
+                    // title: "",
                     colors: {red: true,
                             green: true,
                             blue: false},
@@ -17,7 +17,8 @@ function HoodieController ($scope, $http, productService) {
                             large: false },
                     // brands: "American Apparel",
                     tags: ["hella cool"],
-                    price: 50
+                    price: 50,
+                    short: "Hoodie"
                   }
 
   $scope.save = function() {
