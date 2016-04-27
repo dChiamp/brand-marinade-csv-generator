@@ -24,22 +24,33 @@ function productService ($rootScope, $http, FileSaver, Blob) {
   self.saveProductSettings = saveProductSettings;
   self.addNameToProd = addNameToProd;
 
+  var title
+
   function addNameToProd (name) {
-    productData.title = name
-    console.log(name)
+    title = name
+    // console.log("PROD SERVICE TILE:", title)
   }
 
   function saveProductSettings(productData) {
-    console.log(productData);
+    console.log("TITLE IN POST REQ:", title)
+    // console.log("PRODUCT DATA", productData);
     // addNametoProd(productData)
-    $http
-      .post('/api/convert', productData)
-      .then(function(response) {
-        console.log("CSV from server", response.data)
-        var productCSV = response.data
-       // call download function
-        download(productCSV)
-    })
+
+    if(title) {
+      console.log("theres a title and im going to add it to the product")
+      productData.title = title
+      console.log("PRODUCT W/ title", productData)
+
+      // only make request if there is title?
+      $http
+        .post('/api/convert', productData)
+        .then(function(response) {
+          console.log("CSV from server", response.data)
+          var productCSV = response.data
+         // call download function
+          download(productCSV)
+      })
+    }
 
   }
    // download file to client

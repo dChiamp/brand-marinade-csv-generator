@@ -22,12 +22,8 @@ jsonexportController = {
 
     var product = req.body
     var item = req.body.item
-    var conditionalTitle = req.body.title
+    var title = req.body.title
 
-    if(conditionalTitle) {
-      var title = merge(product, title)
-      console.log("TITLE:", title)
-    }
     console.log("PRODUCT colors", product.colors)
     console.log("ITEM", item)
 
@@ -104,7 +100,7 @@ jsonexportController = {
               // *also add dynamic fields
               colorSize = {
                 "Handle": item,
-                // "Title": title,
+                "Title": title,
                 "Option1 Value": colorName,
                 "Option2 Value": sizeName,
                 "Variant Price": product.price
