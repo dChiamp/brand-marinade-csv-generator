@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
 
-mongoose.connect( process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/brand-marinade');
+mongoose.connect( process.env.MONGODB_URI  || process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/brand-marinade');
 
 
 process.on('exit', function(){ 
