@@ -18,7 +18,7 @@ function HoodieController ($scope, $http, productService) {
                     // brands: "American Apparel",
                     tags: ["hella cool"],
                     price: 50,
-                    short: "Hoodie"
+                    short: "hoodie"
                   }
 
   $scope.save = function() {

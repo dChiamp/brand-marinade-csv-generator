@@ -102,7 +102,20 @@ jsonexportController = {
             if(colorBoolean && sizeBoolean) {
               // name obj
               var colorSize = colorName + sizeName;
-              var sku = handle + "-" + colorName + "-" + sizeName
+              // need to append stupid ass abrevs instread of sizenam
+              var sizeNameAbreviation = {
+                small: "sm",
+                medium: "md",
+                large: "lg"
+              }
+
+              for (abrevKey in sizeNameAbreviation) {
+                if (sizeName == abrevKey) {
+                  var sku = handle + "-" + colorName + "-" + sizeNameAbreviation[abrevKey]
+                  var prodUrl = "http://productuploader.com/product/uploader/" + handle + "-" + colorName + ".jpg"
+                  console.log("SSSSKKKKKUUUUUpuid", sku)
+                }
+              }
               // add color and size attributes
               // *also add dynamic fields
               colorSize = {
@@ -110,7 +123,9 @@ jsonexportController = {
                 "Item": item,
                 "Option1 Value": colorName,
                 "Option2 Value": sizeName,
-                "Variant SKU": sku
+                "Variant SKU": sku,
+                "Image Src": prodUrl,
+                "Variant Image": prodUrl
                 // "Variant Price": product.price
                 // add dynamic
                 // "Variant SKU": "sku",
