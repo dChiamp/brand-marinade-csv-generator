@@ -24,22 +24,29 @@ function productService ($rootScope, $http, FileSaver, Blob) {
   self.saveProductSettings = saveProductSettings;
   self.addNameToProd = addNameToProd;
 
-  var title
+  var title;
+  var designHandle;
+  var marketplace
 
-  function addNameToProd (name) {
-    title = name
-    // console.log("PROD SERVICE TILE:", title)
+  function addNameToProd (designName) {
+    title = designName.title;
+    designHandle = designName.handle;
+    marketplace = designName.marketplace;
+
+    console.log("PROD SERVICE TITLE:", designHandle)
   }
 
   function saveProductSettings(productData) {
     console.log("TITLE IN POST REQ:", title)
     // console.log("PRODUCT DATA", productData);
     // addNametoProd(productData)
-
     if(title) {
       console.log("theres a title and im going to add it to the product")
-      productData.title = title
-      console.log("PRODUCT W/ title", productData)
+      productData.title = title;
+      productData.handle = designHandle;
+      productData["Vendor"] = marketplace;
+
+      console.log("PRODUCT W/ NAME FIELDS", productData.handle)
 
       // only make request if there is title?
       $http

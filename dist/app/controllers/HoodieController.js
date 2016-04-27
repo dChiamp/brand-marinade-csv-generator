@@ -15,7 +15,7 @@ function HoodieController ($scope, $http, productService) {
                     sizes: {small: true,
                             medium: false,
                             large: false },
-                    brands: ["American Apparel"],
+                    // brands: "American Apparel",
                     tags: ["hella cool"],
                     price: 50
                   }

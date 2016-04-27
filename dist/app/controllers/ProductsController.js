@@ -26,12 +26,14 @@ function ProductsController ($scope, $http, productService) {
     productService.saveProductSettings($scope.product);
   }
 
-  $scope.designName
+  $scope.designNames
 
   $scope.addDesignName = function () {
-    var designTitle = $scope.designName
-    console.log("TITLE:", designTitle)
-    productService.addNameToProd(designTitle);
+    var designTitle = $scope.designNames.title
+    var designHandle = $scope.designNames.designHandle
+    var marketplace = $scope.designNames.marketplace
+    console.log("TITLE:", $scope.designNames)
+    productService.addNameToProd($scope.designNames);
   }
 
   function getAllProducts() {
