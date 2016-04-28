@@ -15,4 +15,16 @@ function TotebagController ($scope, $http) {
                     tags: ["hella cool"],
                     price: 50
                   }
+  $scope.save = function() {
+    productService.saveProductSettings($scope.product);
+  };
+
+  $scope.checkedParent = false;
+  $scope.isChecked = false
+
+  $scope.checkedTrue = function(){
+    $scope.isChecked = !$scope.isChecked
+    console.log("$scope.checkedParent:", $scope.checkedParent)
+  };
+
 }

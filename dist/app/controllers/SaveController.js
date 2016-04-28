@@ -27,7 +27,7 @@ function SaveController ($scope, $http, FileSaver, Blob) {
     // put product model in service?
   function convertAndDowload () {
 
-    // console.log("product obj to be converted: ", $scope.product2)
+    console.log("product obj to be converted: ", $scope.product2)
     $http
       .get('/api/convert')
       .then(function(response) {

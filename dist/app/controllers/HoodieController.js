@@ -33,8 +33,8 @@ function HoodieController ($scope, $http, productService) {
     console.log("$scope.checkedParent:", $scope.checkedParent)
   };
 
-  $scope.checkedFalse = function(){
-    $scope.isChecked = false;
-    console.log("$scope.checkedParent:", $scope.checkedParent)
-  };
+  // $scope.checkedFalse = function(){
+  //   $scope.isChecked = false;
+  //   console.log("$scope.checkedParent:", $scope.checkedParent)
+  // };
 }

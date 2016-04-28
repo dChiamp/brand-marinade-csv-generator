@@ -1,6 +1,6 @@
 app.controller('PosterController', PosterController)
 // ProductsController.$inject = ['$scope', '$http'];
-function PosterController ($scope, $http) {
+function PosterController ($scope, $http, productService) {
   console.log("Poster controller")
 
   $scope.product = {

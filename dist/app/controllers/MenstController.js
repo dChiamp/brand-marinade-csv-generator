@@ -1,6 +1,6 @@
 app.controller('MenstController', MenstController)
 // ProductsController.$inject = ['$scope', '$http'];
-function MenstController ($scope, $http) {
+function MenstController ($scope, $http, productService) {
   console.log("MensT controller")
 
 $scope.product = {
@@ -24,13 +24,14 @@ $scope.product = {
                             Tan: false,
                             Turqoise: false,
                             Yellow: false
-                            }                    
+                            },                    
                     sizes: {small: false,
                             medium: true,
                             large: true },
                     brands: ["American Apparel"],
                     tags: ["hella cool"],
-                    price: 20
+                    price: 20,
+                    short: "hoodie"
                   }
 
   $scope.checkedParent = false;
@@ -38,12 +39,6 @@ $scope.product = {
 
   $scope.checkedTrue = function(){
     $scope.isChecked = !$scope.isChecked
-    console.log("$scope.checkedParent:", $scope.checkedParent)
-  };
-
-  $scope.checkedFalse = function(){
-    // $scope.checkedParent = !$scope.checkedParent
-    $scope.isChecked = false;
     console.log("$scope.checkedParent:", $scope.checkedParent)
   };
 

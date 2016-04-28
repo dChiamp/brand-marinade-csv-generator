@@ -1,6 +1,6 @@
 app.controller('TanktopController', TanktopController)
 // ProductsController.$inject = ['$scope', '$http'];
-function TanktopController ($scope, $http) {
+function TanktopController ($scope, $http, productService) {
   console.log("Sweatshirt controller")
 
   $scope.product = {
@@ -20,4 +20,16 @@ function TanktopController ($scope, $http) {
                     tags: ["hella cool"],
                     price: 50
                   }
+  $scope.save = function() {
+    productService.saveProductSettings($scope.product);
+  };
+
+  $scope.checkedParent = false;
+  $scope.isChecked = false
+
+  $scope.checkedTrue = function(){
+    $scope.isChecked = !$scope.isChecked
+    console.log("$scope.checkedParent:", $scope.checkedParent)
+  };
+
 }

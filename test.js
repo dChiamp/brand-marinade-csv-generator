@@ -1,34 +1,45 @@
-var Product = require('../models/products')
-var json2csv = require('json2csv');
+// var json2csv = require('json2csv');
 var merge = require('merge');
-var testing = require("../test.js");
-// , original, cloned;
+// var csvTemplateHeaderFields = require('./csvTemplateHeaderFields')
 
-var csvTemplateHeaderFields = require('../csvTemplateHeaderFields')
-var masterProductCsvTemplate = [];
+function testing () {
+  console.log("TESTIN 123");
 
-jsonexportController = {
-  convertJson: function (req, res) {
-    console.log("totalCSV:", masterProductCsvTemplate)
-    json2csv({ data: masterProductCsvTemplate, fields: csvTemplateHeaderFields }, 
-      function(err, csv) {
-        if (err) console.log(err);
-        console.log(csv);
-        res.send(csv);
-    });
-  },
-  updateProduct: function (req, res) {
-    // get product from DOM
+  var masterProductCsvTemplate = [];
+
+
+
+ // get product from DOM
     // var myData = req.body.data;
 
-    var product = req.body
-    var item = req.body.item
-    var title = req.body.title + " " + req.body.item
-    var vendor = req.body["Vendor"]
-    var handle = req.body.handle + "-" + req.body.short
-    // var sku = handle + "-" + product.color
+    var product = {
+                    item: "Hoodie",
+                    // title: "",
+                    colors: {Heather: true,
+                            Ash: true,
+                            Black: false},
+                    sizes: {small: true,
+                            medium: false,
+                            large: false },
+                    // brands: "American Apparel",
+                    tags: ["hella cool"],
+                    brands: ["American Apparel"],
+                    tags: ["hella cool"],
+                    price: 20,
+                    short: "hoodie",
+                    Vendor: "tucker's Tees",
+                    handle: "tuk-sux"
+                  }
+
 
     console.log("PRODUCT", product)
+
+    var item = product.item
+    var title = product.title + " " + product.item
+    var vendor = product["Vendor"]
+    var handle = product.handle + "-" + product.short
+    // var sku = handle + "-" + product.color
+
     console.log("ITEM", item)
     console.log("title", title)
     console.log("vendor", vendor)
@@ -44,7 +55,7 @@ jsonexportController = {
                   "Body (HTML)": title,
                   "Vendor": vendor,
                   "Published": "FALSE",
-                  "Type": req.body.item,
+                  "Type": item,
                   "Tags": "req.body.tags",
                   "Option1 Name": "Color",
                   // "Option1 Value": "merge color",
@@ -155,7 +166,8 @@ jsonexportController = {
     // holy fuck this works!
     // not if you want to push multiple prdocts tho
     csvTemplate[0] = firstRow;
-    // console.log("csvTemplate", csvTemplate)
+
+    console.log("csvTemplate", csvTemplate)
     // 2. merge colorsizearray[1++] w/ productAttributesDefaults
     // now you need to iterate through each product and add size weights 
 
@@ -166,16 +178,6 @@ jsonexportController = {
       masterProductCsvTemplate.push(csvTemplate[i])
     }
     
-    // console.log("MASTER TEMPLATE", masterProductCsvTemplate)
-  },
-  test: function (req, res) {
-    var colors = {red: true}
-    console.log("TEST REQ.BODY", colors)
-    testing();
-  },
-  jest: function(req, res) {
-    console.log("CHAIN")
-  }
+    console.log("MASTER TEMPLATE", masterProductCsvTemplate)
 }
-
-module.exports = jsonexportController
+module.exports = testing

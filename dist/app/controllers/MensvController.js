@@ -1,6 +1,6 @@
 app.controller('MensvController', MensvController)
 // ProductsController.$inject = ['$scope', '$http'];
-function MensvController ($scope, $http) {
+function MensvController ($scope, $http, productService) {
   console.log("MensV controller")
 
   $scope.product = {
@@ -24,7 +24,7 @@ function MensvController ($scope, $http) {
                             Tan: false,
                             Turqoise: false,
                             Yellow: false
-                            }                    
+                            },                    
                     sizes: {small: false,
                             medium: true,
                             large: true },
@@ -32,4 +32,16 @@ function MensvController ($scope, $http) {
                     tags: ["hella cool"],
                     price: 20
                   }
+  $scope.save = function() {
+    productService.saveProductSettings($scope.product);
+  };
+
+  $scope.checkedParent = false;
+  $scope.isChecked = false
+
+  $scope.checkedTrue = function(){
+    $scope.isChecked = !$scope.isChecked
+    console.log("$scope.checkedParent:", $scope.checkedParent)
+  };
+
 }
