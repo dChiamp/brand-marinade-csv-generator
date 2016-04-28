@@ -3,17 +3,34 @@ app.controller('MenstController', MenstController)
 function MenstController ($scope, $http) {
   console.log("MensT controller")
 
-  $scope.product = {
+$scope.product = {
                     item: "MensT",
-                    colors: {red: true,
-                            green: true,
-                            blue: false},
+                    colors: {White: true,
+                            BabyBlue: false,
+                            Black: false,
+                            Brown: false,
+                            Charcoal: false,
+                            Gold: false,
+                            Heather: false,
+                            Kelly: false,
+                            Maroon: false,
+                            Navy: false,
+                            Orange: false,
+                            Pink: false,
+                            Purple: false,
+                            Red: false,
+                            Royal: false,
+                            Silver: false,
+                            Tan: false,
+                            Turqoise: false,
+                            Yellow: false
+                            }                    
                     sizes: {small: false,
                             medium: true,
                             large: true },
                     brands: ["American Apparel"],
                     tags: ["hella cool"],
-                    price: 50
+                    price: 20
                   }
 
   $scope.checkedParent = false;

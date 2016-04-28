@@ -5,9 +5,15 @@ function OnesieController ($scope, $http) {
 
   $scope.product = {
                     item: "Onesie",
-                    colors: {red: true,
-                            green: true,
-                            blue: false},
+                  colors: {White: true,
+                            BabyBlue: false,
+                            Black: false,
+                            Heather: false,
+                            Kelly: false,
+                            Pink: false,
+                            Red: false,
+                            Royal: false
+                            },
                     sizes: {small: false,
                             medium: true,
                             large: true },

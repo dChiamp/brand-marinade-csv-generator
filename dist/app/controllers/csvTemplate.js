@@ -1,6 +1,6 @@
 var csvTemplate = [{Handle: "SKU_Name",
                     Title: "design name",
-                    Body(HTML): "html name",
+                    Body (HTML): "html name",
                     Vendor: "site name",
                     Type: "product type",
                     Tags: "comma seperated array",

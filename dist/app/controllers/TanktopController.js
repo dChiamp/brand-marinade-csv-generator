@@ -5,9 +5,14 @@ function TanktopController ($scope, $http) {
 
   $scope.product = {
                     item: "Tanktop",
-                    colors: {red: true,
-                            green: true,
-                            blue: false},
+                  colors: {White: true,
+                          BabyBlue: false,
+                          Black: false,
+                          Heather: false,
+                          Kelly: false,
+                          Red: false,
+                          Tan: false
+                          },
                     sizes: {small: false,
                             medium: true,
                             large: true },
