@@ -4,7 +4,7 @@ function TanktopController ($scope, $http, productService) {
   console.log("Sweatshirt controller")
 
   $scope.product = {
-                    item: "Tank Top",
+                  item: "Tank Top",
                   colors: {White: true,
                           BabyBlue: false,
                           Black: false,

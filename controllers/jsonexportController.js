@@ -217,25 +217,48 @@ jsonexportController = {
                 "Large": "lg",
                 "XL": "xl",
                 "2XL": "2xl",
-                "3XL": "3xl",
-                "2": "2",
-                "3": "3",
-                "4": "4",
-                "5/6": "56",
-                "nb": "nb",
-                "6m": "6m",
-                "12m": "12m",
-                "18m": "18m",
-                "24m": "24m"
+                "3XL": "3xl"}
+                // kids sizes
+              var kidsSizeNameAbreviation = {
+                "Small": "2",
+                "Medium": "3",
+                "Large": "4",
+                "XL": "56"}
+                // onesie
+              var babySizeNameAbreviation = {
+                "Small": "nb",
+                "Medium": "6m",
+                "Large": "12m",
+                "XL": "18m",
+                "2XL": "24m"
               }
 
-              for (abrevKey in sizeNameAbreviation) {
-                if (sizeName == abrevKey) {
-                  var sku = handle + "-" + colorName + "-" + sizeNameAbreviation[abrevKey]
-                  var prodUrl = "http://productuploader.com/product/uploader/" + handle + "-" + colorName + ".jpg"
-                  console.log("SSSSKKKKKUUUUUpuid", sku)
+              console.log("PRODUCT ITEM IN FNC:", product.item);
+
+                // if Onesie or kidsT
+              if (product.item === "Kid's Tee") {
+                  for (abrevKey in kidsSizeNameAbreviation) {
+                    var abrev = kidsSizeNameAbreviation[abrevKey]
+                    var sku = handle + "-" + colorName + "-" + abrev
+                    var prodUrl = "http://productuploader.com/product/uploader/" + handle + "-" + colorName + ".jpg"
+                    // console.log ("KIDS SIZE ABRV", abrev)
+                  }
+                } else if ( product.item === "Onesie") {
+                  for (abrevKey in babySizeNameAbreviation) {
+                    var abrev = babySizeNameAbreviation[abrevKey]
+                    var sku = handle + "-" + colorName + "-" + abrev
+                    var prodUrl = "http://productuploader.com/product/uploader/" + handle + "-" + colorName + ".jpg"
+                    // console.log ("Onesie SIZE ABRV", abrev)
+                  }
+                } else {
+                  for (abrevKey in sizeNameAbreviation) {
+                    var sku = handle + "-" + colorName + "-" + sizeNameAbreviation[abrevKey]
+                    var prodUrl = "http://productuploader.com/product/uploader/" + handle + "-" + colorName + ".jpg"
+                    // console.log("SSSSKKKKKUUUUUpuid", sku)
+                  }
+                // }
                 }
-              }
+
               // add color and size attributes
               // *also add dynamic fields
               colorSize = {
@@ -289,7 +312,7 @@ jsonexportController = {
   },
   test: function (req, res) {
     var colors = {red: true}
-    console.log("TEST REQ.BODY", colors)
+    // console.log("TEST REQ.BODY", colors)
     testing();
   },
   jest: function(req, res) {
