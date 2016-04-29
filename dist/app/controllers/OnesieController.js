@@ -6,22 +6,24 @@ function OnesieController ($scope, $http, productService) {
   $scope.product = {
                     item: "Onesie",
                   colors: {White: true,
-                            BabyBlue: false,
-                            Black: false,
-                            Heather: false,
-                            Kelly: false,
-                            Pink: false,
-                            Red: false,
-                            Royal: false
-                            },
-                    sizes: {"Small": false,
-                            "Medium": true,
-                            "Large": true },
-                    brands: ["American Apparel"],
-                    tags: ["hella cool"],
-                    price: 18,
-                    short: "onesie"
-                  }
+                          BabyBlue: false,
+                          Black: false,
+                          Heather: false,
+                          Kelly: false,
+                          Pink: false,
+                          Red: false,
+                          Royal: false
+                          },
+                  sizes: {"nb": false,
+                          "6m": true,
+                          "12m": true,
+                          "18m": true,
+                          "24m": true},
+                  brands: ["American Apparel"],
+                  tags: ["hella cool"],
+                  price: 18,
+                  short: "onesie"
+                }
 
   $scope.save = function() {
     productService.saveProductSettings($scope.product);

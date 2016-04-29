@@ -221,7 +221,12 @@ jsonexportController = {
                 "2": "2",
                 "3": "3",
                 "4": "4",
-                "5/6": "56"
+                "5/6": "56",
+                "nb": "nb",
+                "6m": "6m",
+                "12m": "12m",
+                "18m": "18m",
+                "24m": "24m"
               }
 
               for (abrevKey in sizeNameAbreviation) {
