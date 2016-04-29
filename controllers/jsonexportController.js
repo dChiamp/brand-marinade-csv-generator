@@ -212,12 +212,16 @@ jsonexportController = {
               var colorSize = colorName + sizeName;
               // need to append stupid ass abrevs instread of sizenam
               var sizeNameAbreviation = {
-                ["Small"]: "sm",
-                ["Medium"]: "md",
-                ["Large"]: "lg",
-                ["XL"]: "xl",
-                ["2XL"]: "2xl",
-                ["3XL"]: "3xl"
+                "Small": "sm",
+                "Medium": "md",
+                "Large": "lg",
+                "XL": "xl",
+                "2XL": "2xl",
+                "3XL": "3xl",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5/6": "56"
               }
 
               for (abrevKey in sizeNameAbreviation) {

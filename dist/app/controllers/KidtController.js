@@ -20,12 +20,11 @@ function KidtController ($scope, $http, productService) {
                             Silver: false,
                             Yellow: false
                             },
-                    sizes: {"Small": false,
-                            "Medium": true,
-                            "Large": true,
-                            "XL": false,
-                            "2XL": false,
-                            "3XL": false},
+                    sizes: {"2": false,
+                            "3": true,
+                            "4": true,
+                            "5/6": false
+                           },
                     brands: ["American Apparel"],
                     tags: ["hella cool"],
                     price: 18,
