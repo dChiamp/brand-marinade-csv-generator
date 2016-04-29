@@ -45,7 +45,7 @@ jsonexportController = {
                   "Vendor": vendor,
                   "Published": "FALSE",
                   "Type": req.body.item,
-                  "Tags": "req.body.tags",
+                  "Tags": req.body.tags,
                   "Option1 Name": "Color",
                   // "Option1 Value": "merge color",
                   "Option2 Name": "Size",

@@ -4,7 +4,7 @@ function OnesieController ($scope, $http, productService) {
   console.log("Onesie controller")
 
   $scope.product = {
-                    item: "Onesie",
+                  item: "Onesie",
                   colors: {White: true,
                           BabyBlue: false,
                           Black: false,
