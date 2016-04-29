@@ -14,12 +14,13 @@ function OnesieController ($scope, $http, productService) {
                             Red: false,
                             Royal: false
                             },
-                    sizes: {small: false,
-                            medium: true,
-                            large: true },
+                    sizes: {"Small": false,
+                            "Medium": true,
+                            "Large": true },
                     brands: ["American Apparel"],
                     tags: ["hella cool"],
-                    price: 50
+                    price: 18,
+                    short: "onesie"
                   }
 
   $scope.save = function() {

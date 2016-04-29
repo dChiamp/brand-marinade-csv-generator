@@ -12,12 +12,15 @@ function HoodieController ($scope, $http, productService) {
                     colors: {Heather: true,
                             Ash: true,
                             Black: false},
-                    sizes: {small: true,
-                            medium: false,
-                            large: false },
+                    sizes: {"Small": false,
+                            "Medium": true,
+                            "Large": true,
+                            "XL": false,
+                            "2XL": false,
+                            "3XL": false},
                     // brands: "American Apparel",
                     tags: ["hella cool"],
-                    price: 50,
+                    price: 48,
                     short: "hoodie"
                   }
 

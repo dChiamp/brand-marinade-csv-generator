@@ -4,7 +4,7 @@ function MensvController ($scope, $http, productService) {
   console.log("MensV controller")
 
   $scope.product = {
-                    item: "MensV",
+                    item: "Men's V",
                     colors: {White: true,
                             BabyBlue: false,
                             Black: false,
@@ -25,12 +25,16 @@ function MensvController ($scope, $http, productService) {
                             Turqoise: false,
                             Yellow: false
                             },                    
-                    sizes: {small: false,
-                            medium: true,
-                            large: true },
+                    sizes: {"Small": false,
+                            "Medium": true,
+                            "Large": true,
+                            "XL": false,
+                            "2XL": false,
+                            "3XL": false},
                     brands: ["American Apparel"],
                     tags: ["hella cool"],
-                    price: 20
+                    price: 25,
+                    short: "mv"
                   }
   $scope.save = function() {
     productService.saveProductSettings($scope.product);

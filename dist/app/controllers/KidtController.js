@@ -4,7 +4,7 @@ function KidtController ($scope, $http, productService) {
   console.log("KidsT controller")
 
   $scope.product = {
-                    item: "KidsT",
+                    item: "Kid's Tee",
                     colors: {White: true,
                             BabyBlue: false,
                             Black: false,
@@ -20,12 +20,16 @@ function KidtController ($scope, $http, productService) {
                             Silver: false,
                             Yellow: false
                             },
-                    sizes: {small: false,
-                            medium: true,
-                            large: true },
+                    sizes: {"Small": false,
+                            "Medium": true,
+                            "Large": true,
+                            "XL": false,
+                            "2XL": false,
+                            "3XL": false},
                     brands: ["American Apparel"],
                     tags: ["hella cool"],
-                    price: 50
+                    price: 18,
+                    short: "ktee"
                   }
   $scope.save = function() {
     productService.saveProductSettings($scope.product);

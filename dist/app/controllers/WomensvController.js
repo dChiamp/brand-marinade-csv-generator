@@ -4,7 +4,7 @@ function WomensvController ($scope, $http, productService) {
   console.log("Sweatshirt controller")
 
   $scope.product = {
-                    item: "WomensV",
+                    item: "Women's V",
                     colors: {White: true,
                             Ash: false,
                             BabyBlue: false,
@@ -14,12 +14,15 @@ function WomensvController ($scope, $http, productService) {
                             Silver: false,
                             VintageRed: false
                             },                    
-                    sizes: {small: false,
-                            medium: true,
-                            large: true },
+                    sizes: {"Small": false,
+                            "Medium": true,
+                            "Large": true,
+                            "XL": false,
+                            "2XL": false},
                     brands: ["American Apparel"],
                     tags: ["hella cool"],
-                    price: 20
+                    price: 25,
+                    short: "wv"
                   }
 
   $scope.save = function() {

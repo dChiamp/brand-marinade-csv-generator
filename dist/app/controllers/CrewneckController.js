@@ -9,12 +9,15 @@ function CrewneckController ($scope, $http, productService) {
                       colors: {Heather: true,
                               Ash: false,
                               Black: false},
-                      sizes: {small: false,
-                              medium: true,
-                              large: true },
+                      sizes:{"Small": false,
+                             "Medium": true,
+                             "Large": true,
+                             "XL": false,
+                             "2XL": false,
+                             "3XL": false},
                       // brands: ["American Apparel"],
                       tags: ["hella cool"],
-                      price: 50,
+                      price: 40,
                       short: "crew"
                     }
   // console.log("product scope:", $scope.product)

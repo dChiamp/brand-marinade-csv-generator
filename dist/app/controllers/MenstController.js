@@ -4,7 +4,7 @@ function MenstController ($scope, $http, productService) {
   console.log("MensT controller")
 
 $scope.product = {
-                    item: "MensT",
+                    item: "Men's Tee",
                     colors: {White: true,
                             BabyBlue: false,
                             Black: false,
@@ -25,13 +25,16 @@ $scope.product = {
                             Turqoise: false,
                             Yellow: false
                             },                    
-                    sizes: {small: false,
-                            medium: true,
-                            large: true },
+                    sizes: {"Small": false,
+                            "Medium": true,
+                            "Large": true,
+                            "XL": false,
+                            "2XL": false,
+                            "3XL": false},
                     brands: ["American Apparel"],
                     tags: ["hella cool"],
-                    price: 20,
-                    short: "hoodie"
+                    price: 25,
+                    short: "mtee"
                   }
 
   $scope.checkedParent = false;
