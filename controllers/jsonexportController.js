@@ -44,7 +44,7 @@ jsonexportController = {
                   "Body (HTML)": title,
                   "Vendor": vendor,
                   "Published": "FALSE",
-                  "Type": req.body.item,
+                  "Type": req.body.type,
                   "Tags": req.body.tags,
                   "Option1 Name": "Color",
                   // "Option1 Value": "merge color",
@@ -248,10 +248,12 @@ jsonexportController = {
 
               // console.log("PRODUCT ITEM IN FNC:", product.item);
 
+              // BIND SIZE ABBREV FNC
                 // if Onesie or kidsT
               if (product.item === "Kid's Tee") {
+                // key in size abbrev obj
                   for (abrevKey in kidsSizeNameAbreviation) {
-                    // match sizes
+                    // if sizes match, create sku
                     if(sizeName === abrevKey) {
                       var abrev = kidsSizeNameAbreviation[abrevKey]
                       var sku = handle + "-" + colorName.toLowerCase() + "-" + abrev
@@ -286,6 +288,7 @@ jsonexportController = {
               colorSize = {
                 // "Handle": handle,
                 "Item": item,
+                // this should be a color size abbrev
                 "Option1 Value": colorName,
                 "Option2 Value": sizeName,
                 "Variant SKU": sku,

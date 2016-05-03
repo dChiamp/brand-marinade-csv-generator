@@ -5,6 +5,7 @@ function MensvController ($scope, $http, productService) {
 
   $scope.product = {
                     item: "Men's V",
+                    type: "Tshirt",
                     colors: {White: true,
                             BabyBlue: false,
                             Black: false,

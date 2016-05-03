@@ -5,6 +5,7 @@ function WomenstController ($scope, $http, productService) {
 
   $scope.product = {
                     item: "Women's Tee",
+                    type: "Women's Tshirt",
                     colors: {White: true,
                             Ash: false,
                             BabyBlue: false,

@@ -5,6 +5,7 @@ function KidtController ($scope, $http, productService) {
 
   $scope.product = {
                     item: "Kid's Tee",
+                    type: "Kids/Infants",
                     colors: {White: true,
                             BabyBlue: false,
                             Black: false,

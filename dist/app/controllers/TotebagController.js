@@ -5,6 +5,7 @@ function TotebagController ($scope, $http) {
 
   $scope.product = {
                     item: "Totebag",
+                    type: "Totebag",
                     colors: {red: true,
                             green: true,
                             blue: false},

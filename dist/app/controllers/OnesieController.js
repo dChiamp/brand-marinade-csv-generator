@@ -5,6 +5,7 @@ function OnesieController ($scope, $http, productService) {
 
   $scope.product = {
                   item: "Onesie",
+                  type: "Kids/Infants",
                   colors: {White: true,
                           BabyBlue: false,
                           Black: false,

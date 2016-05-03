@@ -5,6 +5,7 @@ function MugController ($scope, $http) {
 
   $scope.product = {
                     item: "Mug",
+                    type: "Mug",
                     colors: {red: true,
                             green: true,
                             blue: false},
