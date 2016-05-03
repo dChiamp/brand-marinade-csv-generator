@@ -29,7 +29,7 @@ jsonexportController = {
     var vendor = req.body["Vendor"]
     var handle = req.body.handle + "-" + req.body.short
     // var yearMonthDay = moment().format("YYYY-MM-DD");
-    var dateFormatted = moment().format("YYYY-MMDD" + "b");
+    var dateFormatted = moment().format("YYYY-MMDD");
     var defaultTags = req.body.item + "," + "design_" + req.body.handle + "," + dateFormatted + ",";
     var tags = req.body.tags
     console.log("TAGS", tags)
@@ -326,7 +326,7 @@ jsonexportController = {
                       for (colorKey in colorAbrevs) {
                         if (colorName === colorKey) {
                           colorAbrev = colorAbrevs[colorKey]
-                          console.log("ABBREVIATE", colorName, "AS", colorAbrev)
+                          console.log("ABBREVIATE", colorName, "AS", color"Abrev)
                           var sku = handle + "-" + colorAbrev + "-" + sizeAbrev
                           var prodUrl = "http://productuploader.com/product/uploader/" + handle + "-" + colorAbrev + ".jpg"
                           // console.log ("Onesie SIZE ABRV", abrev)
