@@ -28,9 +28,10 @@ jsonexportController = {
     var title = req.body.title + " " + req.body.item
     var vendor = req.body["Vendor"]
     var handle = req.body.handle + "-" + req.body.short
-    var yearMonthDay = moment().format("YYYY-MM-DD");
-    var defaultTags = req.body.item + "," + "design_" + req.body.handle + "," + yearMonthDay;
-    console.log("TAGS", defaultTags);
+    // var yearMonthDay = moment().format("YYYY-MM-DD");
+    var dateFormatted = moment().format("YYYY-MMDD" + "b");
+    var defaultTags = req.body.item + "," + "design_" + req.body.handle + "," + dateFormatted;
+    console.log("DateTest", dateTest);
     // var sku = handle + "-" + product.color
 
     // console.log("PRODUCT", product)
