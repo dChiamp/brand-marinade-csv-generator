@@ -2,6 +2,8 @@ var Product = require('../models/products')
 var json2csv = require('json2csv');
 var merge = require('merge');
 var testing = require("../test.js");
+var moment = require('moment');
+// moment().format();
 // , original, cloned;
 
 var csvTemplateHeaderFields = require('../csvTemplateHeaderFields')
@@ -26,6 +28,9 @@ jsonexportController = {
     var title = req.body.title + " " + req.body.item
     var vendor = req.body["Vendor"]
     var handle = req.body.handle + "-" + req.body.short
+    var yearMonthDay = moment().format("YYYY-MM-DD");
+    var defaultTags = req.body.item + "," + "design_" + req.body.handle + "," + yearMonthDay;
+    console.log("TAGS", defaultTags);
     // var sku = handle + "-" + product.color
 
     // console.log("PRODUCT", product)
@@ -45,7 +50,7 @@ jsonexportController = {
                   "Vendor": vendor,
                   "Published": "FALSE",
                   "Type": req.body.type,
-                  "Tags": req.body.tags,
+                  "Tags": defaultTags,
                   "Option1 Name": "Color",
                   // "Option1 Value": "merge color",
                   "Option2 Name": "Size",
