@@ -356,6 +356,7 @@ jsonexportController = {
                 // "Variant SKU": "sku",
                 // "Variant Grams": "merge"
               }
+              console.log("ITEM working?", item)
               // merge size weights:
               for(var i = 0; i< sizeWeight.length; i++) {
                 if(colorSize["Item"] === sizeWeight[i]["item"] 
@@ -369,6 +370,7 @@ jsonexportController = {
               // push to global array instead of my data
               // then on save + export csv button click, download full array of prod objs
               csvTemplate.push(fullProd)
+              console.log("whats wrong? full template:", csvTemplate)
             }
           }
         }
