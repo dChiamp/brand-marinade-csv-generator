@@ -32,6 +32,7 @@ function ProductsController ($scope, $http, productService) {
     var designTitle = $scope.designNames.title
     var designHandle = $scope.designNames.designHandle
     var marketplace = $scope.designNames.marketplace
+    var designTags = $scope.designNames.tags
     console.log("TITLE:", $scope.designNames)
     productService.addNameToProd($scope.designNames);
   }

@@ -30,15 +30,14 @@ jsonexportController = {
     var handle = req.body.handle + "-" + req.body.short
     // var yearMonthDay = moment().format("YYYY-MM-DD");
     var dateFormatted = moment().format("YYYY-MMDD" + "b");
-    var defaultTags = req.body.item + "," + "design_" + req.body.handle + "," + dateFormatted;
-    console.log("DateTest", dateTest);
-    // var sku = handle + "-" + product.color
+    var defaultTags = req.body.item + "," + "design_" + req.body.handle + "," + dateFormatted + ",";
+    var tags = req.body.tags
+    console.log("TAGS", tags)
 
     // console.log("PRODUCT", product)
     // console.log("ITEM", item)
     // console.log("title", title)
     // console.log("vendor", vendor)
-    // console.log("handle", handle)
 
     var csvTemplate = []
     // console.log("REQ.PRODUCT", req.body)
@@ -51,7 +50,7 @@ jsonexportController = {
                   "Vendor": vendor,
                   "Published": "FALSE",
                   "Type": req.body.type,
-                  "Tags": defaultTags,
+                  "Tags": defaultTags + tags,
                   "Option1 Name": "Color",
                   // "Option1 Value": "merge color",
                   "Option2 Name": "Size",

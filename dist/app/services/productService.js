@@ -27,11 +27,13 @@ function productService ($rootScope, $http, FileSaver, Blob) {
   var title;
   var designHandle;
   var marketplace
+  var tags;
 
   function addNameToProd (designName) {
     title = designName.title;
     designHandle = designName.handle;
     marketplace = designName.marketplace;
+    tags = designName.tags
 
     console.log("PROD SERVICE TITLE:", designHandle)
   }
@@ -45,6 +47,7 @@ function productService ($rootScope, $http, FileSaver, Blob) {
       productData.title = title;
       productData.handle = designHandle;
       productData["Vendor"] = marketplace;
+      productData.tags = tags
 
       console.log("PRODUCT W/ NAME FIELDS", productData.handle)
 
