@@ -6,14 +6,14 @@ function OnesieController ($scope, $http, productService) {
   $scope.product = {
                   item: "Onesie",
                   type: "Kids/Infants",
-                  colors: {White: true,
-                          BabyBlue: false,
-                          Black: false,
-                          Heather: false,
-                          Kelly: false,
-                          Pink: false,
-                          Red: false,
-                          Royal: false
+                  colors: {"White": true,
+                          "Baby Blue": false,
+                          "Black": false,
+                          "Heather Grey": false,
+                          "Kelly Green": false,
+                          "Light Pink": false,
+                          "Vintage Red": false,
+                          "Royal Blue": false
                           },
                   sizes: {"Small": false,
                           "Medium": true,

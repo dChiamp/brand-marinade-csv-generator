@@ -6,14 +6,14 @@ function WomensvController ($scope, $http, productService) {
   $scope.product = {
                     item: "Women's V",
                     type: "Women's Tshirt",
-                    colors: {White: true,
-                            Ash: false,
-                            BabyBlue: false,
-                            Black: false,
-                            LightPink: false,
-                            Royal: false,
-                            Silver: false,
-                            VintageRed: false
+                    colors: {"White": true,
+                            "Ash": false,
+                            "Baby Blue": false,
+                            "Black": false,
+                            "Light Pink": false,
+                            "Royal": false,
+                            "Silver": false,
+                            "Vintage Red": false
                             },                    
                     sizes: {"Small": false,
                             "Medium": true,
