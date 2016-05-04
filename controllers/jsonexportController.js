@@ -7,6 +7,9 @@ var moment = require('moment');
 // , original, cloned;
 
 var csvTemplateHeaderFields = require('../csvTemplateHeaderFields')
+var sizeWeight = require('../sizeWeight');
+var colorAbrevs = require('../colorAbrevs');
+
 var masterProductCsvTemplate = [];
 
 jsonexportController = {
@@ -22,6 +25,8 @@ jsonexportController = {
   updateProduct: function (req, res) {
     // get product from DOM
     // var myData = req.body.data;
+    
+    // var imageSrc;
 
     var product = req.body
     var item = req.body.item
@@ -33,6 +38,7 @@ jsonexportController = {
     var defaultTags = req.body.item + "," + "design_" + req.body.handle + "," + dateFormatted + ",";
     var tags = req.body.tags
     console.log("TAGS", tags)
+
 
     // console.log("PRODUCT", product)
     // console.log("ITEM", item)
@@ -54,8 +60,9 @@ jsonexportController = {
                   "Option1 Name": "Color",
                   // "Option1 Value": "merge color",
                   "Option2 Name": "Size",
-                  "Gift Card": "FALSE"
+                  "Gift Card": "FALSE",
                   // "Option2 Value": "merge size",
+                  // "Image Src":  imageSrc
                   }
 
     // defualt to merge each colorsize prod obj with
@@ -73,150 +80,6 @@ jsonexportController = {
                   "Variant Taxable": "TRUE",
                   "Variant Weight Unit": "oz"
                   }
-
-    var sizeWeight = [
-                      {"item": "Crewneck", 
-                      "size": "Small",
-                      "Variant Grams": 340}, 
-                      {"item": "Crewneck", 
-                      "size": "Medium",
-                      "Variant Grams": 369}, 
-                      {"item": "Crewneck", 
-                      "size": "Large",
-                      "Variant Grams": 397},
-                      {"item": "Crewneck", 
-                      "size": "XL",
-                      "Variant Grams": 397},
-                      {"item": "Crewneck", 
-                      "size": "2XL",
-                      "Variant Grams": 425},
-                      {"item": "Crewneck", 
-                      "size": "3XL",
-                      "Variant Grams": 454},
-
-                      {"item": "Hoodie", 
-                      "size": "Small",
-                      "Variant Grams": 340}, 
-                      {"item": "Hoodie", 
-                      "size": "Medium",
-                      "Variant Grams": 369}, 
-                      {"item": "Hoodie", 
-                      "size": "Large",
-                      "Variant Grams": 397},
-                      {"item": "Hoodie", 
-                      "size": "XL",
-                      "Variant Grams": 397},
-                      {"item": "Hoodie", 
-                      "size": "2XL",
-                      "Variant Grams": 425},
-                      {"item": "Hoodie", 
-                      "size": "3XL",
-                      "Variant Grams": 454},
-
-                      {"item": "Kid's Tee", 
-                      "size": "Small",
-                      "Variant Grams": 350}, 
-                      {"item": "Kid's Tee", 
-                      "size": "Medium",
-                      "Variant Grams": 360}, 
-                      {"item": "Kid's Tee", 
-                      "size": "Large",
-                      "Variant Grams": 570},
-                      {"item": "Kid's Tee", 
-                      "size": "XL",
-                      "Variant Grams": 570},
-                      {"item": "Kid's Tee", 
-                      "size": "2XL",
-                      "Variant Grams": 570},
-
-                      {"item": "Onesie", 
-                      "size": "Small",
-                      "Variant Grams": 350}, 
-                      {"item": "Onesie", 
-                      "size": "Medium",
-                      "Variant Grams": 360}, 
-                      {"item": "Onesie", 
-                      "size": "Large",
-                      "Variant Grams": 570},
-                      {"item": "Onesie", 
-                      "size": "XL",
-                      "Variant Grams": 570},
-                      {"item": "Onesie", 
-                      "size": "2XL",
-                      "Variant Grams": 570},
-
-
-                      {"item": "Tank Top", 
-                      "size": "Small",
-                      "Variant Grams": 113}, 
-                      {"item": "Tank Top", 
-                      "size": "Medium",
-                      "Variant Grams": 142}, 
-                      {"item": "Tank Top", 
-                      "size": "Large",
-                      "Variant Grams": 142},
-                      {"item": "Tank Top", 
-                      "size": "XL",
-                      "Variant Grams": 170},
-                      {"item": "Tank Top", 
-                      "size": "2XL",
-                      "Variant Grams": 198},
-
-                      {"item": "Men's Tee", 
-                      "size": "Small",
-                      "Variant Grams": 142}, 
-                      {"item": "Men's Tee", 
-                      "size": "Medium",
-                      "Variant Grams": 170}, 
-                      {"item": "Men's Tee", 
-                      "size": "Large",
-                      "Variant Grams": 170},
-                      {"item": "Men's Tee", 
-                      "size": "XL",
-                      "Variant Grams": 198},
-                      {"item": "Men's Tee", 
-                      "size": "2XL",
-                      "Variant Grams": 227},
-                      {"item": "Men's Tee", 
-                      "size": "3XL",
-                      "Variant Grams": 255},
-
-                      {"item": "Men's V", 
-                      "size": "Small",
-                      "Variant Grams": 142}, 
-                      {"item": "Men's V", 
-                      "size": "Medium",
-                      "Variant Grams": 170}, 
-                      {"item": "Men's V", 
-                      "size": "Large",
-                      "Variant Grams": 170},
-                      {"item": "Men's V", 
-                      "size": "XL",
-                      "Variant Grams": 198},
-                      {"item": "Men's V", 
-                      "size": "2XL",
-                      "Variant Grams": 227},
-                      {"item": "Men's V", 
-                      "size": "3XL",
-                      "Variant Grams": 255},
-
-                      {"item": "Women's V", 
-                      "size": "Small",
-                      "Variant Grams": 113}, 
-                      {"item": "Women's V", 
-                      "size": "Medium",
-                      "Variant Grams": 142}, 
-                      {"item": "Women's V", 
-                      "size": "Large",
-                      "Variant Grams": 142},
-                      {"item": "Women's V", 
-                      "size": "XL",
-                      "Variant Grams": 170},
-                      {"item": "Women's V", 
-                      "size": "2XL",
-                      "Variant Grams": 198}
-                      ]
-
 
     // function createColorSizeObj () {
       for (colorName in product.colors) {
@@ -256,30 +119,6 @@ jsonexportController = {
 
               // SIZE ABBREV FNC
 
-            var colorAbrevs = {
-              "Ash": "ash",
-              "Baby Blue": "baby",
-              "Black": "black",
-              "Brown": "brown",
-              "Charcoal": "charcoal",
-              "Cyper Pink": "cybrpink",
-              "Gold": "gold",
-              "Heather Grey": "heather",
-              "Kelly Green": "kelly",
-              "Light Pink": "pink",
-              "Maroon": "maroon",
-              "Navy Blue": "navy",
-              "Orange": "orange",
-              "Purple": "purple",
-              "Red": "red",
-              "Royal Blue": "royal",
-              "Silver": "silver",
-              "Tan": "tan",
-              "Turqoise": "turqoise",
-              "Vintage Red": "vinred",
-              "White": "white",
-              "Yellow": "yellow"
-            }
                 // if Onesie or kidsT
               if (product.item === "Kid's Tee") {
                 // key in size abbrev obj
@@ -293,6 +132,7 @@ jsonexportController = {
                           console.log("ABBREVIATE", colorName, "AS", colorAbrev)
                           var sku = handle + "-" + colorAbrev + "-" + sizeAbrev
                           var prodUrl = "http://productuploader.com/product/uploader/" + handle + "-" + colorAbrev + ".jpg"
+                          var imageSrc = "http://productuploader.com/product/uploader/" + handle + "-" + colorAbrev + ".jpg"
                           // console.log ("Onesie SIZE ABRV", abrev)
                         } 
                         console.log ("KidsT SKU", sku)
@@ -313,6 +153,7 @@ jsonexportController = {
                           console.log("ABBREVIATE", colorName, "AS", colorAbrev)
                           var sku = handle + "-" + colorAbrev + "-" + sizeAbrev
                           var prodUrl = "http://productuploader.com/product/uploader/" + handle + "-" + colorAbrev + ".jpg"
+                          var imageSrc = "http://productuploader.com/product/uploader/" + handle + "-" + colorAbrev + ".jpg"
                           // console.log ("Onesie SIZE ABRV", abrev)
                         } 
                         // console.log ("Onesie SKU", sku)
@@ -325,10 +166,15 @@ jsonexportController = {
                       var sizeAbrev = sizeNameAbreviation[abrevKey]
                       for (colorKey in colorAbrevs) {
                         if (colorName === colorKey) {
-                          colorAbrev = colorAbrevs[colorKey]
-                          console.log("ABBREVIATE", colorName, "AS", color"Abrev)
-                          var sku = handle + "-" + colorAbrev + "-" + sizeAbrev
+                          colorAbrev = colorAbrevs[colorKey];
+                          console.log("ABBREVIATE", colorName, "AS", colorAbrev);
+                          var sku = handle + "-" + colorAbrev + "-" + sizeAbrev;
                           var prodUrl = "http://productuploader.com/product/uploader/" + handle + "-" + colorAbrev + ".jpg"
+                          var imageSrc = prodUrl;
+                          var mergeImageSrcObj = {"Image Src": imageSrc}
+                          // merge(productAttributesDefaults, mergeImageSrcObj)
+                          var productAttributesDetailedImgSrc = merge(mergeImageSrcObj, productAttributesDetailed)                          
+                          console.log("productattributes-obj:", productAttributesDetailedImgSrc)
                           // console.log ("Onesie SIZE ABRV", abrev)
                         } 
                         // console.log ("Onesie SKU", sku)
@@ -341,6 +187,7 @@ jsonexportController = {
 
               // add color and size attributes
               // *also add dynamic fields
+              // merges with all
               console.log("SKU", sku)
               colorSize = {
                 // "Handle": handle,
@@ -349,7 +196,7 @@ jsonexportController = {
                 "Option1 Value": colorName,
                 "Option2 Value": sizeName,
                 "Variant SKU": sku,
-                "Image Src": prodUrl,
+                // "Image Src": prodUrl,
                 "Variant Image": prodUrl
                 // "Variant Price": product.price
                 // add dynamic
@@ -358,6 +205,7 @@ jsonexportController = {
               }
               console.log("ITEM working?", item)
               // merge size weights:
+              // wait what? ok
               for(var i = 0; i< sizeWeight.length; i++) {
                 if(colorSize["Item"] === sizeWeight[i]["item"] 
                   && colorSize["Option2 Value"] === sizeWeight[i]["size"] ) {
@@ -370,14 +218,15 @@ jsonexportController = {
               // push to global array instead of my data
               // then on save + export csv button click, download full array of prod objs
               csvTemplate.push(fullProd)
-              console.log("whats wrong? full template:", csvTemplate)
+              // console.log("whats wrong? full template:", csvTemplate)
             }
           }
         }
       }
 
+    // console.log("productattributes-obj:", productAttributesDetailed)
     // 1. merge colorsizearray[0] w/ productAttributesDetailed then productAttributesDefaults    
-    var firstRow = merge(csvTemplate[0], productAttributesDetailed);
+    var firstRow = merge(csvTemplate[0], productAttributesDetailedImgSrc);
     // holy fuck this works!
     // not if you want to push multiple prdocts tho
     csvTemplate[0] = firstRow;
@@ -392,7 +241,7 @@ jsonexportController = {
       masterProductCsvTemplate.push(csvTemplate[i])
     }
     
-    // console.log("MASTER TEMPLATE", masterProductCsvTemplate)
+    console.log("MASTER TEMPLATE", masterProductCsvTemplate)
   },
   test: function (req, res) {
     var colors = {red: true}
