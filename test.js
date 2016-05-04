@@ -5,7 +5,7 @@ var sizeWeight = require('./sizeWeight')
 var colorAbrevs = require('./colorAbrevs')
 var moment = require('moment');
 
-  console.log("TESTIN 123");
+  console.log("TESTIN from inside sandbox");
 
   // var masterProductCsvTemplate = [];
 
@@ -33,7 +33,6 @@ var moment = require('moment');
     "2XL": "24m"
   }
 
-
   var product = {
     item: "Hoodie",
     // title: "",
@@ -54,12 +53,12 @@ var moment = require('moment');
     Vendor: "Tucker's Ts",
     handle: "tucker's Handle",
     title: "tucker's title"
-
   }
+  
+  var masterProductCsvTemplate = [];
 
 function testing () {
     //  testing to get response back by returning this array
-    var masterProductCsvTemplate = [];
     var csvTemplate = []
 
     var item = product.item;
@@ -99,7 +98,7 @@ function testing () {
                   "Vendor": vendor,
                   "Published": "FALSE",
                   "Type": product.type,
-                  "Tags": defaultTags + tags,
+                  "Tags": defaultTags,
                   "Option1 Name": "Color",
                   // "Option1 Value": "merge color",
                   "Option2 Name": "Size",
@@ -124,7 +123,7 @@ function testing () {
                   "Variant Weight Unit": "oz"
                   }
 
-    // function createColorSizeObj () {
+    function createColorSizeObj () {
       for (colorName in product.colors) {
         var colorBoolean = product.colors[colorName]
         // if color is true, iterate through sizes
@@ -135,9 +134,37 @@ function testing () {
             if(colorBoolean && sizeBoolean) {
               // name obj
               var colorSize = colorName + sizeName;
-              // need to append size abrevs instead of sizename
-              // console.log("PRODUCT ITEM IN FNC:", product.item);
+              colorSize = {
+                // "Handle": handle,
+                "Item": item,
+                // this should be a color size abbrev
+                "Option1 Value": colorName,
+                "Option2 Value": sizeName,
+                // "Variant SKU": sku,
+                // "Image Src": prodUrl,
+                // "Variant Image": prodUrl
+                // "Variant Price": product.price
+                // add dynamic
+                // "Variant SKU": "sku",
+                // "Variant Grams": "merge"
+              }
 
+              // need to append size abrevs instead of sizename
+
+              var defaultsAndColorSize = merge(colorSize, productAttributesDefaults)
+              csvTemplate.push(defaultsAndColorSize)
+              
+              console.log("colorSize Object:", csvTemplate);
+
+            }
+          }
+        }
+      }
+    }
+    createColorSizeObj();
+}
+
+/*
               // SIZE ABBREV FNC
 
                 // if Onesie or kidsT
@@ -262,8 +289,18 @@ function testing () {
       masterProductCsvTemplate.push(csvTemplate[i])
     }
 
-    return masterProductCsvTemplate;
+
+    // chainTest(masterProductCsvTemplate)
+    // return masterProductCsvTemplate;
+    // return chainTest()
+
 }
+
+// function chainTest () {
+//   return masterProductCsvTemplate
+// } 
+
+*/
 
 module.exports = testing;
 

@@ -39,4 +39,18 @@ function SaveController ($scope, $http, FileSaver, Blob) {
 
   }
 
+    function convertAndDowloadTest () {
+
+    // console.log("product obj to be converted: ", $scope.product)
+    $http
+      .get('/api/test')
+      .then(function(response) {
+        console.log("CSV from server", response.data)
+        var productCSV = response.data
+       // call download function
+        vm.download(productCSV)
+    })
+
+  }
+
 }
