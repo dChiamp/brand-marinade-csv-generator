@@ -17,7 +17,10 @@ router.route('/api/convert')
   .get(jsonexportController.convertJson)
   .post(jsonexportController.updateProduct)
 
+// router.route('/api/test')
+//   .get(jsonexportController.test)
+
 router.route('/api/test')
-  .get(jsonexportController.test)
-  
+  .get(jsonexportController.helperFncReturnArrayTest)
+
 module.exports = router;

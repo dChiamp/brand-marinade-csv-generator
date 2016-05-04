@@ -12,6 +12,8 @@ var colorAbrevs = require('../colorAbrevs');
 
 var masterProductCsvTemplate = [];
 
+var masterArray = []
+
 jsonexportController = {
   convertJson: function (req, res) {
     console.log("totalCSV:", masterProductCsvTemplate)
@@ -38,12 +40,6 @@ jsonexportController = {
     var defaultTags = req.body.item + "," + "design_" + req.body.handle + "," + dateFormatted + ",";
     var tags = req.body.tags
     console.log("TAGS", tags)
-
-
-    // console.log("PRODUCT", product)
-    // console.log("ITEM", item)
-    // console.log("title", title)
-    // console.log("vendor", vendor)
 
     var csvTemplate = []
     // console.log("REQ.PRODUCT", req.body)
@@ -254,11 +250,17 @@ jsonexportController = {
       function(err, csv) {
         if (err) console.log(err);
         console.log(csv);
+        // masterArray.push(csv)
         res.send(csv);
     });
   },
-  jest: function(req, res) {
-    console.log("CHAIN")
+  helperFncReturnArrayTest: function(req, res) {
+    // console.log("1CHAIN")
+    // var product = req.body
+    masterArray.push(testing() );
+    console.log("masterArray", masterArray)
+
+    res.send("hit")
   }
 }
 
