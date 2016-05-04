@@ -244,17 +244,20 @@ function testing () {
                   console.log("SKU", sku);
                   var prodUrl = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg"
                   var imageSrc = prodUrl;
-                  var mergeImageSrcObj = {"Image Src": imageSrc,
+                  var mergeSkuUrlObj = {
+                                          // "Image Src": imageSrc,
                                           "Variant SKU": sku,
                                           "Variant Image": prodUrl
                                           }
+                  // var mergeImgSrc = {"Image Src": imageSrc}
 
-                  // console.log("mergeImageSrcObj", mergeImageSrcObj)
-                  // merge(productAttributesDefaults, mergeImageSrcObj)
+                  // console.log("mergeSkuUrlObj", mergeSkuUrlObj)
+                  // merge(productAttributesDefaults, mergeSkuUrlObj)
                   // actually has to merge with each i in 
                   // for (var i; in sizeAbrevArray) {
-                    var productAttributesDetailedImgSrc = merge(mergeImageSrcObj, colorSizeArray[i])                          
+                    var productAttributesDetailedImgSrc = merge(mergeSkuUrlObj, colorSizeArray[i])                          
                     sizeAbrevArray.push(productAttributesDetailedImgSrc)
+                    // var firstRowImgSrc = merge(sizeAbrevArray[0], mergeImgSrc)
                   // }
                   // console.log("productattributes-obj:", productAttributesDetailedImgSrc)
                   // console.log ("SIZE ABRV array", sizeAbrevArray)
@@ -292,7 +295,10 @@ function testing () {
 
   function addFirstRowDetails (array) {
         // 1. merge colorsizearray[0] w/ productAttributesDetailed then productAttributesDefaults    
+    var imageSrc = {"Image Src": sizeWeightArray[0]["Variant Image"]}
+    var mergeImgSrc = merge(sizeWeightArray[0], imageSrc)
     var firstRow = merge(sizeWeightArray[0], productAttributesDetailed);
+    // var firstRowImgSrc = merge(firstRow,  )
     // holy fuck this works!
     // not if you want to push multiple prdocts tho
     sizeWeightArray[0] = firstRow;
