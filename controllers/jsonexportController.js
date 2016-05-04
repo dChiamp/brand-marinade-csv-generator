@@ -246,15 +246,16 @@ jsonexportController = {
     // console.log(req)
     // res.send({testing: 123});
     // console.log("TEST REQ.BODY", colors)
-    res.send(testing());
     // testing();
 
-    // json2csv({ data: testing(), fields: csvTemplateHeaderFields }, 
-    //   function(err, csv) {
-    //     if (err) console.log(err);
-    //     console.log(csv);
-    //     res.send(csv);
-    // });
+    // res.send(;
+
+    json2csv({ data: testing(), fields: csvTemplateHeaderFields }, 
+      function(err, csv) {
+        if (err) console.log(err);
+        console.log(csv);
+        res.send(csv);
+    });
   },
   jest: function(req, res) {
     console.log("CHAIN")

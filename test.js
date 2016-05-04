@@ -9,8 +9,6 @@ var moment = require('moment');
 
   // var masterProductCsvTemplate = [];
 
-  var productAttributesDetailed;
-  var productAttributesDefaults;
 
   var sizeNameAbreviation = {
     "Small": "sm",
@@ -50,7 +48,7 @@ var moment = require('moment');
             "2XL": false,
             "3XL": false},
     // brands: "American Apparel",
-    tags: "",
+    tags: "tagsTest",
     price: 48,
     short: "hoodie",
     Vendor: "Tucker's Ts",
@@ -58,24 +56,38 @@ var moment = require('moment');
     title: "tucker's title"
   }
   
-  var masterProductCsvTemplate = [];
+  var productAttributesDetailed;
+  var productAttributesDefaults;
 
-  var csvTemplate = []
+  var masterProductCsvTemplate = [];
+  // csvTemplate renamed to sizeAbrevArray
+  // var csvTemplate = []
+
+  var colorSizeArray = [];
+  var sizeAbrevArray = [];
+  var sizeWeightArray = [];
+
 
 function testing () {
     //  testing to get response back by returning this array
-
-    var item = product.item;
-    var title = product.title + " " + product.item;
-    var vendor = product.Vendor
-    var handle = product.handle + "-" + product.short
-    // var sku = handle + "-" + product.color
 
     console.log("ITEM", item)
     console.log("title", title)
     console.log("vendor", vendor)
     console.log("handle", handle)
     // these are set on DOM
+
+    //  should merge these in to each obj
+    var item = product.item
+    var title = product.title + " " + product.item
+    var vendor = product["Vendor"]
+    var handle = product.handle + "-" + product.short
+    // var yearMonthDay = moment().format("YYYY-MM-DD");
+    var dateFormatted = moment().format("YYYY-MMDD");
+    var defaultTags = product.item + "," + "design_" + product.handle + "," + dateFormatted + ",";
+    var tags =  defaultTags + product.tags
+    console.log("TAGS", tags)
+
     // add only to first row obj
     productAttributesDetailed = {
                   "Title": title,
@@ -83,7 +95,7 @@ function testing () {
                   "Vendor": vendor,
                   "Published": "FALSE",
                   "Type": product.type,
-                  "Tags": defaultTags,
+                  "Tags": tags,
                   "Option1 Name": "Color",
                   // "Option1 Value": "merge color",
                   "Option2 Name": "Size",
@@ -108,16 +120,8 @@ function testing () {
                   "Variant Weight Unit": "oz"
                   }
 
-    var item = product.item
-    var title = product.title + " " + product.item
-    var vendor = product["Vendor"]
-    var handle = product.handle + "-" + product.short
-    // var yearMonthDay = moment().format("YYYY-MM-DD");
-    var dateFormatted = moment().format("YYYY-MMDD");
-    var defaultTags = product.item + "," + "design_" + product.handle + "," + dateFormatted + ",";
-    var tags = product.tags
-    console.log("TAGS", tags)
     createColorSizeObj();
+    return masterProductCsvTemplate;
 }
     // console.log("PRODUCT", product)
     // console.log("ITEM", item)
@@ -128,13 +132,10 @@ function testing () {
 
 
     function createColorSizeObj () {
-      console.log("hi from createColorSizeObj fnc");
-
+      console.log("hi from createColorSizeObj fnc", productAttributesDefaults);
       for (colorName in product.colors) { 
-
-        console.log("colorName", colorName);
-
         var colorBoolean = product.colors[colorName]
+        console.log("colorName", colorName, "colorBoolean", colorBoolean);
         // if color is true, iterate through sizes
         if (colorBoolean) {
           for (sizeName in product.sizes) {
@@ -166,14 +167,14 @@ function testing () {
               // need to append size abrevs instead of sizename
 
               var defaultsAndColorSize = merge(colorSize, productAttributesDefaults)
-              csvTemplate.push(defaultsAndColorSize)
+              colorSizeArray.push(defaultsAndColorSize)
               
-              console.log("full template array:", csvTemplate);
+              console.log("colorSizeArray:", colorSizeArray);
             }
           }
         }
       }
-    abrevsSizeNames(csvTemplate)
+    abrevsSizeNames(colorSizeArray)
   }
     // createColorSizeObj();
 // }
@@ -182,8 +183,13 @@ function testing () {
   function abrevsSizeNames (array) {
     console.log("hi from abrevsSizeNames")
 
-    for (product in array) {
-        // if Onesie or kidsT
+    for (var i = 0; i < colorSizeArray.length; i++) {
+
+      // console.log("product in array", colorSizeArray[i])
+      var product = colorSizeArray[i]
+
+      // console.log("product.item", product.Item)
+      // if Onesie or kidsT
       if (product.item === "Kid's Tee") {
         // key in size abbrev obj
           for (abrevKey in kidsSizeNameAbreviation) {
@@ -224,33 +230,90 @@ function testing () {
               }
             }
           }
+          // hack to work for one product, need to catch else's
         } else {
           for (abrevKey in sizeNameAbreviation) {
-            if(sizeName === abrevKey) {
+            if(product["Option2 Value"] === abrevKey) {
               var sizeAbrev = sizeNameAbreviation[abrevKey]
               for (colorKey in colorAbrevs) {
-                if (colorName === colorKey) {
+                if (product["Option1 Value"] === colorKey) {
                   colorAbrev = colorAbrevs[colorKey];
-                  console.log("ABBREVIATE", colorName, "AS", colorAbrev);
-                  var sku = product.handle + "-" + colorAbrev + "-" + sizeAbrev;
-                  var prodUrl = "http://productuploader.com/product/uploader/" + product.handle + "-" + colorAbrev + ".jpg"
+
+                  // console.log("ABBREVIATE", colorName, "AS", colorAbrev);
+                  var sku = product.Handle + "-" + colorAbrev + "-" + sizeAbrev;
+                  console.log("SKU", sku);
+                  var prodUrl = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg"
                   var imageSrc = prodUrl;
-                  var mergeImageSrcObj = {"Image Src": imageSrc}
+                  var mergeImageSrcObj = {"Image Src": imageSrc,
+                                          "Variant SKU": sku,
+                                          "Variant Image": prodUrl
+                                          }
+
+                  // console.log("mergeImageSrcObj", mergeImageSrcObj)
                   // merge(productAttributesDefaults, mergeImageSrcObj)
-                  var productAttributesDetailedImgSrc = merge(mergeImageSrcObj, productAttributesDetailed)                          
-                  console.log("productattributes-obj:", productAttributesDetailedImgSrc)
-                  // console.log ("all SIZE ABRV", abrev)
+                  // actually has to merge with each i in 
+                  // for (var i; in sizeAbrevArray) {
+                    var productAttributesDetailedImgSrc = merge(mergeImageSrcObj, colorSizeArray[i])                          
+                    sizeAbrevArray.push(productAttributesDetailedImgSrc)
+                  // }
+                  // console.log("productattributes-obj:", productAttributesDetailedImgSrc)
+                  // console.log ("SIZE ABRV array", sizeAbrevArray)
                 } 
               }
-              console.log("SSSSKKKKKUUUUUpuid", sku)
             }
           }
-        // }
-        }
+        } 
       }
-    }
+      // console.log("sizeAbrevArray", sizeAbrevArray)
+      addSizeWeights(sizeAbrevArray);
+  }
 
     // abrevsSizeNames(csvTemplate)
+
+    function addSizeWeights (array) {
+      console.log("hola from add addSizeWeights")
+
+      for(var i = 0; i < array.length; i++) {
+
+        console.log("array[i].Item", array[i]["Item"])
+
+        for (var j = 0; j < sizeWeight.length; j++) { 
+          // console.log("sizeWeight[j]", sizeWeight[j])
+        if(array[i]["Item"] === sizeWeight[j]["item"] 
+          && array[i]["Option2 Value"] === sizeWeight[j]["size"] ) {
+            var sizeWeightObj = merge(array[i], sizeWeight[j])
+            // console.log("colorSizeWight****", sizeWeightObj)
+            sizeWeightArray.push(sizeWeightObj)
+          }
+        }
+      }
+      addFirstRowDetails(sizeWeightArray);
+    }
+
+  function addFirstRowDetails (array) {
+        // 1. merge colorsizearray[0] w/ productAttributesDetailed then productAttributesDefaults    
+    var firstRow = merge(sizeWeightArray[0], productAttributesDetailed);
+    // holy fuck this works!
+    // not if you want to push multiple prdocts tho
+    sizeWeightArray[0] = firstRow;
+
+    // console.log("csvTemplate", csvTemplate)
+    console.log("firstRow", firstRow)
+    // 2. merge colorsizearray[1++] w/ productAttributesDefaults
+    // now you need to iterate through each product and add size weights 
+
+    // console.log("TEMPLATE", csvTemplate)
+
+    // now send each obj within local template to master template:
+    for(var i=0; i < sizeWeightArray.length; i++) {
+      masterProductCsvTemplate.push(sizeWeightArray[i])
+    }
+    
+    // console.log("MASTER TEMPLATE", masterProductCsvTemplate)
+
+    // return masterProductCsvTemplate
+
+  }
 
 
 /*
