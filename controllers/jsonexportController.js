@@ -218,7 +218,7 @@ jsonexportController = {
               // push to global array instead of my data
               // then on save + export csv button click, download full array of prod objs
               csvTemplate.push(fullProd)
-              // console.log("whats wrong? full template:", csvTemplate)
+              console.log("whats wrong? full template:", csvTemplate)
             }
           }
         }
@@ -237,16 +237,22 @@ jsonexportController = {
     // console.log("TEMPLATE", csvTemplate)
 
     // now send each obj within local template to master template:
-    for(var i=0; i <= csvTemplate.length; i++) {
+    for(var i=0; i <= csvTemplate.length - 1; i++) {
       masterProductCsvTemplate.push(csvTemplate[i])
     }
-    
     console.log("MASTER TEMPLATE", masterProductCsvTemplate)
   },
   test: function (req, res) {
-    var colors = {red: true}
+    // console.log(req)
+    // res.send({testing: 123});
     // console.log("TEST REQ.BODY", colors)
-    testing();
+    // res.send(testing());
+    json2csv({ data: testing(), fields: csvTemplateHeaderFields }, 
+      function(err, csv) {
+        if (err) console.log(err);
+        console.log(csv);
+        res.send(csv);
+    });
   },
   jest: function(req, res) {
     console.log("CHAIN")
