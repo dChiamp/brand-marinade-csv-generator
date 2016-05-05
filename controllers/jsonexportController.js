@@ -1,7 +1,7 @@
 var Product = require('../models/products')
 var json2csv = require('json2csv');
 var merge = require('merge');
-var testing = require("../test.js");
+var testing = require("../converterHelperFunctions.js");
 var moment = require('moment');
 // moment().format();
 // , original, cloned;
@@ -42,7 +42,6 @@ jsonexportController = {
     // console.log("Product Returned:", testing(product))
     masterArray.push(testing(product) );
     console.log("masterArray", masterArray)
-
     res.send("hit")
   }
 }
