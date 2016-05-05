@@ -319,6 +319,13 @@ function testing (product) {
       return addFirstRowDetails(sizeWeightArray);
     }
 
+  // setDefaultImageFnc 
+  // if product.defaultColor = "RED"
+  // move it first position in array
+  // then bind that info 
+
+  // create repositionArray
+
   function addFirstRowDetails (array) {
      // masterProductCsvTemplate = []
         // 1. merge colorsizearray[0] w/ productAttributesDetailed then productAttributesDefaults    
