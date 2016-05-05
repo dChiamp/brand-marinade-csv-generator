@@ -18,7 +18,7 @@ var colorAbrevs = {
   "Royal Blue": "royal",
   "Silver": "silver",
   "Tan": "tan",
-  "Turqoise": "turqoise",
+  "Turquoise": "turquoise",
   "Vintage Red": "vinred",
   "White": "white",
   "Yellow": "yellow"
