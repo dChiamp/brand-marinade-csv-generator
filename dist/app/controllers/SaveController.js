@@ -25,7 +25,7 @@ function SaveController ($scope, $http, FileSaver, Blob) {
   // console.log("$scope.csvTemplate.colorsTest.red",$scope.csvTemplate.colorsTest.red )
   // console.log("$scope.product:", $scope.product)
     // put product model in service?
-  function convertAndDowload () {
+  function convertAndDownload () {
 
     // console.log("product obj to be converted: ", $scope.product)
     $http
@@ -35,23 +35,8 @@ function SaveController ($scope, $http, FileSaver, Blob) {
         var productCSV = response.data
        // call download function
         vm.download(productCSV)
-        // vm.download("test")
     })
 
   }
-
-  //   function convertAndDowloadTest () {
-
-  //   // console.log("product obj to be converted: ", $scope.product)
-  //   $http
-  //     .get('/api/test')
-  //     .then(function(response) {
-  //       console.log("CSV from server", response.data)
-  //       var productCSV = response.data
-  //      // call download function
-  //       vm.download(productCSV)
-  //   })
-
-  // }
 
 }
