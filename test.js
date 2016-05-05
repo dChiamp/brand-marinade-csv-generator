@@ -205,26 +205,28 @@ function testing (product) {
 
       // console.log("product.item", product.Item)
       // if Onesie or kidsT
-      if (product.item === "Kid's Tee") {
+      if (product.Item === "Kid's Tee") {
         // key in size abbrev obj
           for (abrevKey in kidsSizeNameAbreviation) {
             // if sizes match, create sku
+            console.log("sizeName", sizeName)
+            console.log("product COLOR",product["Option2 Value"])
             if(sizeName === abrevKey) {
               var sizeAbrev = kidsSizeNameAbreviation[abrevKey]
               for (colorKey in colorAbrevs) {
-                if (colorName === colorKey) {
-                  colorAbrev = colorAbrevs[colorKey]
-                  console.log("ABBREVIATE", colorName, "AS", colorAbrev)
-                  var sku = product.handle + "-" + colorAbrev + "-" + sizeAbrev
-                  var prodUrl = "http://productuploader.com/product/uploader/" + handle + "-" + colorAbrev + ".jpg"
-                  var imageSrc = "http://productuploader.com/product/uploader/" + handle + "-" + colorAbrev + ".jpg"
-                  console.log ("Onesie SIZE ABRV", colorAbrev)
+                if (product["Option1 Value"] === colorKey) {
+                  colorAbrev = colorAbrevs[colorKey];
+                  // console.log("ABBREVIATE", colorName, "AS", colorAbrev);
+                  var sku = product.Handle + "-" + colorAbrev + "-" + sizeAbrev;
+                  console.log("SKU", sku);
+                  var prodUrl = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg"
+                  var imageSrc = prodUrl;
                 } 
                 console.log ("KidsT SKU", sku)
               }
             }
           }
-        } else if (product.item === "Onesie") {
+        } else if (product.Item === "Onesie") {
           for (abrevKey in babySizeNameAbreviation) {
             if(sizeName === abrevKey) {
               // console.log("ONSIE SIZE", product.sizes)
@@ -233,14 +235,22 @@ function testing (product) {
               // if colorName === key in colorabreves)
               // then replace colorname with colorabrev VALUE and add to sku
               for (colorKey in colorAbrevs) {
-                if (colorName === colorKey) {
-                  colorAbrev = colorAbrevs[colorKey]
-                  console.log("ABBREVIATE", colorName, "AS", colorAbrev)
-                  var sku = handle + "-" + colorAbrev + "-" + sizeAbrev
-                  var prodUrl = "http://productuploader.com/product/uploader/" + handle + "-" + colorAbrev + ".jpg"
-                  var imageSrc = "http://productuploader.com/product/uploader/" + handle + "-" + colorAbrev + ".jpg"
-                  // console.log ("Onesie SIZE ABRV", abrev)
+                  if (product["Option1 Value"] === colorKey) {
+                  colorAbrev = colorAbrevs[colorKey];
+                  // console.log("ABBREVIATE", colorName, "AS", colorAbrev);
+                  var sku = product.Handle + "-" + colorAbrev + "-" + sizeAbrev;
+                  console.log("SKU", sku);
+                  var prodUrl = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg"
+                  var imageSrc = prodUrl;
                 } 
+                // if (colorName === colorKey) {
+                //   colorAbrev = colorAbrevs[colorKey]
+                //   console.log("ABBREVIATE", colorName, "AS", colorAbrev)
+                //   var sku = handle + "-" + colorAbrev + "-" + sizeAbrev
+                //   var prodUrl = "http://productuploader.com/product/uploader/" + handle + "-" + colorAbrev + ".jpg"
+                //   var imageSrc = "http://productuploader.com/product/uploader/" + handle + "-" + colorAbrev + ".jpg"
+                //   // console.log ("Onesie SIZE ABRV", abrev)
+                // } 
                 // console.log ("Onesie SKU", sku)
               }
             }
@@ -255,34 +265,30 @@ function testing (product) {
                 // if colors match
                 if (product["Option1 Value"] === colorKey) {
                   colorAbrev = colorAbrevs[colorKey];
-
                   // console.log("ABBREVIATE", colorName, "AS", colorAbrev);
                   var sku = product.Handle + "-" + colorAbrev + "-" + sizeAbrev;
                   console.log("SKU", sku);
                   var prodUrl = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg"
                   var imageSrc = prodUrl;
-                  var mergeSkuUrlObj = {
-                                          // "Image Src": imageSrc,
-                                          "Variant SKU": sku,
-                                          "Variant Image": prodUrl
-                                          }
+                } 
                   // var mergeImgSrc = {"Image Src": imageSrc}
-
                   // console.log("mergeSkuUrlObj", mergeSkuUrlObj)
                   // merge(productAttributesDefaults, mergeSkuUrlObj)
                   // actually has to merge with each i in 
                   // for (var i; in sizeAbrevArray) {
-                    var productAttributesDetailedImgSrc = merge(mergeSkuUrlObj, colorSizeArray[i])                          
-                    sizeAbrevArray.push(productAttributesDetailedImgSrc)
                     // var firstRowImgSrc = merge(sizeAbrevArray[0], mergeImgSrc)
                   // }
                   // console.log("productattributes-obj:", productAttributesDetailedImgSrc)
                   // console.log ("SIZE ABRV array", sizeAbrevArray)
-                } 
               }
             }
           }
         } 
+        var mergeSkuUrlObj = {"Variant SKU": sku,
+                              "Variant Image": prodUrl
+                              }
+        var productAttributesDetailedImgSrc = merge(mergeSkuUrlObj, colorSizeArray[i])                          
+        sizeAbrevArray.push(productAttributesDetailedImgSrc)
       }
       // console.log("sizeAbrevArray", sizeAbrevArray)
       return addSizeWeights(sizeAbrevArray);
@@ -291,8 +297,10 @@ function testing (product) {
     // abrevsSizeNames(csvTemplate)
 
     function addSizeWeights (array) {
+
       // sizeWeightArray = []
       console.log("hola from add addSizeWeights")
+      console.log("SIZEABREVARRAY", sizeAbrevArray)
 
       for(var i = 0; i < array.length; i++) {
 
