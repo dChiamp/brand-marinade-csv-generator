@@ -22,7 +22,8 @@ function HoodieController ($scope, $http, productService) {
                     // brands: "American Apparel",
                     tags: "",
                     price: 48,
-                    short: "hoodie"
+                    short: "hoodie",
+                    primaryImgColor: "Ash"
                   }
 
   $scope.save = function() {

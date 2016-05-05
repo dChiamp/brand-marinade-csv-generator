@@ -90,6 +90,7 @@ function testing (product) {
     var dateFormatted = moment().format("YYYY-MMDD");
     var defaultTags = product.item + "," + "design_" + product.handle + "," + dateFormatted + ",";
     var tags =  defaultTags + product.tags
+    var primaryImgColor = product.primaryImgColor
 
     console.log("TAGS", tags)
     console.log("ITEM", item)
@@ -108,9 +109,7 @@ function testing (product) {
                   "Option1 Name": "Color",
                   // "Option1 Value": "merge color",
                   "Option2 Name": "Size",
-                  "Gift Card": "FALSE",
-                  // "Option2 Value": "merge size",
-                  // "Image Src":  imageSrc
+                  "Gift Card": "FALSE"
                   }
 
     // defualt to merge each colorsize prod obj with
@@ -126,7 +125,8 @@ function testing (product) {
                   "Variant Fulfillment Service": "manual",
                   "Variant Requires Shipping": "TRUE",
                   "Variant Taxable": "TRUE",
-                  "Variant Weight Unit": "oz"
+                  "Variant Weight Unit": "oz",
+                  "defaultImgColor":  primaryImgColor
                   }
 
     return createColorSizeObj(product);
@@ -200,8 +200,8 @@ function testing (product) {
     // iterate thru all objs in colorsizearr
     for (var i = 0; i < colorSizeArray.length; i++) {
 
-      // console.log("product in array", colorSizeArray[i])
       var product = colorSizeArray[i]
+      console.log("product Defualt Color", colorSizeArray[i].defaultImgColor)
 
       // console.log("product.item", product.Item)
       // if Onesie or kidsT
@@ -263,14 +263,21 @@ function testing (product) {
               var sizeAbrev = sizeNameAbreviation[abrevKey]
               for (colorKey in colorAbrevs) {
                 // if colors match
+                colorAbrev = colorAbrevs[colorKey];
+                
                 if (product["Option1 Value"] === colorKey) {
-                  colorAbrev = colorAbrevs[colorKey];
                   // console.log("ABBREVIATE", colorName, "AS", colorAbrev);
                   var sku = product.Handle + "-" + colorAbrev + "-" + sizeAbrev;
                   console.log("SKU", sku);
                   var prodUrl = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg"
-                  var imageSrc = prodUrl;
+                  // var defaultImgSrc = prodUrl;
                 } 
+                // if colors match AND primaryImgColor = colorAbrevKey
+                if (product["Option1 Value"] === colorKey && product.defaultImgColor === colorKey ) {
+                  // then create image src
+                  var defaultImgSrc = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg";
+                  console.log("defaultImgSrc", defaultImgSrc)
+                }
                   // var mergeImgSrc = {"Image Src": imageSrc}
                   // console.log("mergeSkuUrlObj", mergeSkuUrlObj)
                   // merge(productAttributesDefaults, mergeSkuUrlObj)
@@ -285,7 +292,8 @@ function testing (product) {
           }
         } 
         var mergeSkuUrlObj = {"Variant SKU": sku,
-                              "Variant Image": prodUrl
+                              "Variant Image": prodUrl,
+                              "imgSrc": defaultImgSrc
                               }
         var productAttributesDetailedImgSrc = merge(mergeSkuUrlObj, colorSizeArray[i])                          
         sizeAbrevArray.push(productAttributesDetailedImgSrc)
@@ -319,17 +327,30 @@ function testing (product) {
       return addFirstRowDetails(sizeWeightArray);
     }
 
+  //naive
   // setDefaultImageFnc 
-  // if product.defaultColor = "RED"
+  // if product.primaryImgColor = "RED"
   // move it first position in array
   // then bind that info 
+  // 0.1
+  // instead just add Primary Img color to ImgSrc
+
 
   // create repositionArray
 
   function addFirstRowDetails (array) {
      // masterProductCsvTemplate = []
         // 1. merge colorsizearray[0] w/ productAttributesDetailed then productAttributesDefaults    
-    var imageSrc = {"Image Src": array[0]["Variant Image"]}
+
+    // get primary color
+    var primaryImgColor = product.primaryImgColor
+    // match color to 
+
+    var imageSrc = {"Image Src": array[0]["imgSrc"]}
+    
+    console.log("primaryImgColor", primaryImgColor);
+
+    // var imageSrc = {"Image Src": array[0]["Variant Image"]}
     var mergeImgSrc = merge(array[0], imageSrc)
     var firstRow = merge(array[0], productAttributesDetailed);
     // var firstRowImgSrc = merge(firstRow,  )
