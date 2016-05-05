@@ -23,7 +23,6 @@ function SaveController ($scope, $http, FileSaver, Blob) {
   };
 
   // console.log("$scope.csvTemplate.colorsTest.red",$scope.csvTemplate.colorsTest.red )
-  // console.log("$scope.product:", $scope.product)
     // put product model in service?
   function convertAndDownload () {
 

@@ -15,14 +15,10 @@ router.route('/api/products')
 
 router.route('/api/convert')
   .get(jsonexportController.convertJson)
+  .post(jsonexportController.helperFncReturnArrayTest)
   // .post(jsonexportController.updateProduct)
 
-  .post(jsonexportController.helperFncReturnArrayTest)
-
 // router.route('/api/test')
-//   .get(jsonexportController.test)
-
-router.route('/api/test')
-  .get(jsonexportController.helperFncReturnArrayTest)
+//   .get(jsonexportController.helperFncReturnArrayTest)
 
 module.exports = router;
