@@ -16,12 +16,18 @@ var masterArray = []
 
 jsonexportController = {
   convertJson: function (req, res) {
-    console.log("totalCSV:", masterProductCsvTemplate)
-    json2csv({ data: masterProductCsvTemplate, fields: csvTemplateHeaderFields }, 
+    var finalCsvArray = [].concat.apply([], masterArray);
+    // console.log("master:", finalCsvArray)
+    json2csv({ data: finalCsvArray, fields: csvTemplateHeaderFields }, 
+    // console.log("totalCSV:", masterProductCsvTemplate)
+      // json2csv({ data: masterProductCsvTemplate, fields: csvTemplateHeaderFields }, 
       function(err, csv) {
         if (err) console.log(err);
-        console.log(csv);
+        console.log("FINAL CSV", csv);
         res.send(csv);
+        masterArray = [];
+        finalCsvArray = [];
+
     });
   },
   updateProduct: function (req, res) {
@@ -256,8 +262,9 @@ jsonexportController = {
   },
   helperFncReturnArrayTest: function(req, res) {
     // console.log("1CHAIN")
-    // var product = req.body
-    masterArray.push(testing() );
+    var product = req.body
+    // console.log("Product Returned:", testing(product))
+    masterArray.push(testing(product) );
     console.log("masterArray", masterArray)
 
     res.send("hit")
