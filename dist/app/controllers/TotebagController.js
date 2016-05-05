@@ -14,7 +14,8 @@ function TotebagController ($scope, $http) {
                             large: true },
                     brands: ["American Apparel"],
                     tags: ["hella cool"],
-                    price: 50
+                    price: 50,
+                    primaryImgColor: "White"
                   }
   $scope.save = function() {
     productService.saveProductSettings($scope.product);

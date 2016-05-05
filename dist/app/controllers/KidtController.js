@@ -29,7 +29,8 @@ function KidtController ($scope, $http, productService) {
                     brands: ["American Apparel"],
                     tags: ["hella cool"],
                     price: 18,
-                    short: "ktee"
+                    short: "ktee",
+                    primaryImgColor: "White"
                   }
   $scope.save = function() {
     productService.saveProductSettings($scope.product);

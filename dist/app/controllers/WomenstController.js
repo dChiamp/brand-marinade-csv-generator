@@ -21,7 +21,8 @@ function WomenstController ($scope, $http, productService) {
                     brands: ["American Apparel"],
                     tags: ["hella cool"],
                     price: 20,
-                    short: "wtee"
+                    short: "wtee",
+                    primaryImgColor: "White"
                   }
   $scope.save = function() {
     productService.saveProductSettings($scope.product);

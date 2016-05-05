@@ -23,7 +23,8 @@ function OnesieController ($scope, $http, productService) {
                   brands: ["American Apparel"],
                   tags: ["hella cool"],
                   price: 18,
-                  short: "onesie"
+                  short: "onesie",
+                  primaryImgColor: "White"
                 }
 
   $scope.save = function() {

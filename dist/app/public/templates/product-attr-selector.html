@@ -23,7 +23,8 @@
                     <p> {{key}} | {{value}} </p>
                   </md-switch>
                 </div>
-                 <div>
+
+                <div>
                   <p> Set Price </p>
                    <form ng-submit="addDesignName()">
                     <div class="form-group">
@@ -31,6 +32,17 @@
                       </div>
                   </form>
                 </div>
+
+                <div>
+                  <p> Enter Defualt Display Image </p>
+                   <form ng-submit="addDesignName()">
+                    <div class="form-group">
+                        <input type="text" ng-model="product.primaryImgColor" placeholder="Ash">
+                      </div>
+                  </form>
+                </div>
+
+
                 <button ng-click="save()"> save </button>
               </div>
             </div>

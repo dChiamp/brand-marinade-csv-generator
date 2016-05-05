@@ -19,7 +19,8 @@ function CrewneckController ($scope, $http, productService) {
                       // brands: ["American Apparel"],
                       tags: ["hella cool"],
                       price: 40,
-                      short: "crew"
+                      short: "crew",
+                      primaryImgColor: "Ash"
                     }
   // console.log("product scope:", $scope.product)
   

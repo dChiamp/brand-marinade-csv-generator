@@ -35,7 +35,8 @@ function MensvController ($scope, $http, productService) {
                     brands: ["American Apparel"],
                     tags: ["hella cool"],
                     price: 25,
-                    short: "mv"
+                    short: "mv",
+                    primaryImgColor: "White"
                   }
   $scope.save = function() {
     productService.saveProductSettings($scope.product);

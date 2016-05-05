@@ -23,7 +23,8 @@ function WomensvController ($scope, $http, productService) {
                     brands: ["American Apparel"],
                     tags: ["hella cool"],
                     price: 25,
-                    short: "wv"
+                    short: "wv",
+                    primaryImgColor: "White"
                   }
 
   $scope.save = function() {

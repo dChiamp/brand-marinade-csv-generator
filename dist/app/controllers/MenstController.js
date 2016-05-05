@@ -35,7 +35,8 @@ $scope.product = {
                     brands: ["American Apparel"],
                     tags: ["hella cool"],
                     price: 25,
-                    short: "mtee"
+                    short: "mtee",
+                    primaryImgColor: "White"
                   }
 
   $scope.checkedParent = false;
