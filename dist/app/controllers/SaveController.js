@@ -4,7 +4,7 @@ function SaveController ($scope, $http, FileSaver, Blob) {
   console.log("SaveController");
 
   var vm = this;
-  vm.convertAndDowload = convertAndDowload;
+  vm.convertAndDownload = convertAndDownload;
 
   $scope.fileName;
 
