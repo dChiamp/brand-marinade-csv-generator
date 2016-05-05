@@ -222,6 +222,11 @@ function testing (product) {
                   var prodUrl = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg"
                   var imageSrc = prodUrl;
                 } 
+                        // generate defualt color Img Src
+                if (product.defaultImgColor === colorKey ) {
+                  // then create image src
+                  var defaultImgSrc = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg";
+                }
                 console.log ("KidsT SKU", sku)
               }
             }
@@ -243,15 +248,11 @@ function testing (product) {
                   var prodUrl = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg"
                   var imageSrc = prodUrl;
                 } 
-                // if (colorName === colorKey) {
-                //   colorAbrev = colorAbrevs[colorKey]
-                //   console.log("ABBREVIATE", colorName, "AS", colorAbrev)
-                //   var sku = handle + "-" + colorAbrev + "-" + sizeAbrev
-                //   var prodUrl = "http://productuploader.com/product/uploader/" + handle + "-" + colorAbrev + ".jpg"
-                //   var imageSrc = "http://productuploader.com/product/uploader/" + handle + "-" + colorAbrev + ".jpg"
-                //   // console.log ("Onesie SIZE ABRV", abrev)
-                // } 
-                // console.log ("Onesie SKU", sku)
+                        // generate defualt color Img Src
+                if (product.defaultImgColor === colorKey ) {
+                  // then create image src
+                  var defaultImgSrc = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg";
+                }
               }
             }
           }
