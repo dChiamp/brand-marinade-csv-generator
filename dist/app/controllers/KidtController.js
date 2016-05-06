@@ -6,7 +6,7 @@ function KidtController ($scope, $http, productService) {
   $scope.product = {
                     item: "Kid's Tee",
                     type: "Kids/Infants",
-                    colors: {"White": true,
+                    colors: {"White": false,
                             "Baby Blue": false,
                             "Black": false,
                             "Heather Grey": false,
@@ -21,13 +21,13 @@ function KidtController ($scope, $http, productService) {
                             "Silver": false,
                             "Yellow": false
                             },
-                    sizes: {"Small": false,
+                    sizes: {"Small": true,
                             "Medium": true,
                             "Large": true,
-                            "XL": false
+                            "XL": true
                            },
                     brands: ["American Apparel"],
-                    tags: ["hella cool"],
+                    tags: "hella cool",
                     price: 18,
                     short: "ktee",
                     primaryImgColor: "White"

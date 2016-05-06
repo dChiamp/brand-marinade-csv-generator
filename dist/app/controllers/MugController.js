@@ -9,10 +9,10 @@ function MugController ($scope, $http) {
                     colors: {"White": true,
                             "Black": true
                             },
-                    sizes: {small: false,
+                    sizes: {small: true,
                             medium: true,
                             large: true },
-                    brands: ["American Apparel"],
+                    brands: "American Apparel",
                     tags: "hella cool",
                     price: 20
                   }

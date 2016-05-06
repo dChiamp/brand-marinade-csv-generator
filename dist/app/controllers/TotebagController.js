@@ -9,7 +9,7 @@ function TotebagController ($scope, $http) {
                     colors: {"Tan": true,
                             "White": true
                             },
-                    sizes: {small: false,
+                    sizes: {small: true,
                             medium: true,
                             large: true },
                     brands: ["American Apparel"],

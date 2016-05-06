@@ -6,7 +6,7 @@ function WomenstController ($scope, $http, productService) {
   $scope.product = {
                     item: "Women's Tee",
                     type: "Women's Tshirt",
-                  colors: {"White": true,
+                  colors: {"White": false,
                             "Ash": false,
                             "Baby Blue": false,
                             "Black": false,
@@ -15,7 +15,7 @@ function WomenstController ($scope, $http, productService) {
                             "Silver": false,
                             "Vintage Red": false
                             },                   
-                    sizes: {Small: false,
+                    sizes: {Small: true,
                             Medium: true,
                             Large: true},
                     brands: ["American Apparel"],

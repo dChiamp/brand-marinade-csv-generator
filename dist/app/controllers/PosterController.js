@@ -6,14 +6,14 @@ function PosterController ($scope, $http, productService) {
   $scope.product = {
                     item: "Poster",
                     type: "Poster",
-                    colors: {red: true,
-                            green: true,
+                    colors: {red: false,
+                            green: false,
                             blue: false},
-                    sizes: {small: false,
+                    sizes: {small: true,
                             medium: true,
                             large: true },
                     brands: ["American Apparel"],
-                    tags: ["hella cool"],
+                    tags: "hella cool",
                     price: 50
                   }
 }
