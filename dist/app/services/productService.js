@@ -2,11 +2,14 @@ app.service('productService', productService)
 
 // productService.$inject = ['$rootScope'];
 
-function productService ($rootScope, $http, FileSaver, Blob) {
+function productService ($rootScope, $http, FileSaver, Blob, $filter) {
   var self = this;
 
   self.saveProductSettings = saveProductSettings;
   self.addNameToProd = addNameToProd;
+  self.nameFile = nameFile
+  self.download = download
+  self.convertAndDownloadCsv = convertAndDownloadCsv
 
   var title;
   var designHandle;
@@ -43,6 +46,41 @@ function productService ($rootScope, $http, FileSaver, Blob) {
           var productCSV = response.data
       })
     }
+
+  }
+
+
+  // TEST AUTOMATIC NAME //
+
+  var fileName
+
+  function nameFile (name) {
+    console.log("NAME", name)
+      fileName = name
+  }
+
+  var dateRaw = Date.now()
+  var dateAsString = $filter('date')(dateRaw, "yyyy-MMdd");
+
+  function download (text) {
+    var data = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    // var data = new Blob([json], {type: "application/json"});
+    FileSaver.saveAs(data, fileName + dateAsString + ".csv");
+  };
+
+  // console.log("$scope.csvTemplate.colorsTest.red",$scope.csvTemplate.colorsTest.red )
+    // put product model in service?
+  function convertAndDownloadCsv () {
+
+    // console.log("product obj to be converted: ", $scope.product)
+    $http
+      .get('/api/convert')
+      .then(function(response) {
+        console.log("CSV from server", response.data)
+        var productCSV = response.data
+       // call download function
+        download(productCSV)
+    })
 
   }
 

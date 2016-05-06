@@ -52,7 +52,7 @@
     <script type="text/javascript" src="/app/controllers/WomensvController.js"></script>
     <!-- old controllers -->
     <!-- <script type="text/javascript" src="/app/controllers/TypeController.js"></script> -->
-    <script type="text/javascript" src="/app/controllers/SaveController.js"></script>
+    <!-- <script type="text/javascript" src="/app/controllers/SaveController.js"></script> -->
   </head>
   <body>
     <header>
@@ -104,19 +104,19 @@
           <product-directive ng-controller="OnesieController"> </product-directive>
           <product-directive ng-controller="KidtController"> </product-directive>
         </div>
-    </div>
 
-  <div class="wrapper" ng-controller="SaveController as vm">
-    <form>
+    <div class="wrapper">
+<!--     <form>
       <div class="form-group">
         <input type="text" class="form-control" placeholder="File Name"
           ng-model="fileName">
       <input type="submit" value="Submit Name" class="btn btn-success" ng-click="nameFile(fileName)">&nbsp;
       </div>
-    </form>
+    </form> -->
 
-    <button type="button" class="btn btn-default" ng-click="vm.convertAndDownload()"> Download CSV </button>
-  </div>
+      <button type="button" class="btn btn-default" ng-click="generateCsvName(designNames.handle)"> Download CSV </button>
+    </div>
+    </div>
 
   </body>
 

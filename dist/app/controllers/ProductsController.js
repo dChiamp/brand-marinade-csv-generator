@@ -2,13 +2,14 @@ app.controller('ProductsController', ProductsController)
 
 // ProductsController.$inject = ['$scope', '$http', 'productService'];
 
-function ProductsController ($scope, $http, productService) {
+function ProductsController ($scope, $http, productService, FileSaver, Blob, $filter) {
   console.log("products controller")
 
   var vm = this;
   vm.getAllProducts = getAllProducts;
 
   vm.allProducts = [];
+
 
   // $scope.selected = [];
   // $scope.data = {};
@@ -61,6 +62,14 @@ function ProductsController ($scope, $http, productService) {
   $scope.save = function() {
     productService.saveProductSettings();
   };
+
+
+  $scope.generateCsvName = function (handle) {
+    console.log("handle", handle)
+    productService.nameFile(handle);
+    productService.convertAndDownloadCsv();
+  }
+
 
 } 
 
