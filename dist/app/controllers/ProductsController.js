@@ -59,13 +59,12 @@ function ProductsController ($scope, $http, productService, FileSaver, Blob, $fi
       })
   }
 
-  $scope.save = function() {
-    productService.saveProductSettings();
-  };
-
+  // $scope.save = function() {
+  //   productService.saveProductSettings();
+  // };
 
   $scope.generateCsvName = function (handle) {
-    console.log("handle", handle)
+    // console.log("handle", handle)
     productService.nameFile(handle);
     productService.convertAndDownloadCsv();
   }

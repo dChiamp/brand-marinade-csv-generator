@@ -78,15 +78,15 @@
       <form ng-submit="addDesignName()">
         <div class="form-group">
           <h3> Enter Design Name </h3>
-          <input type="text" ng-model="designNames.title" placeholder="Tucker's Beautiful Face">
+          <input required type="text" ng-model="designNames.title" placeholder="Tucker's Beautiful Face">
         </div>
         <div class="form-group">
           <h3> Enter Design Handle </h3>
-          <input type="text" ng-model="designNames.handle" placeholder="tucker-prettyBoy">
+          <input required type="text" ng-model="designNames.handle" placeholder="tucker-prettyBoy">
         </div>
         <div class="form-group">
           <h3> Choose Marketplace </h3>
-          <input type="text" ng-model="designNames.marketplace" placeholder="Tucker Tees">
+          <input required type="text" ng-model="designNames.marketplace" placeholder="Tucker Tees">
         </div>
         <div class="form-group">
           <h3> Add Tags </h3>
@@ -94,28 +94,27 @@
         </div>
           <input type="submit" value="submit" class="btn btn-sm btn-success">&nbsp;
       </form>
-        <div ng-show="submitted">
-          <product-directive ng-controller="HoodieController"> </product-directive>
-          <product-directive ng-controller="CrewneckController"> </product-directive>
-          <product-directive ng-controller="MenstController"> </product-directive>
-          <!-- <product-directive ng-controller="MensvController"> </product-directive> -->
-          <product-directive ng-controller="WomensvController"> </product-directive>
-          <product-directive ng-controller="TanktopController"> </product-directive>
-          <product-directive ng-controller="OnesieController"> </product-directive>
-          <product-directive ng-controller="KidtController"> </product-directive>
+
+      <hr>
+
+      <div ng-show="submitted">
+        <product-directive ng-controller="HoodieController"> </product-directive>
+        <product-directive ng-controller="CrewneckController"> </product-directive>
+        <product-directive ng-controller="MenstController"> </product-directive>
+        <!-- <product-directive ng-controller="MensvController"> </product-directive> -->
+        <product-directive ng-controller="WomensvController"> </product-directive>
+        <product-directive ng-controller="TanktopController"> </product-directive>
+        <product-directive ng-controller="OnesieController"> </product-directive>
+        <product-directive ng-controller="KidtController"> </product-directive>
+
+        <hr>
+  
+        <div class="wrapper">
+          <button type="button" class="btn btn-default" ng-click="generateCsvName(designNames.handle)" > Download CSV </button>
         </div>
-
-    <div class="wrapper">
-<!--     <form>
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="File Name"
-          ng-model="fileName">
-      <input type="submit" value="Submit Name" class="btn btn-success" ng-click="nameFile(fileName)">&nbsp;
+      
       </div>
-    </form> -->
 
-      <button type="button" class="btn btn-default" ng-click="generateCsvName(designNames.handle)"> Download CSV </button>
-    </div>
     </div>
 
   </body>

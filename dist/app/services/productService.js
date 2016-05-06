@@ -49,7 +49,6 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter) {
 
   }
 
-
   // TEST AUTOMATIC NAME //
 
   var fileName
@@ -68,7 +67,6 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter) {
     FileSaver.saveAs(data, fileName + dateAsString + ".csv");
   };
 
-  // console.log("$scope.csvTemplate.colorsTest.red",$scope.csvTemplate.colorsTest.red )
     // put product model in service?
   function convertAndDownloadCsv () {
 
