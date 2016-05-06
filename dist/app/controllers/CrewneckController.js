@@ -17,7 +17,7 @@ function CrewneckController ($scope, $http, productService) {
                              "2XL": false,
                              "3XL": false},
                       // brands: ["American Apparel"],
-                      tags: ["hella cool"],
+                      tags: "hella cool",
                       price: 40,
                       short: "crew",
                       primaryImgColor: "Ash"

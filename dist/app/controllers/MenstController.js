@@ -33,7 +33,7 @@ $scope.product = {
                             "2XL": false,
                             "3XL": false},
                     brands: ["American Apparel"],
-                    tags: ["hella cool"],
+                    tags: "hella cool",
                     price: 25,
                     short: "mtee",
                     primaryImgColor: "White"

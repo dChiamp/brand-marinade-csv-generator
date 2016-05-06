@@ -13,7 +13,7 @@ function MugController ($scope, $http) {
                             medium: true,
                             large: true },
                     brands: ["American Apparel"],
-                    tags: ["hella cool"],
+                    tags: "hella cool",
                     price: 20
                   }
 }
