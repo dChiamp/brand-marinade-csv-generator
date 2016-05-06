@@ -16,6 +16,13 @@ function ProductsController ($scope, $http, productService) {
 
   // $scope.designName;
   $scope.product = {}
+
+  
+   $scope.boggle = function() {
+      // $scope.submitted = !true
+      console.log("submitted?")
+  } 
+  // $scope.submitted = false
   // $scope.product.title = {}
  
   $scope.skuGenerator = function () {
@@ -27,12 +34,17 @@ function ProductsController ($scope, $http, productService) {
   }
 
   $scope.designNames
+  $scope.submitted = false
 
   $scope.addDesignName = function () {
     var designTitle = $scope.designNames.title
     var designHandle = $scope.designNames.designHandle
     var marketplace = $scope.designNames.marketplace
     var designTags = $scope.designNames.tags
+
+    $scope.submitted = !$scope.submitted;
+
+    console.log("submitted?", $scope.submitted)
     console.log("TITLE:", $scope.designNames)
     productService.addNameToProd($scope.designNames);
   }

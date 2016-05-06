@@ -94,26 +94,17 @@
         </div>
           <input type="submit" value="submit" class="btn btn-sm btn-success">&nbsp;
       </form>
-
+        <div ng-show="submitted">
+          <product-directive ng-controller="HoodieController"> </product-directive>
+          <product-directive ng-controller="CrewneckController"> </product-directive>
+          <product-directive ng-controller="MenstController"> </product-directive>
+          <!-- <product-directive ng-controller="MensvController"> </product-directive> -->
+          <product-directive ng-controller="WomensvController"> </product-directive>
+          <product-directive ng-controller="TanktopController"> </product-directive>
+          <product-directive ng-controller="OnesieController"> </product-directive>
+          <product-directive ng-controller="KidtController"> </product-directive>
+        </div>
     </div>
-
-  <div>
-    <product-directive ng-controller="HoodieController"> </product-directive>
-    
-    <product-directive ng-controller="CrewneckController"> </product-directive>
-
-    <product-directive ng-controller="MenstController"> </product-directive>
-
-    <!-- <product-directive ng-controller="MensvController"> </product-directive> -->
-
-    <product-directive ng-controller="WomensvController"> </product-directive>
-    
-    <product-directive ng-controller="TanktopController"> </product-directive>
-
-    <product-directive ng-controller="OnesieController"> </product-directive>
-
-    <product-directive ng-controller="KidtController"> </product-directive>
-  </div>
 
   <div class="wrapper" ng-controller="SaveController as vm">
     <form>
@@ -126,12 +117,6 @@
 
     <button type="button" class="btn btn-default" ng-click="vm.convertAndDownload()"> Download CSV </button>
   </div>
-
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
 
   </body>
 
