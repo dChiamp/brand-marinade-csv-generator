@@ -71,7 +71,7 @@ var moment = require('moment');
 
 
 function testing (product) {
-    // clear out template b/t calls
+    // clear out templates b/t calls
     masterProductCsvTemplate = [];
     colorSizeArray = [];
     sizeAbrevArray = [];

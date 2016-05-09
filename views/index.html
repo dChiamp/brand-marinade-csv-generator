@@ -71,25 +71,28 @@
         </div>
       </nav>
     </header>
-    <h1>Welcome to Brand Marinade</h1>
-    <p> Upload a product </p>
 
-    <div ng-controller="ProductsController as pc" ng-show="true" id="brand-name-form"> 
+    <div class="col-lg-6 col-centered">      
+      <h1>Welcome to Brand Marinade</h1>
+      <!-- <p> Upload a product </p> -->
+    </div>
+
+    <div class="col-lg-4 col-centered" ng-controller="ProductsController as pc" ng-show="true" id="brand-name-form"> 
       <form ng-submit="addDesignName()">
-        <div class="form-group">
-          <h3> Enter Design Name </h3>
+        <div class="block">
+          <label> Enter Design Name </label>
           <input required type="text" ng-model="designNames.title" placeholder="Tucker's Beautiful Face">
         </div>
-        <div class="form-group">
-          <h3> Enter Design Handle </h3>
+        <div class="block">
+          <label> Enter Design Handle </label>
           <input required type="text" ng-model="designNames.handle" placeholder="tucker-prettyBoy">
         </div>
-        <div class="form-group">
-          <h3> Choose Marketplace </h3>
+        <div class="block">
+          <label> Choose Marketplace </label>
           <input required type="text" ng-model="designNames.marketplace" placeholder="Tucker Tees">
         </div>
-        <div class="form-group">
-          <h3> Add Tags </h3>
+        <div class="block">
+          <label> Add Tags </label>
           <input type="text" ng-model="designNames.tags" placeholder="goldenBoy,bernie,EFUKT">
         </div>
           <input type="submit" value="submit" class="btn btn-sm btn-success">&nbsp;
@@ -108,9 +111,8 @@
         <product-directive ng-controller="KidtController"> </product-directive>
 
         <hr>
-  
         <div class="wrapper">
-          <button type="button" class="btn btn-default" ng-click="generateCsvName(designNames.handle)" > Download CSV </button>
+          <button type="button" class="btn btn-default" ng-click="generateCsvName(designNames.handle)"> Download CSV </button>
         </div>
       
       </div>
