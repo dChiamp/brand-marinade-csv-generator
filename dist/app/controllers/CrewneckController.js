@@ -1,6 +1,6 @@
 app.controller('CrewneckController', CrewneckController)
 
-function CrewneckController ($scope, $http, productService) {
+function CrewneckController ($scope, $http, productService, $filter) {
   // $scope.csvTemplate = {};
 
 
@@ -23,6 +23,8 @@ function CrewneckController ($scope, $http, productService) {
                       primaryImgColor: "Ash"
                     }
   // console.log("product scope:", $scope.product)
+
+  $scope.product.price = $filter('currency')($scope.product.price, "$")
   
   $scope.checkedParent = false;
   $scope.isChecked = false

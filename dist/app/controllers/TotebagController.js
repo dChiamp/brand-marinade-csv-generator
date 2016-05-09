@@ -17,7 +17,9 @@ function TotebagController ($scope, $http) {
                     price: 50,
                     primaryImgColor: "White"
                   }
-  $scope.checkedParent = false;
+
+  $scope.product.price = $filter('currency')($scope.product.price, "$")
+  
   $scope.isChecked = false
   $scope.saved = true;
 

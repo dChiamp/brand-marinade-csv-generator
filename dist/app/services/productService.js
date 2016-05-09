@@ -22,11 +22,11 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter, toastr) {
     marketplace = designName.marketplace;
     tags = designName.tags
 
-    console.log("PROD SERVICE TITLE:", designHandle)
+    // console.log("PROD SERVICE TITLE:", designHandle)
   }
 
   function saveProductSettings(productData) {
-    console.log("TITLE IN POST REQ:", title)
+    // console.log("TITLE IN POST REQ:", title)
     // console.log("PRODUCT DATA", productData);
     // addNametoProd(productData)
 
@@ -54,7 +54,7 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter, toastr) {
           var productCSV = response.data
           toastr.success("saved", productData.item);
       }, function error(response) {
-          toastr.error("There has been an error")
+          toastr.error("There has been an error :( ")
       });
 
     }

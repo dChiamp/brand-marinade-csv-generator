@@ -1,6 +1,6 @@
 app.controller('OnesieController', OnesieController)
 // ProductsController.$inject = ['$scope', '$http'];
-function OnesieController ($scope, $http, productService) {
+function OnesieController ($scope, $http, productService, $filter) {
   console.log("Onesie controller")
 
   $scope.product = {
@@ -26,6 +26,8 @@ function OnesieController ($scope, $http, productService) {
                   short: "onesie",
                   primaryImgColor: "White"
                 }
+  
+  $scope.product.price = $filter('currency')($scope.product.price, "$")
 
   $scope.checkedParent = false;
   $scope.isChecked = false

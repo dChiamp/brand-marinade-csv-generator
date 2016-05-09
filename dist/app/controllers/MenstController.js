@@ -1,6 +1,6 @@
 app.controller('MenstController', MenstController)
 // ProductsController.$inject = ['$scope', '$http'];
-function MenstController ($scope, $http, productService) {
+function MenstController ($scope, $http, productService, $filter) {
   console.log("MensT controller")
 
 $scope.product = {
@@ -39,8 +39,11 @@ $scope.product = {
                     primaryImgColor: "White"
                   }
 
+  $scope.product.price = $filter('currency')($scope.product.price, "$")
+
   $scope.checkedParent = false;
   $scope.isChecked = false
+
 
   $scope.save = function() {
     productService.saveProductSettings($scope.product);

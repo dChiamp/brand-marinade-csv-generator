@@ -1,6 +1,6 @@
 app.controller('TanktopController', TanktopController)
 // ProductsController.$inject = ['$scope', '$http'];
-function TanktopController ($scope, $http, productService) {
+function TanktopController ($scope, $http, productService, $filter) {
   console.log("Sweatshirt controller")
 
   $scope.product = {
@@ -26,6 +26,9 @@ function TanktopController ($scope, $http, productService) {
                     short: "tank",
                     primaryImgColor: "White"
                   }
+  
+  $scope.product.price = $filter('currency')($scope.product.price, "$")
+
   $scope.checkedParent = false;
   $scope.isChecked = false
 

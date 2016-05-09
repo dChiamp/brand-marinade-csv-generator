@@ -1,8 +1,8 @@
 app.controller('HoodieController', HoodieController)
 
-HoodieController.$inject = ['$scope', '$http', 'productService', 'toastr'];
+// HoodieController.$inject = ['$scope', '$http', 'productService', 'toastr'];
 
-function HoodieController ($scope, $http, productService, toastr) {
+function HoodieController ($scope, $http, productService, toastr, $filter) {
 
   console.log("hoodie controller")
 
@@ -26,6 +26,9 @@ function HoodieController ($scope, $http, productService, toastr) {
                     primaryImgColor: "Ash"
                   }
 
+
+  $scope.product.price = $filter('currency')($scope.product.price, "$")
+
   $scope.checkedParent = false;
   $scope.isChecked = false
 
@@ -37,7 +40,7 @@ function HoodieController ($scope, $http, productService, toastr) {
 
   $scope.checkedTrue = function(){
     $scope.isChecked = !$scope.isChecked
-    console.log("$scope.checkedParent:", $scope.checkedParent)
+    // console.log("$scope.checkedParent:", $scope.checkedParent)
   };
 
   // $scope.checkedFalse = function(){

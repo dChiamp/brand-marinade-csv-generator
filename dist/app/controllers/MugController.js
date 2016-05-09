@@ -1,6 +1,6 @@
 app.controller('MugController', MugController)
 // ProductsController.$inject = ['$scope', '$http'];
-function MugController ($scope, $http) {
+function MugController ($scope, $http, $filter) {
   console.log("Mug controller")
 
   $scope.product = {

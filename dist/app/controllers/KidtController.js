@@ -1,6 +1,6 @@
 app.controller('KidtController', KidtController)
 // ProductsController.$inject = ['$scope', '$http'];
-function KidtController ($scope, $http, productService) {
+function KidtController ($scope, $http, productService, $filter) {
   console.log("KidsT controller")
 
   $scope.product = {
@@ -32,6 +32,9 @@ function KidtController ($scope, $http, productService) {
                     short: "ktee",
                     primaryImgColor: "White"
                   }
+
+  $scope.product.price = $filter('currency')($scope.product.price, "$")
+
   $scope.checkedParent = false;
   $scope.isChecked = false
 
