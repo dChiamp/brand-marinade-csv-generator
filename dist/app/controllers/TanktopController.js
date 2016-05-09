@@ -26,12 +26,13 @@ function TanktopController ($scope, $http, productService) {
                     short: "tank",
                     primaryImgColor: "White"
                   }
-  $scope.save = function() {
-    productService.saveProductSettings($scope.product);
-  };
-
   $scope.checkedParent = false;
   $scope.isChecked = false
+
+  $scope.save = function() {
+    productService.saveProductSettings($scope.product);
+    $scope.isChecked = !$scope.isChecked
+  };
 
   $scope.checkedTrue = function(){
     $scope.isChecked = !$scope.isChecked

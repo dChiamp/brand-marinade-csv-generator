@@ -26,15 +26,15 @@ function CrewneckController ($scope, $http, productService) {
   
   $scope.checkedParent = false;
   $scope.isChecked = false
-  $scope.saved = true;
 
   $scope.save = function() {
     productService.saveProductSettings($scope.product);
-    $scope.saved = !$scope.saved;
+    $scope.isChecked = !$scope.isChecked
   };
 
   $scope.checkedTrue = function(){
     $scope.isChecked = !$scope.isChecked
     console.log("$scope.checkedParent:", $scope.checkedParent)
   };
+
 }
