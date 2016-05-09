@@ -26,12 +26,14 @@ function HoodieController ($scope, $http, productService) {
                     primaryImgColor: "Ash"
                   }
 
-  $scope.save = function() {
-    productService.saveProductSettings($scope.product);
-  };
-
   $scope.checkedParent = false;
   $scope.isChecked = false
+  $scope.saved = true;
+
+  $scope.save = function() {
+    productService.saveProductSettings($scope.product);
+    $scope.saved = !$scope.saved;
+  };
 
   $scope.checkedTrue = function(){
     $scope.isChecked = !$scope.isChecked

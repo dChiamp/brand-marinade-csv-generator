@@ -43,5 +43,4 @@ function KidtController ($scope, $http, productService) {
     $scope.isChecked = !$scope.isChecked
     console.log("$scope.checkedParent:", $scope.checkedParent)
   };
-
 }

@@ -72,9 +72,10 @@
       </nav>
     </header>
 
-    <div class="col-lg-6 col-centered">      
-      <h1>Welcome to Brand Marinade</h1>
-      <!-- <p> Upload a product </p> -->
+    <h1 id="title" ><img src="//cdn.shopify.com/s/files/1/0815/4053/t/4/assets/logo.png?11831513124031554439"> </h1>
+    <div id="sub-title" class="col-lg-6 col-centered">  
+      <!-- <h1>Welcome to Brand Marinade</h1> -->
+      <h4> Product CSV Generator </h4>
     </div>
 
     <div class="col-lg-4 col-centered" ng-controller="ProductsController as pc" ng-show="true" id="brand-name-form"> 
@@ -88,14 +89,14 @@
           <input required type="text" ng-model="designNames.handle" placeholder="tucker-prettyBoy">
         </div>
         <div class="block">
-          <label> Choose Marketplace </label>
+          <label> Choose Brand </label>
           <input required type="text" ng-model="designNames.marketplace" placeholder="Tucker Tees">
         </div>
         <div class="block">
           <label> Add Tags </label>
           <input type="text" ng-model="designNames.tags" placeholder="goldenBoy,bernie,EFUKT">
         </div>
-          <input type="submit" value="submit" class="btn btn-sm btn-success">&nbsp;
+          <input type="submit" value="submit" class="btn btn-success">&nbsp;
       </form>
 
       <hr>
@@ -112,7 +113,7 @@
 
         <hr>
         <div class="wrapper">
-          <button type="button" class="btn btn-default" ng-click="generateCsvName(designNames.handle)"> Download CSV </button>
+          <button type="button" class="btn btn-success" ng-click="generateCsvName(designNames.handle)"> Download CSV </button>
         </div>
       
       </div>

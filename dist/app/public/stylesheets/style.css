@@ -1,9 +1,18 @@
+#title {
+  text-align: center;
+}
+
+#sub-title {
+  padding-bottom: 3%;
+}
 .checkboxdemoSelectAll .demo-legend {
-  color: #3F51B5; }
+  color: #3F51B5; 
+}
 
 .checkboxdemoSelectAll .demo-fieldset {
   border-style: solid;
   border-width: 1px;
+  border-radius: 2px;
   height: 100%; }
 
 .checkboxdemoSelectAll .demo-select-all-checkboxes {
@@ -12,12 +21,57 @@
 }
 
 .col-centered{
+    /*padding-bottom: 1%;*/
     float: none;
     margin: 0 auto;
+    text-align: center;
 }
 
 .block label { 
     display: inline-block; 
     width: 140px; 
     text-align: right; 
+}
+
+/*ghost button*/
+
+.btn-button-ghost, .btn-button-ghost:link, .btn-button-ghost:visited {
+    background-color: transparent;
+    border-radius: 1;
+    color: #51C965;
+    border: 2px solid #51C965;
+}
+
+/* checkbox colors*/
+md-checkbox.md-checked.green .md-icon {
+ background-color: rgba(0, 255, 0, 0.87);
+}
+
+/*switch colors*/
+md-switch .md-bar {
+    background-color: red; /* set not selected bar color */
+}
+
+md-switch.md-checked .md-bar {
+    background-color: rgba(0, 255, 0, 0.87); /* set selected bar color */
+}
+
+md-switch[disabled] .md-bar {
+    background-color: red; /* set disabled bar color */
+}
+
+/* 
+ * The switch:
+ */
+
+md-switch .md-thumb {
+    color: rgb(158,158,158); /* not selected switch color */
+}
+
+md-switch.md-checked .md-thumb {
+    background-color: rgb(255,255,255); /* selected switch color */
+}
+
+md-switch[disabled] .md-thumb {
+    background-color: rgb(255,255,255); /* disabled switch color */
 }

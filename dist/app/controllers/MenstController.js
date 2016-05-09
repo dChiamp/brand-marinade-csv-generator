@@ -39,6 +39,10 @@ $scope.product = {
                     primaryImgColor: "White"
                   }
 
+  $scope.save = function() {
+    productService.saveProductSettings($scope.product);
+  };
+
   $scope.checkedParent = false;
   $scope.isChecked = false
 
@@ -46,9 +50,4 @@ $scope.product = {
     $scope.isChecked = !$scope.isChecked
     console.log("$scope.checkedParent:", $scope.checkedParent)
   };
-
-  $scope.save = function() {
-    productService.saveProductSettings($scope.product);
-  };
-
 }

@@ -6,14 +6,14 @@
           <div layout="row" layout-wrap="" flex="">
             <div class="demo-select-all-checkboxes" flex="100">
               <div>
-                <md-checkbox ng-click="checkedTrue()"> 
+                <md-checkbox class="green" ng-click="checkedTrue()"> 
                   product: {{product.item}}
                 </md-checkbox>
               </div>
               <div ng-if="isChecked">
                 <div>
                   <p> Sizes </p>
-                  <md-switch ng-repeat="(key, value) in product.sizes" ng-model="product.sizes[key]"> 
+                  <md-switch class="blue" ng-repeat="(key, value) in product.sizes" ng-model="product.sizes[key]"> 
                     <p> {{key}} | {{value}} </p>
                   </md-switch>
                 </div>
@@ -28,7 +28,7 @@
                   <p> Set Price </p>
                    <form ng-submit="addDesignName()">
                     <div class="form-group">
-                        <input type="text" ng-model="product.price"> {{product.price | currency}} </input>
+                        <input type="text" ng-model="product.price"> </input>
                       </div>
                   </form>
                 </div>
@@ -43,7 +43,7 @@
                 </div>
 
 
-                <button class="btn btn-success" ng-click="save()"> save </button>
+                <button class="btn btn-button-ghost" ng-click="save()"> save </button>
               </div>
             </div>
           </div>

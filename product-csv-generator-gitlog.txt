@@ -1,0 +1,545 @@
+commit ffa6d2528e8fa85acfa5289fa2ccf5e156bd9501
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Mon May 9 10:40:55 2016 -0700
+
+    adds style to form
+
+commit af72f034ca8fbb9f56d6a8b3bbd9b0e75864ae2f
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri May 6 15:03:23 2016 -0700
+
+    adds basic form validation
+
+commit 80da777128ad68f4a2e20bfca2f99a0485ff3c89
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri May 6 14:18:35 2016 -0700
+
+    generates csv filename
+
+commit affaaca5ad33b437432091b9a651d00d539bf437
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri May 6 13:36:41 2016 -0700
+
+    toggles product input view on click
+
+commit 0fbffea394a9afb81114c14a394c4654cae134cf
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri May 6 13:05:10 2016 -0700
+
+    changes defualt color and size settings
+
+commit c5248e2979e95bb5e7d0023091c792b16e1ad3b6
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri May 6 12:40:25 2016 -0700
+
+    adds a lil style
+
+commit 40f18c20223591e9bd675ff5a81b62f5ba15e92e
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu May 5 14:56:48 2016 -0700
+
+    prepares to merge to master and deploy
+
+commit 8a582e456d134fc33d12d06b343f6a71e13e660a
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu May 5 13:46:53 2016 -0700
+
+    adds defualts for remaining products
+
+commit 5cf1e5df0acfa92c635c62c9105f0801f04aea03
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu May 5 13:11:33 2016 -0700
+
+    adds basic front end interface for setting defualt image
+
+commit be5758b5807818ec9d4ed1acfd2bfbff99d4a347
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu May 5 13:05:34 2016 -0700
+
+    adds basic default color, no front end interaction
+
+commit e9f167d70b29fff25bffdfbb154d9ca35f6d057b
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu May 5 12:21:59 2016 -0700
+
+    generates defualt img src, need to incorporate it
+
+commit deb41a6981b651deb20c69d233f0d80efb650e33
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu May 5 11:40:37 2016 -0700
+
+    prepares to branch to primary-image
+
+commit 57f47f05c36dbf09e8844b884b514661c652d9dd
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu May 5 11:05:44 2016 -0700
+
+    renames helper fnc file
+
+commit 5f788aec8137ce45d39eddb323f3e40109b25770
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu May 5 10:28:35 2016 -0700
+
+    fixes turquoise typo
+
+commit 76b511783b3cf7a99c3feec818e1c8f318e1bb2a
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu May 5 10:22:27 2016 -0700
+
+    fixes Pink
+
+commit d0d247a075d73cbd92c0bfcc0414a77594d60c38
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Wed May 4 23:18:37 2016 -0700
+
+    house cleaning
+
+commit d0237682f04643397916ec8476f0ad8c47639c84
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Wed May 4 23:12:04 2016 -0700
+
+    exterminates bug
+
+commit f37312dc5921adc8895bc15e0cb8b844c727d7d4
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Wed May 4 22:44:52 2016 -0700
+
+    prepares for merge to dev
+
+commit 6cf12db40314228e3a3ba3a8be3e333aad89b3dc
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Wed May 4 21:17:32 2016 -0700
+
+    MVP MOFO
+
+commit 1f921a6fb0b84fa154cef4aacb0d2758db440db9
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Wed May 4 17:29:43 2016 -0700
+
+    completes first refactor
+
+commit fae371ad8a0b2fe25fe249f759881258d5f9ee84
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Wed May 4 15:11:42 2016 -0700
+
+    implement helper fncs
+
+commit 755cfc9d0ac7ab071161748cd3d4d8354cfed164
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Wed May 4 14:41:25 2016 -0700
+
+    adds proper ImgSrc to csv only in first row
+
+commit c0087f5e0f438a7d34e5f6e05901951eb6b4d7be
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Wed May 4 14:00:28 2016 -0700
+
+    breaks down in to helper functions
+
+commit a1ba9286731ae7df12f8a3743a1b361a25eda4a6
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue May 3 22:10:03 2016 -0700
+
+    more refactoring
+
+commit 34ef3155b545ed376fe5f03f63bf19eedc57534f
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue May 3 21:41:20 2016 -0700
+
+    begins refactor
+
+commit 6105933caeffae1eff5294fae1b39639233ef55b
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue May 3 20:53:24 2016 -0700
+
+    adds bug hunt sandbox
+
+commit 551fceaaca631b189fb14cb8d63a170fbcde10d1
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue May 3 19:43:32 2016 -0700
+
+    leaving img src to hunt for bugs
+
+commit 1087fa09e297ee62c1d6bbcf4bb7b35907cb495e
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue May 3 16:03:01 2016 -0700
+
+    removes b in date
+
+commit d5d311fa582204978e897c5103c551e689879776
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue May 3 15:54:51 2016 -0700
+
+    prepares to merge tags to master
+
+commit 45bd090cde860de38c7ca1e780075f873437ddd2
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue May 3 15:00:48 2016 -0700
+
+    user can add tags from dom
+
+commit c60e5a20ab1610f2a5bc93ac887d7bffcaf00be0
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue May 3 14:46:49 2016 -0700
+
+    formats date
+
+commit 4d7f76ca9eb9aca548796a4bad5821c4af3ebef7
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue May 3 14:25:56 2016 -0700
+
+    adds working default tags
+
+commit f80723795cd3fb1898093eefcf05aa612eea0249
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue May 3 13:28:21 2016 -0700
+
+    hacks together correct color abbreviations
+
+commit 6f257de55cba12b9e5b88c10e37445876583e875
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue May 3 12:00:27 2016 -0700
+
+    adds proper types
+
+commit c27a286d489f1a81b131c85efe45d08df092ee14
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue May 3 11:50:04 2016 -0700
+
+    adds sku-size hotfix
+
+commit 83b188efc85230f6a3d415d770f06b1c11e6b94a
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Mon May 2 10:52:10 2016 -0700
+
+    adds offline dependencies
+
+commit 7c3011c0f476e12ba98c412d4e8b9be301dcec7d
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 29 13:47:51 2016 -0700
+
+    onesie weight hotfix, xl etc
+
+commit 08fdc84d10b86c40a606a008c444ba4f42f654f6
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 29 13:37:23 2016 -0700
+
+    adds basic working, need to find bug
+
+commit cacae0dcde506bfae535c28ddcc89a1757d1db91
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 29 12:37:44 2016 -0700
+
+    adds num sizes for kids and onesie, proper sku etc
+
+commit 3ccbe846986eb9275a179604f18b08a8f8f59afa
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 29 11:51:40 2016 -0700
+
+    kids t and onesie sizes
+
+commit 0a2a8afb288a023de7618253ac2cae62c4d87b26
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 29 09:59:22 2016 -0700
+
+    test kidst numsize
+
+commit 3a113ebb1e92f8371ff8ffbdfcb0664229c12548
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 29 08:59:57 2016 -0700
+
+    finds tank top bug
+
+commit 3c3c0745d45856285fb19b87d0934983db70fec7
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 29 08:56:15 2016 -0700
+
+    adds more defualts, matches all sizes and weights
+
+commit 06e2d5a94aa9d4aba7e81d2df7a81092aed0104f
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu Apr 28 15:22:36 2016 -0700
+
+    adds front end product defualts
+
+commit 7ba6d3968a85228fa2ea09827e1d66e7bf8cb038
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu Apr 28 11:18:44 2016 -0700
+
+    adds default product color settings
+
+commit 40ab8fc3fde847a99d568af7089a9cc0dc242801
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Wed Apr 27 16:42:11 2016 -0700
+
+    changed mondodb env vars
+
+commit e4b75b943c17b62e0da48912fd2912e6838aac00
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Wed Apr 27 16:31:23 2016 -0700
+
+    deploys basic
+
+commit ce6aa5375ffcd033186eba303004ce08cd1390eb
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Wed Apr 27 15:52:17 2016 -0700
+
+    adds sku with abbreviated size names
+
+commit b561423511377bb8053089ca8a4fc751295675a8
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Wed Apr 27 12:23:18 2016 -0700
+
+    adds basic fields
+
+commit 9b542f1d97e667ea317ce3631f10fceec525cbe9
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Wed Apr 27 11:45:39 2016 -0700
+
+    adds front end name field binding
+
+commit ac9ecde43254c6b4bbbf90eba6cfa780863836aa
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Wed Apr 27 10:58:37 2016 -0700
+
+    prepares to add remaining fields
+
+commit 0903f0cfc4dbeaeaf45e96ec8e174b441c5c772f
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue Apr 26 23:21:57 2016 -0700
+
+    adds remaining fields
+
+commit c03546eae20b00c6be14aa121fb672ab83346853
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue Apr 26 19:36:29 2016 -0700
+
+    adds name to prod obj
+
+commit 47df8363d4945bb6333e291ef4044e6957cb2f0d
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue Apr 26 19:21:39 2016 -0700
+
+    fails at appending name to prod obj
+
+commit 6593a67080e8bbf9b36c3814d37df36e5edd3cfd
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue Apr 26 16:49:25 2016 -0700
+
+    adds multiple products to master product list
+
+commit b6a4920b9cd21214a87290094eb998df90b7d10a
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue Apr 26 15:17:21 2016 -0700
+
+    binds data programatically
+
+commit c80fbf86afadc0be9d9bcce15db6ad3f849a9753
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue Apr 26 14:37:06 2016 -0700
+
+    moving to front end for prod obj data banding
+
+commit 8bf56a4318a1953523e318d9183dc8e718fee3a6
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Tue Apr 26 13:32:26 2016 -0700
+
+    merges corresponding weight to prod objs
+
+commit c88f53c7a510cc596d3687103aa68264c0bba8b0
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Mon Apr 25 23:29:23 2016 -0700
+
+    cleans up merges
+
+commit f51bca27edd272ed1ec0b2029b7ebcc74483c45a
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Mon Apr 25 23:08:22 2016 -0700
+
+    adds proper merges
+
+commit 7b0b54142e9f32a6fb6b7591ba07e724fa738552
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Mon Apr 25 15:55:06 2016 -0700
+
+    adds merge basic
+
+commit 9cf4a60eefdf3d4108d4daa4fe23532dc8d1a33a
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Mon Apr 25 15:20:07 2016 -0700
+
+    prepares to merge objs according to position
+
+commit ae839938c157c7c22095ff0370b04187711667ff
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Mon Apr 25 13:49:19 2016 -0700
+
+    adds each product obj by colorsize to product array and converts it to csv
+
+commit facca131bbf09fdbd874850ea4e96c8df7638d09
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Mon Apr 25 13:39:56 2016 -0700
+
+    creates individual obj for each colorsize combo in back end
+
+commit a0aee5eb257363bca6f704bd377de9645cc1c635
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Mon Apr 25 12:47:41 2016 -0700
+
+    prepares to move all product obj logic to back end
+
+commit 272f5841d959a4e9ea63aebf1fa27352f3fac8d4
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Mon Apr 25 11:35:46 2016 -0700
+
+    creates objs programmatically
+
+commit 4924fe25da8c2a90c8bcd632d83955bd78519cf2
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sun Apr 24 23:52:22 2016 -0700
+
+    psuedocodes obj mapping
+
+commit f8c19c50140d951057ea38880faeb899f864f858
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sun Apr 24 22:16:57 2016 -0700
+
+    iterating through colors then sizes
+
+commit 5c32a1a61dc043aeea1900438c59675c716b8a5b
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sun Apr 24 11:58:53 2016 -0700
+
+    pulls data from product obj, binds it scope, sends it to server to be converted to csv
+
+commit 7274c34c0e6525077021304ddbc377bbbbcda938
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sun Apr 24 10:00:13 2016 -0700
+
+    pseudocodes product csv geenration
+
+commit e2232a07f628e9d2105d8e29adf6b2e93019b4fb
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sat Apr 23 23:57:57 2016 -0700
+
+    adds front end prod obj template
+
+commit f8ab774c9e771e83f681154cd6e6549162dbe4bb
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sat Apr 23 23:15:28 2016 -0700
+
+    adds csv header fields
+
+commit 0344b6c6cae777ec40ebd38150c30f53b43ec781
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sat Apr 23 16:00:07 2016 -0700
+
+    client can download csv from db
+
+commit 8151b8d96f886d1934839c6da8dd2e4b952c6e27
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sat Apr 23 15:42:30 2016 -0700
+
+    sets up json2csv in backend
+
+commit c0f19048d8927beed5bdc32b4799c4f8b5cd09d4
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sat Apr 23 15:19:36 2016 -0700
+
+    fuck jsonexporter, switching to json2csv
+
+commit fb18521f57c871c3784a8c03ecc7bffe07153322
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sat Apr 23 12:46:54 2016 -0700
+
+    names file to download
+
+commit a336f259b1662e0217967436a3c511961eae6921
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sat Apr 23 12:11:11 2016 -0700
+
+    gets csv from server, downloads it from front end
+
+commit 71faad88aaab3ea49afff73a51f44f0cbe135547
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sat Apr 23 12:10:27 2016 -0700
+
+    gets obj from fron end and converts it to csv on server
+
+commit bf5e3e016502be43bd8bea230adcc842bf55efb6
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Sat Apr 23 00:52:25 2016 -0700
+
+    csv res from server
+
+commit 0cc3e5c11bfeb15e7aa484596e3c06122465e25d
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 22 23:56:15 2016 -0700
+
+    adds working jsonexports
+
+commit 4e5b874a551482e39b08c81261f59c42d7d9e6aa
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 22 21:19:03 2016 -0700
+
+    adds ng-csv
+
+commit f53940254813c7957d3068ff6a189b75e7b51ef9
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 22 16:40:57 2016 -0700
+
+    adds filesaver, works for txt
+
+commit a118a07e120d9d32b772e46f0a52301a89934aff
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 22 16:20:33 2016 -0700
+
+    prepares for fileSaver integration
+
+commit c7e36a0a972b5a221ee94790434beb0d8b1aebf1
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 22 14:52:48 2016 -0700
+
+    prepares for hard coding of attributes in template
+
+commit 2594d541a48a0402002232c3590893c7f8aaf8d1
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 22 14:08:56 2016 -0700
+
+    cleans up index
+
+commit cac1efb0687db810c791b9634208803dc77c0e08
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 22 13:51:24 2016 -0700
+
+    adds working directive
+
+commit ddc922544078feda8788504fb03b0bf486cd76fb
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Fri Apr 22 12:42:33 2016 -0700
+
+    adds controller for each product
+
+commit a24456a132c73d028351489074df1bbc83dfe866
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu Apr 21 16:55:30 2016 -0700
+
+    adds working switches
+
+commit 10effddd77cd1ab194a6ff2bdb58099920a4bede
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu Apr 21 16:05:06 2016 -0700
+
+    adds backend
+
+commit b514002e2dd15aa8e6c995ac477553c47e79fb99
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu Apr 21 15:07:29 2016 -0700
+
+    adds front end expirements
+
+commit ee9ed50f2d63c3ca8913eb03bdb75b5efcfcf3fc
+Author: dchiamp <derek.chiampas@gmail.com>
+Date:   Thu Apr 21 10:41:15 2016 -0700
+
+    adds basic structure

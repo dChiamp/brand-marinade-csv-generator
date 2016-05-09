@@ -64,7 +64,7 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter) {
   function download (text) {
     var data = new Blob([text], { type: 'text/plain;charset=utf-8' });
     // var data = new Blob([json], {type: "application/json"});
-    FileSaver.saveAs(data, fileName + dateAsString + ".csv");
+    FileSaver.saveAs(data, dateAsString + "-" + fileName + ".csv");
   };
 
     // put product model in service?
