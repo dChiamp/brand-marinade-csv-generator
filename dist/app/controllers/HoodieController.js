@@ -32,7 +32,7 @@ function HoodieController ($scope, $http, productService, toastr) {
   $scope.save = function() {
     productService.saveProductSettings($scope.product);
     $scope.isChecked = !$scope.isChecked
-    toastr.success("saved", $scope.product.item);
+    // toastr.success("saved", $scope.product.item);
   };
 
   $scope.checkedTrue = function(){

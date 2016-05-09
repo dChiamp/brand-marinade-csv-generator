@@ -2,7 +2,7 @@ app.service('productService', productService)
 
 // productService.$inject = ['$rootScope'];
 
-function productService ($rootScope, $http, FileSaver, Blob, $filter) {
+function productService ($rootScope, $http, FileSaver, Blob, $filter, toastr) {
   var self = this;
 
   self.saveProductSettings = saveProductSettings;
@@ -29,8 +29,16 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter) {
     console.log("TITLE IN POST REQ:", title)
     // console.log("PRODUCT DATA", productData);
     // addNametoProd(productData)
-    if(title) {
-      console.log("theres a title and im going to add it to the product")
+
+    // how can you NOT throw ERR if only ONE is true??
+    // if (!productData.colors) {
+    //   console.log("you must select at least one color")
+    //   toastr.error("you must select at least one color")
+    // }
+
+    if (title) {
+    // if (productData.colors == true) {
+      // console.log("theres a title and im going to add it to the product")
       productData.title = title;
       productData.handle = designHandle;
       productData["Vendor"] = marketplace;
@@ -44,7 +52,11 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter) {
         .then(function(response) {
           console.log("CSV from server", response.data)
           var productCSV = response.data
-      })
+          toastr.success("saved", productData.item);
+      }, function error(response) {
+          toastr.error("There has been an error")
+      });
+
     }
 
   }
