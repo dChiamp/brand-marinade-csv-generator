@@ -6,7 +6,7 @@ function TanktopController ($scope, $http, productService, $filter) {
   $scope.product = {
                   item: "Tank Top",
                   type: "Tank Top",
-                  colors: {"White": false,
+                  colors: {"White": true,
                           "Baby Blue": false,
                           "Black": false,
                           "Heather Grey": false,

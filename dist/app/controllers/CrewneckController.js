@@ -7,10 +7,10 @@ function CrewneckController ($scope, $http, productService, $filter) {
   $scope.product = {
                       item: "Crewneck",
                       type: "Sweatshirt",
-                      colors: {"Heather Grey": false,
+                      colors: {"Heather Grey": true,
                               "Ash": false,
                               "Black": false},
-                      sizes:{"Small": false,
+                      sizes:{"Small": true,
                              "Medium": true,
                              "Large": true,
                              "XL": true,
@@ -20,7 +20,7 @@ function CrewneckController ($scope, $http, productService, $filter) {
                       tags: "hella cool",
                       price: 40,
                       short: "crew",
-                      primaryImgColor: "Ash"
+                      primaryImgColor: "Heather Grey"
                     }
   // console.log("product scope:", $scope.product)
 

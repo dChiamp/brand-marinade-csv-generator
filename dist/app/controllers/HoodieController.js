@@ -10,7 +10,7 @@ function HoodieController ($scope, $http, productService, toastr, $filter) {
                     item: "Hoodie",
                     // title: "",
                     type: "Sweatshirt",
-                    colors: {"Heather Grey": false,
+                    colors: {"Heather Grey": true,
                             "Ash": false,
                             "Black": false},
                     sizes: {"Small": true,
@@ -23,7 +23,7 @@ function HoodieController ($scope, $http, productService, toastr, $filter) {
                     tags: "",
                     price: 48,
                     short: "hoodie",
-                    primaryImgColor: "Ash"
+                    primaryImgColor: "Heather Grey"
                   }
 
 
