@@ -1,3 +1,3 @@
 var app = angular
-  .module('brand-marinade', ['ngMaterial', 'ngAnimate', 'ngFileSaver'])
+  .module('brand-marinade', ['ngMaterial', 'ngAnimate', 'ngFileSaver', 'toastr'])
 

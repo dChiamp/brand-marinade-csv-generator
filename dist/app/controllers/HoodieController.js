@@ -1,8 +1,8 @@
 app.controller('HoodieController', HoodieController)
 
-HoodieController.$inject = ['$scope', '$http', 'productService'];
+HoodieController.$inject = ['$scope', '$http', 'productService', 'toastr'];
 
-function HoodieController ($scope, $http, productService) {
+function HoodieController ($scope, $http, productService, toastr) {
 
   console.log("hoodie controller")
 
@@ -32,6 +32,7 @@ function HoodieController ($scope, $http, productService) {
   $scope.save = function() {
     productService.saveProductSettings($scope.product);
     $scope.isChecked = !$scope.isChecked
+    toastr.success("saved", $scope.product.item);
   };
 
   $scope.checkedTrue = function(){
