@@ -30,11 +30,11 @@ function ProductsController ($scope, $http, productService, FileSaver, Blob, $fi
     // var sku = $scope.product.clientName + "-" + $scope.newProduct.designTitle;
     var designTitle = $scope.product.title
     // $scope.product.title = {title: designTitle}
-    console.log("TITLE:", $scope.product)
+    // console.log("TITLE:", $scope.product)
     productService.saveProductSettings($scope.product);
   }
 
-  $scope.designNames
+  $scope.designNames = {"Published": false};
   $scope.submitted = false
 
   $scope.addDesignName = function () {

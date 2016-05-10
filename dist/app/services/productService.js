@@ -3,6 +3,7 @@ app.service('productService', productService)
 // productService.$inject = ['$rootScope'];
 
 function productService ($rootScope, $http, FileSaver, Blob, $filter, toastr) {
+  // $rootScope.Published = false
   var self = this;
 
   self.saveProductSettings = saveProductSettings;
@@ -15,25 +16,24 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter, toastr) {
   var designHandle;
   var marketplace
   var tags;
+  var publish;
 
   function addNameToProd (designName) {
     title = designName.title;
     designHandle = designName.handle;
     marketplace = designName.marketplace;
     tags = designName.tags
+    publish = designName.Published;
 
     // console.log("PROD SERVICE TITLE:", designHandle)
   }
 
   function saveProductSettings(productData) {
-    // console.log("TITLE IN POST REQ:", title)
-    // console.log("PRODUCT DATA", productData);
-    // addNametoProd(productData)
 
+    // console.log("productData.Publish", productData.Publish)
     // how can you NOT throw ERR if only ONE is true??
     // if (!productData.colors) {
     //   console.log("you must select at least one color")
-    //   toastr.error("you must select at least one color")
     // }
 
     if (title) {
@@ -43,6 +43,9 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter, toastr) {
       productData.handle = designHandle;
       productData["Vendor"] = marketplace;
       productData.tags = tags
+      productData.Published = publish
+
+      console.log("productData.Publish", publish)
 
       console.log("PRODUCT W/ NAME FIELDS", productData.handle)
 
@@ -61,8 +64,7 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter, toastr) {
 
   }
 
-  // TEST AUTOMATIC NAME //
-
+  // Generate Filename //
   var fileName
 
   function nameFile (name) {
@@ -79,9 +81,8 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter, toastr) {
     FileSaver.saveAs(data, dateAsString + "-" + fileName + ".csv");
   };
 
-    // put product model in service?
+  // put product model in service?
   function convertAndDownloadCsv () {
-
     // console.log("product obj to be converted: ", $scope.product)
     $http
       .get('/api/convert')

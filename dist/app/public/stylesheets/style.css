@@ -33,6 +33,13 @@
     text-align: right; 
 }
 
+#publish {
+  /*display: inline-block; */
+  /*position: absolute;*/
+  left: 80px;
+}
+
+
 /*ghost button*/
 
 .btn-button-ghost, .btn-button-ghost:link, .btn-button-ghost:visited {

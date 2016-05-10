@@ -92,19 +92,21 @@ function testing (product) {
     var defaultTags = product.item + "," + "design_" + product.handle + "," + dateFormatted + ",";
     var tags =  defaultTags + product.tags
     var primaryImgColor = product.primaryImgColor
+    var published = product.Published.toString().toUpperCase();
+    // var capsPublishedBoolean = published.toUpperCase()
 
-    console.log("TAGS", tags)
+    // console.log("TAGS", tags)
     console.log("ITEM", item)
-    console.log("title", title)
-    console.log("vendor", vendor)
-    console.log("handle", handle)
+    console.log("*****Publish???******", published)
+    console.log("FULL PRODUCT", product)
+
 
     // add only to first row obj
     productAttributesDetailed = {
                   "Title": title,
                   "Body (HTML)": title,
                   "Vendor": vendor,
-                  "Published": "FALSE",
+                  "Published": published,
                   "Type": product.type,
                   "Tags": tags,
                   "Option1 Name": "Color",
@@ -120,6 +122,7 @@ function testing (product) {
                   // "Option1 Name": "Color",
                   // "Option2 Name": "Size",
                   "Handle": handle,
+                  // gotta UNfilter currency 
                   "Variant Price": product.price,
                   "Variant Inventory Qty": 1,
                   "Variant Inventory Policy": "deny",

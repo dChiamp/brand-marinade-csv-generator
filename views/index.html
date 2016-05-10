@@ -97,6 +97,12 @@
           <label> Add Tags </label>
           <input type="text" ng-model="designNames.tags" placeholder="goldenBoy,bernie,EFUKT">
         </div>
+        <div id="publish">
+          <!-- <p> Publish? </p> -->
+          <md-switch class="blue" ng-model="designNames.Published"> 
+            <p> Publish? | {{designNames.Published}} </p>
+          </md-switch>
+        </div>
           <input type="submit" value="submit" class="btn btn-success">&nbsp;
       </form>
 

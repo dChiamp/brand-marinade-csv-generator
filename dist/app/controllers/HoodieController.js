@@ -23,7 +23,8 @@ function HoodieController ($scope, $http, productService, toastr, $filter) {
                     tags: "",
                     price: 48,
                     short: "hoodie",
-                    primaryImgColor: "Heather Grey"
+                    primaryImgColor: "Heather Grey",
+                    Published: false
                   }
 
 
