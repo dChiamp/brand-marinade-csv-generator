@@ -27,11 +27,12 @@ var moment = require('moment');
   }
     // onesie
   var babySizeNameAbreviation = {
-    "Small": "nb",
-    "Medium": "6m",
-    "Large": "12m",
-    "XL": "18m",
-    "2XL": "24m"
+    "Newborn": "nb",
+    // "Medium": "nb",
+    "6M": "6m",
+    "12M": "12m",
+    "18M": "18m",
+    "24M": "24m"
   }
 
   var product = {};
@@ -318,6 +319,7 @@ function testing (product) {
 
         for (var j = 0; j < sizeWeight.length; j++) { 
           // console.log("sizeWeight[j]", sizeWeight[j])
+          // if items match and sizes match
         if(array[i]["Item"] === sizeWeight[j]["item"] 
           && array[i]["Option2 Value"] === sizeWeight[j]["size"] ) {
             var sizeWeightObj = merge(array[i], sizeWeight[j])
