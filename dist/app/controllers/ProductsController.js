@@ -17,6 +17,7 @@ function ProductsController ($scope, $http, productService, FileSaver, Blob, $fi
 
   // $scope.designName;
   $scope.product = {}
+  $scope.hideForms = true;
 
   
    $scope.boggle = function() {
@@ -44,6 +45,7 @@ function ProductsController ($scope, $http, productService, FileSaver, Blob, $fi
     var designTags = $scope.designNames.tags
 
     $scope.submitted = !$scope.submitted;
+    $scope.hideForms = !$scope.hideForms;
 
     console.log("submitted?", $scope.submitted)
     console.log("TITLE:", $scope.designNames)
