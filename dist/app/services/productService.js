@@ -36,6 +36,10 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter, toastr) {
     //   console.log("you must select at least one color")
     // }
 
+    productData.price = $filter('currency')(productData.price, "")
+    console.log("productData.PRICE", productData.price)
+
+
     if (title) {
     // if (productData.colors == true) {
       // console.log("theres a title and im going to add it to the product")
@@ -45,7 +49,7 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter, toastr) {
       productData.tags = tags
       productData.Published = publish
 
-      console.log("productData.Publish", publish)
+      // console.log("productData.PRICE", publish)
 
       console.log("PRODUCT W/ NAME FIELDS", productData.handle)
 

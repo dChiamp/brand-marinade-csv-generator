@@ -12,10 +12,20 @@
               </div>
               <div ng-if="isChecked">
                 <div>
+
+                    <md-checkbox class="blue" ng-model="showSizes"> 
+                      <p> show sizes ? | {{showSizes}} </p>
+                    </md-checkbox>
+                    <!-- <h5>POOP</h5> -->
+                  
+                <div ng-if="showSizes">
                   <p> Sizes </p>
                   <md-switch class="blue" ng-repeat="(key, value) in product.sizes" ng-model="product.sizes[key]"> 
                     <p> {{key}} | {{value}} </p>
                   </md-switch>
+
+                  </div>
+
                 </div>
                 <div>
                   <hr>
@@ -30,7 +40,7 @@
                   <p> Set Price </p>
                    <form ng-submit="addDesignName()">
                     <div class="form-group">
-                        <input type="text" ng-model="product.price "> </input>
+                        <input type="text" ng-model="product.price"> </input>
                       </div>
                   </form>
                 </div>

@@ -24,7 +24,7 @@ function CrewneckController ($scope, $http, productService, $filter) {
                     }
   // console.log("product scope:", $scope.product)
 
-  $scope.product.price = $filter('currency')($scope.product.price, "$")
+  // $scope.product.price = $filter('currency')($scope.product.price, "$")
   
   $scope.checkedParent = false;
   $scope.isChecked = false

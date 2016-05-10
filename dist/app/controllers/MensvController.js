@@ -39,7 +39,7 @@ function MensvController ($scope, $http, productService, $filter) {
                     primaryImgColor: "White"
                   }
                   
-  $scope.product.price = $filter('currency')($scope.product.price, "$")
+  // $scope.product.price = $filter('currency')($scope.product.price, "$")
 
   $scope.checkedParent = false;
   $scope.isChecked = false

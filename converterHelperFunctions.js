@@ -92,6 +92,7 @@ function testing (product) {
     var defaultTags = product.item + "," + "design_" + product.handle + "," + dateFormatted + ",";
     var tags =  defaultTags + product.tags
     var primaryImgColor = product.primaryImgColor
+    // format published for csv
     var published = product.Published.toString().toUpperCase();
     // var capsPublishedBoolean = published.toUpperCase()
 
