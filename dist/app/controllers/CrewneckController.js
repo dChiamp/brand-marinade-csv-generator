@@ -28,6 +28,7 @@ function CrewneckController ($scope, $http, productService, $filter) {
   
   $scope.checkedParent = false;
   $scope.isChecked = false
+  $scope.showSizes = false;
 
   $scope.save = function() {
     productService.saveProductSettings($scope.product);

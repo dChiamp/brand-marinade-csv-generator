@@ -82,3 +82,8 @@ md-switch.md-checked .md-thumb {
 md-switch[disabled] .md-thumb {
     background-color: rgb(255,255,255); /* disabled switch color */
 }
+
+/*defualt color dropdown*/
+select {
+  margin-bottom: 2%;
+}

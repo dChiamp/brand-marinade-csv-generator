@@ -30,7 +30,8 @@ function TanktopController ($scope, $http, productService, $filter) {
   // $scope.product.price = $filter('currency')($scope.product.price, "$")
 
   $scope.checkedParent = false;
-  $scope.isChecked = false
+  $scope.isChecked = false;
+  $scope.showSizes = false;
 
   $scope.save = function() {
     productService.saveProductSettings($scope.product);

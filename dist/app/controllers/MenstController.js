@@ -43,6 +43,7 @@ $scope.product = {
 
   $scope.checkedParent = false;
   $scope.isChecked = false
+  $scope.showSizes = false;
 
 
   $scope.save = function() {

@@ -21,7 +21,8 @@ function TotebagController ($scope, $http) {
   // $scope.product.price = $filter('currency')($scope.product.price, "$")
   
   $scope.isChecked = false
-  $scope.saved = true;
+  // $scope.saved = true;
+  // $scope.showSizes = false;
 
   $scope.save = function() {
     productService.saveProductSettings($scope.product);
