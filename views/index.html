@@ -99,11 +99,13 @@
         </div>
         <div id="publish">
           <!-- <p> Publish? </p> -->
-          <md-switch class="blue" ng-model="designNames.Published"> 
-            <p> Publish? | {{designNames.Published}} </p>
+          <md-switch id="publish-switch" class="blue" ng-model="designNames.Published">
+            <label> <b> Publish </b> | {{designNames.Published}} </label>
           </md-switch>
         </div>
+        <div>
           <input type="submit" value="submit" class="btn btn-success">&nbsp;
+        </div>
       </form>
 
       <hr>

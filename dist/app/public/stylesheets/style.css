@@ -34,9 +34,9 @@
 }
 
 #publish {
-  /*display: inline-block; */
-  /*position: absolute;*/
-  left: 80px;
+ /*margin-left: 20%;*/
+ display: inline-block; 
+
 }
 
 
