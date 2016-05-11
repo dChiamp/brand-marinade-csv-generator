@@ -44,6 +44,7 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter, toastr) {
         console.log("Defualt color selected does not match")
         return toastr.error("Defualt color selected does not match")
       } 
+    // * return promise so that scope.isChecked only === true if product is saved
 
     productData.price = $filter('currency')(productData.price, "")
     console.log("productData.PRICE", productData.price)
