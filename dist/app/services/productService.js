@@ -36,6 +36,8 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter, toastr) {
     //   console.log("you must select at least one color")
     // }
 
+    // make sure defualtIMgColor is true
+
     productData.price = $filter('currency')(productData.price, "")
     console.log("productData.PRICE", productData.price)
 

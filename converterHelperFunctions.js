@@ -9,7 +9,6 @@ var moment = require('moment');
 
   // var masterProductCsvTemplate = [];
 
-
   var sizeNameAbreviation = {
     "Small": "sm",
     "Medium": "md",
