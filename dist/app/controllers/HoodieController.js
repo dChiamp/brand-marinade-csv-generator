@@ -13,7 +13,7 @@ function HoodieController ($scope, $http, productService, toastr, $filter) {
                     colors: {"Heather Grey": true,
                             "Ash": false,
                             "Black": false,
-                            "Navy Blue": false
+                            "Navy": false
                           },
                     sizes: {"Small": true,
                             "Medium": true,

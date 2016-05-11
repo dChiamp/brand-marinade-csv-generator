@@ -10,6 +10,7 @@ var colorAbrevs = {
   "Kelly Green": "kelly",
   "Light Pink": "lightpink",
   "Maroon": "maroon",
+  "Navy": "navy",
   "Navy Blue": "navy",
   "Orange": "orange",
   "Pink": "pink",
