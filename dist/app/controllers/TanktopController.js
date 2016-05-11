@@ -19,7 +19,7 @@ function TanktopController ($scope, $http, productService, $filter) {
                           "Large": true,
                           "XL": true,
                           "2XL": true,
-                          "3XL": true},
+                          "3XL": false},
                     brands: ["American Apparel"],
                     tags: ["hella cool"],
                     price: 20,
