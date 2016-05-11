@@ -37,14 +37,12 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter, toastr) {
     // }
 
     // make sure defualtIMgColor is true
-      if (productData.primaryImgColor && productData.colors[productData.primaryImgColor] != true) {
-        // default = grey
-        // if product color . grey != true
-        // dont work
-        console.log("Defualt color selected does not match")
-        return toastr.error("Defualt color selected does not match")
-      } 
+      // if (productData.primaryImgColor && productData.colors[productData.primaryImgColor] != true) {
+      //   console.log("Defualt color selected does not match")
+      //   return toastr.error("Defualt color selected does not match")
+      // } 
     // * return promise so that scope.isChecked only === true if product is saved
+    // MOVED TO INDIV CONTROLLERS TO BYPASS PROMISE FOR NOW
 
     productData.price = $filter('currency')(productData.price, "")
     console.log("productData.PRICE", productData.price)

@@ -25,8 +25,13 @@ function TotebagController ($scope, $http) {
   // $scope.showSizes = false;
 
   $scope.save = function() {
-    productService.saveProductSettings($scope.product);
-    $scope.saved = !$scope.saved;
+    if ($scope.product.primaryImgColor && $scope.product.colors[$scope.product.primaryImgColor] != true) {
+      console.log("Default color selected does not match")
+      return toastr.error("Defualt color selected does not match")
+    } else {
+      productService.saveProductSettings($scope.product);
+      $scope.isChecked = !$scope.isChecked
+    }
   };
 
   $scope.checkedTrue = function(){
