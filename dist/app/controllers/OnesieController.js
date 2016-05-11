@@ -11,7 +11,7 @@ function OnesieController ($scope, $http, productService, $filter) {
                           "Black": false,
                           "Heather Grey": false,
                           "Kelly Green": false,
-                          "Light Pink": false,
+                          "Pink": false,
                           "Vintage Red": false,
                           "Royal Blue": false
                           },
