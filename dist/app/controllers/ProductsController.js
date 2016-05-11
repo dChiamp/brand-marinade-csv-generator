@@ -72,5 +72,29 @@ function ProductsController ($scope, $http, productService, FileSaver, Blob, $fi
   }
 
 
+var test = {
+  "product": {
+    "title": "Burton Custom Freestlye 151",
+    "body_html": "<strong>Good snowboard!<\/strong>",
+    "vendor": "Burton",
+    "product_type": "Snowboard",
+    "published": false
+  }
+}
+
+$scope.testApi = function () {
+  console.log("hit Test");
+   $http
+      .post('https://9852e9327df153b6303e9d74c09077b4:78f1c269ac2e9642240f588bec8548fd@printing-site.myshopify.com/admin/products.json', test)
+      .then(function(response) {
+        console.log("Test response", response.data)
+      }, function error (response) {
+        console.log("ERROR:", response);
+      })
+}
+
+
+
+
 } 
 
