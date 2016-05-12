@@ -25,7 +25,7 @@ uploadController = {
             'Content-Type': 'application/json',
             // 'Custom-Header': 'Custom Value'
         },
-        body: testProductPost //Set the body as a string
+        body: testProductPost //Set the body product obj
     }, function(error, response, body){
         if(error) {
             console.log(error);
@@ -35,11 +35,21 @@ uploadController = {
     });
   },
   getAllProducts: function (req, res) {
-    request(apiPostUrl, function (error, response, body) {
-      if (!error && response.statusCode == 200) {
-        console.log(body) // Show the HTML for the Google homepage.
-      }
-    })
+        request({
+        url: apiPostUrl, //URL to hit
+        // qs: {from: 'blog example', time: +new Date()}, //Query string data
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            // 'Custom-Header': 'Custom Value'
+        },
+    }, function(error, response, body){
+        if(error) {
+            console.log(error);
+        } else {
+            console.log(response.statusCode, body);
+        }
+    });
   }
 }
 
