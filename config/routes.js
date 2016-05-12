@@ -3,9 +3,9 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
-
 var productsController = require('../controllers/productsController');
 var jsonexportController = require('../controllers/jsonexportController');
+var uploadController = require('../controllers/uploadController');
 
 router.route('/api/products')
   .get(productsController.productsIndex)
@@ -18,7 +18,8 @@ router.route('/api/convert')
   .post(jsonexportController.helperFncReturnArrayTest)
   // .post(jsonexportController.updateProduct)
 
-// router.route('/api/test')
-//   .get(jsonexportController.helperFncReturnArrayTest)
+router.route('/api/upload')
+  .get(uploadController.getAllProducts)
+  .post(uploadController.postProduct);
 
 module.exports = router;
