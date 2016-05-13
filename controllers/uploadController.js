@@ -48,7 +48,7 @@ uploadController = {
             console.log(error);
         } else {
             // console.log(response.statusCode, body);
-            console.log("response:": response, "BODY:", body);
+            console.log("response:", response, "BODY", body);
             res.send(response)
         }
     });
