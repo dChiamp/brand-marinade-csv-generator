@@ -10,7 +10,7 @@ function MugController ($scope, $http, productService, $filter, toastr) {
                             "Black": false
                             },
                     sizes: {"12oz": true,
-                            "160z": true,
+                            "16oz": true,
                            },
                     price: 20,
                     brands: "American Apparel",
