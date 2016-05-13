@@ -17,15 +17,16 @@ var testProductPost = {
 
 uploadController = {
   postProduct: function (req, res) {
-        request({
-        url: apiPostUrl, //URL to hit
-        // qs: {from: 'blog example', time: +new Date()}, //Query string data
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            // 'Custom-Header': 'Custom Value'
-        },
-        body: testProductPost //Set the body product obj
+      console.log("POST REQ FNC HIT!")
+      request({
+      url: apiPostUrl, //URL to hit
+      // qs: {from: 'blog example', time: +new Date()}, //Query string data
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          // 'Custom-Header': 'Custom Value'
+      },
+      body: testProductPost //Set the body product obj
     }, function(error, response, body){
         if(error) {
             console.log(error);
@@ -35,14 +36,14 @@ uploadController = {
     });
   },
   getAllProducts: function (req, res) {
-        request({
-        url: apiPostUrl, //URL to hit
-        // qs: {from: 'blog example', time: +new Date()}, //Query string data
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            // 'Custom-Header': 'Custom Value'
-        },
+      request({
+      url: apiPostUrl, //URL to hit
+      // qs: {from: 'blog example', time: +new Date()}, //Query string data
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json',
+          // 'Custom-Header': 'Custom Value'
+      },
     }, function(error, response, body){
         if(error) {
             console.log(error);
