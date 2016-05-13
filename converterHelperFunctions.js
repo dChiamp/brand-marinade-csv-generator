@@ -34,6 +34,10 @@ var moment = require('moment');
     "24M": "24m"
   }
 
+  var toteSizeNameAbreviation = {
+    "One-size": "os"
+  }
+
   var product = {};
   
   var productAttributesDetailed;
@@ -194,6 +198,33 @@ function testing (product) {
               }
             }
           }
+        } else if (product.Item === "Tote Bag") {
+          for (abrevKey in toteSizeNameAbreviation) {
+            if(product["Option2 Value"] === abrevKey) {
+              // console.log("ONSIE SIZE", product.sizes)
+              var sizeAbrev = toteSizeNameAbreviation[abrevKey]
+              // build sku with color abbrev
+              // if colorName === key in colorabreves)
+              // then replace colorname with colorabrev VALUE and add to sku
+              for (colorKey in colorAbrevs) {
+                  if (product["Option1 Value"] === colorKey) {
+                  colorAbrev = colorAbrevs[colorKey];
+                  // console.log("ABBREVIATE", colorName, "AS", colorAbrev);
+                  var sku = product.Handle + "-" + colorAbrev + "-" + sizeAbrev;
+                  console.log("SKU", sku);
+                  var prodUrl = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg"
+                  var imageSrc = prodUrl;
+                } 
+                        // generate defualt color Img Src
+                if (product.defaultImgColor === colorKey ) {
+                  // then create image src
+                  var defaultImgSrc = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg";
+                }
+                console.log ("Onesie SKU", sku)
+              }
+            }
+          }
+          // hack to work for one product, need to catch else's
         } else if (product.Item === "Onesie") {
           for (abrevKey in babySizeNameAbreviation) {
             if(product["Option2 Value"] === abrevKey) {

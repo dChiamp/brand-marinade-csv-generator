@@ -1,33 +1,33 @@
 app.controller('TotebagController', TotebagController)
 // ProductsController.$inject = ['$scope', '$http'];
-function TotebagController ($scope, $http) {
+function TotebagController ($scope, $http, productService, $filter) {
   console.log("Sweatshirt controller")
 
   $scope.product = {
-                    item: "Totebag",
-                    type: "Totebag",
-                    colors: {"Tan": true,
-                            "White": true
+                    item: "Tote Bag",
+                    type: "Tote Bag",
+                    colors: {"Natural": true,
+                            "White": false
                             },
-                    sizes: {small: true,
-                            medium: true,
-                            large: true },
+                    sizes: {"One-size": true},
                     brands: ["American Apparel"],
                     tags: ["hella cool"],
-                    price: 50,
-                    primaryImgColor: "White"
+                    price: 20,
+                    short: "tote",
+                    primaryImgColor: "Natural"
                   }
 
   // $scope.product.price = $filter('currency')($scope.product.price, "$")
   
-  $scope.isChecked = false
-  // $scope.saved = true;
-  // $scope.showSizes = false;
+
+  $scope.checkedParent = false;
+  $scope.isChecked = false;
+  $scope.showSizes = false;
 
   $scope.save = function() {
     if ($scope.product.primaryImgColor && $scope.product.colors[$scope.product.primaryImgColor] != true) {
       console.log("Default color selected does not match")
-      return toastr.error("Defualt color selected does not match")
+      return toastr.error("Default color selected does not match")
     } else {
       productService.saveProductSettings($scope.product);
       $scope.isChecked = !$scope.isChecked

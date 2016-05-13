@@ -138,7 +138,11 @@ var sizeWeight = [
                       "Variant Grams": 170},
                       {"item": "Women's V", 
                       "size": "2XL",
-                      "Variant Grams": 198}
+                      "Variant Grams": 198},
+
+                      {"item": "Tote Bag", 
+                      "size": "One-size",
+                      "Variant Grams": 227}
                       ]
 
 module.exports = sizeWeight;
