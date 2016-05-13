@@ -18,6 +18,7 @@ function UploadController ($scope, $http, productService, toastr, $filter) {
       .post('api/upload')
       .then(function(response) {
         console.log("Upload response from shopify:", response)
+        // console.log()
       }, function error (response) {
         console.log("ERROR", response)
       });
