@@ -1,6 +1,6 @@
 app.controller('OnesieController', OnesieController)
 // ProductsController.$inject = ['$scope', '$http'];
-function OnesieController ($scope, $http, productService, $filter) {
+function OnesieController ($scope, $http, productService, $filter, toastr) {
   console.log("Onesie controller")
 
   $scope.product = {

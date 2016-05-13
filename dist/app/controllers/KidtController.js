@@ -1,6 +1,6 @@
 app.controller('KidtController', KidtController)
 // ProductsController.$inject = ['$scope', '$http'];
-function KidtController ($scope, $http, productService, $filter) {
+function KidtController ($scope, $http, productService, $filter, toastr) {
   console.log("KidsT controller")
 
   $scope.product = {

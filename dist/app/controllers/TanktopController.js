@@ -1,6 +1,6 @@
 app.controller('TanktopController', TanktopController)
 // ProductsController.$inject = ['$scope', '$http'];
-function TanktopController ($scope, $http, productService, $filter) {
+function TanktopController ($scope, $http, productService, $filter, toastr) {
   console.log("Sweatshirt controller")
 
   $scope.product = {

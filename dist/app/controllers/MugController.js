@@ -1,19 +1,37 @@
 app.controller('MugController', MugController)
 // ProductsController.$inject = ['$scope', '$http'];
-function MugController ($scope, $http, $filter) {
+function MugController ($scope, $http, productService, $filter, toastr) {
   console.log("Mug controller")
 
   $scope.product = {
                     item: "Mug",
                     type: "Mug",
                     colors: {"White": true,
-                            "Black": true
+                            "Black": false
                             },
-                    sizes: {small: true,
-                            medium: true,
-                            large: true },
+                    sizes: {"12oz": true,
+                            "160z": true,
+                           },
+                    price: 20,
                     brands: "American Apparel",
                     tags: "hella cool",
-                    price: 20
+                    short: "mug",
+                    primaryImgColor: "White"
                   }
+
+ $scope.save = function() {
+    if ($scope.product.primaryImgColor && $scope.product.colors[$scope.product.primaryImgColor] != true) {
+      console.log("Default color selected does not match")
+      return toastr.error("Default color selected does not match")
+    } else {
+      productService.saveProductSettings($scope.product);
+      $scope.isChecked = !$scope.isChecked
+    }
+  };
+
+  $scope.checkedTrue = function(){
+    $scope.isChecked = !$scope.isChecked
+    console.log("$scope.checkedParent:", $scope.checkedParent)
+  };
+
 }

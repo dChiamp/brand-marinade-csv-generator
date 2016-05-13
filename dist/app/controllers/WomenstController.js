@@ -1,6 +1,6 @@
 app.controller('WomenstController', WomenstController)
 // ProductsController.$inject = ['$scope', '$http'];
-function WomenstController ($scope, $http, productService, $filter) {
+function WomenstController ($scope, $http, productService, $filter, toastr) {
   console.log("Sweatshirt controller");
 
   $scope.product = {

@@ -2,7 +2,7 @@ app.controller('ProductsController', ProductsController)
 
 // ProductsController.$inject = ['$scope', '$http', 'productService'];
 
-function ProductsController ($scope, $http, productService, FileSaver, Blob, $filter) {
+function ProductsController ($scope, $http, productService, FileSaver, Blob, $filter, toastr) {
   console.log("products controller")
 
   var vm = this;

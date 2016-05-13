@@ -142,7 +142,25 @@ var sizeWeight = [
 
                       {"item": "Tote Bag", 
                       "size": "One-size",
-                      "Variant Grams": 227}
+                      "Variant Grams": 227},
+
+                      {"item": "Mug", 
+                      "size": "12oz",
+                      "Variant Grams": 227},
+                      {"item": "Mug", 
+                      "size": "16oz",
+                      "Variant Grams": 227},
+
+                      {"item": "Poster", 
+                      "size": "Small",
+                      "Variant Grams": 100},
+                      {"item": "Poster", 
+                      "size": "Medium",
+                      "Variant Grams": 100},
+                      {"item": "Poster", 
+                      "size": "Large",
+                      "Variant Grams": 100}
+
                       ]
 
 module.exports = sizeWeight;
