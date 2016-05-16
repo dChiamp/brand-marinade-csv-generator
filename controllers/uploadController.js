@@ -135,7 +135,7 @@ var testProductPost =  {
                               "inventory_management": null,
                               "option1": masterArray[0]["Option1 Value"],
                               "option2": masterArray[0]["Option2 Value"],
-                              "option3": masterArray[0]["Option3 Value"],
+                              // "option3": masterArray[0]["Option3 Value"],
                               // "created_at": "2016-04-25T17:00:06-04:00",
                               // "updated_at": "2016-04-25T17:00:06-04:00",
                               "taxable": true,
@@ -149,32 +149,45 @@ var testProductPost =  {
                             }
                           ],
                           "options": [
+                            // COLOR
                             {
-                              "id": 1022828722,
-                              "product_id": 1071559644,
-                              "name": "Title",
+                              // "id": 1022828722,
+                              // "product_id": 1071559644,
+                              "name": masterArray[0]["Option1 Name"],
                               "position": 1,
                               "values": [
                                 // colors
                                 masterArray[0]["Option1 Value"]
                               ]
+                            },
+                            // is this how you specify more options?
+                            // size?
+                            {
+                              // "id": 1022828722,
+                              // "product_id": 1071559644,
+                              "name": masterArray[0]["Option2 Name"],
+                              "position": 2,
+                              "values": [
+                                // colors
+                                masterArray[0]["Option2 Value"]
+                              ]
                             }
                           ],
                           "images": [
                             {
-                              "id": 850703190,
-                              "product_id": 632910392,
+                              // "id": 850703190,
+                              // "product_id": 632910392,
                               "position": 1,
                               // "created_at": "2016-04-25T16:58:42-04:00",
                               // "updated_at": "2016-04-25T16:58:42-04:00",
-                              "src": masterArray[0]["IMGSRC"],
+                              "src": masterArray[0]["Variant Image"],
                               "variant_ids": [
                               ]
                             }
                           ],
                           "image": {
-                            "id": 850703190,
-                            "product_id": 632910392,
+                            // "id": 850703190,
+                            // "product_id": 632910392,
                             "position": 1,
                             // "created_at": "2016-04-25T16:58:42-04:00",
                             // "updated_at": "2016-04-25T16:58:42-04:00",
