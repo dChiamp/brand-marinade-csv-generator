@@ -105,6 +105,7 @@ var masterArray  = [ { 'Variant SKU': 'json-upload-hoodie-heather-sm',
 
 // got to iterate through array 
 // variants are each product
+// iterate through (starting at 1)
 
 var testProductPost =  {
                         "product": {
@@ -177,23 +178,23 @@ var testProductPost =  {
                             {
                               // "id": 850703190,
                               // "product_id": 632910392,
-                              "position": 1,
+                              // "position": 1,
                               // "created_at": "2016-04-25T16:58:42-04:00",
                               // "updated_at": "2016-04-25T16:58:42-04:00",
-                              "src": masterArray[0]["Variant Image"],
-                              "variant_ids": [
-                              ]
+                              "src": masterArray[0]["Variant Image"]
+                              // "variant_ids": [
+                              // ]
                             }
                           ],
                           "image": {
                             // "id": 850703190,
                             // "product_id": 632910392,
-                            "position": 1,
+                            // "position": 1,
                             // "created_at": "2016-04-25T16:58:42-04:00",
                             // "updated_at": "2016-04-25T16:58:42-04:00",
-                            "src": masterArray[0]["IMGSRC"],
-                            "variant_ids": [
-                            ]
+                            "src": masterArray[0]["IMGSRC"]
+                            // "variant_ids": [
+                            // ]
                           }
                         }
                       }
