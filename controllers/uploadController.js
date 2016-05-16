@@ -116,7 +116,7 @@ var testProductPost =  {
                           // "created_at": "2016-04-25T17:00:06-04:00",
                           "handle": masterArray[0]["Handle"],
                           // "updated_at": "2016-04-25T17:00:06-04:00",
-                          "published_at": null,
+                          "published": masterArray[0]["Published"],
                           "template_suffix": null,
                           "published_scope": "global",
                           "tags": masterArray[0]["Tags"],
