@@ -13,10 +13,10 @@ var testProductPostOld = {
                         "vendor": "biz3",
                         "product_type": "thrashplank3",
                         "published": false
+                      }
+                    }
 
-
-var masterArray  = 
-[ { 'Variant SKU': 'json-upload-hoodie-heather-sm',
+var masterArray  = [ { 'Variant SKU': 'json-upload-hoodie-heather-sm',
       'Variant Image': 'http://productuploader.com/product/uploader/json-upload-hoodie-heather.jpg',
       IMGSRC: 'http://productuploader.com/product/uploader/json-upload-hoodie-heather.jpg',
       Item: 'Hoodie',
@@ -183,7 +183,6 @@ var testProductPost =  {
                             ]
                           }
                         }
->>>>>>> dev-upload
                       }
 
 uploadController = {
