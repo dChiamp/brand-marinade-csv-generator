@@ -178,7 +178,7 @@ var testProductPost =  {
                             {
                               // "id": 850703190,
                               // "product_id": 632910392,
-                              // "position": 1,
+                              "position": 1,
                               // "created_at": "2016-04-25T16:58:42-04:00",
                               // "updated_at": "2016-04-25T16:58:42-04:00",
                               "src": masterArray[0]["Variant Image"]
@@ -186,16 +186,16 @@ var testProductPost =  {
                               // ]
                             }
                           ],
-                          "image": {
-                            // "id": 850703190,
-                            // "product_id": 632910392,
-                            // "position": 1,
-                            // "created_at": "2016-04-25T16:58:42-04:00",
-                            // "updated_at": "2016-04-25T16:58:42-04:00",
-                            "src": masterArray[0]["IMGSRC"]
-                            // "variant_ids": [
-                            // ]
-                          }
+                          // "image": {
+                          //   // "id": 850703190,
+                          //   // "product_id": 632910392,
+                          //   // "position": 1,
+                          //   // "created_at": "2016-04-25T16:58:42-04:00",
+                          //   // "updated_at": "2016-04-25T16:58:42-04:00",
+                          //   "src": masterArray[0]["IMGSRC"]
+                          //   // "variant_ids": [
+                          //   // ]
+                          // }
                         }
                       }
 
