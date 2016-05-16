@@ -7,10 +7,10 @@ var request = require('request');
 var apiPostUrl = "https://9852e9327df153b6303e9d74c09077b4:78f1c269ac2e9642240f588bec8548fd@printing-site.myshopify.com/admin/products.json"
 var testProductPost = {
                       "product": {
-                        "title": "test1",
-                        "body_html": "<strong>Good test!<\/strong>",
+                        "title": "test2",
+                        "body_html": "<strong>Good test2!<\/strong>",
                         "vendor": "biz3",
-                        "product_type": "thrashplank",
+                        "product_type": "thrashplank2",
                         "published": false
                       }
                     }
@@ -26,7 +26,7 @@ uploadController = {
           'Content-Type': 'application/json',
           // 'Custom-Header': 'Custom Value'
       },
-      body: testProductPost //Set the body product obj
+      body: JSON.stringify(testProductPost) //Set the body product obj
     }, function(error, response, body){
         if(error) {
             console.log(error);
