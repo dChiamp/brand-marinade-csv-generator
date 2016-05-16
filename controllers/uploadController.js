@@ -107,97 +107,120 @@ var masterArray  = [ { 'Variant SKU': 'json-upload-hoodie-heather-sm',
 // variants are each product
 // iterate through (starting at 1)
 
-var testProductPost =  {
-                        "product": {
-                          // "id": 1071559644,
-                          "title": masterArray[0]["Title"],
-                          "body_html": masterArray[0]["Body (HTML)"],
-                          "vendor": masterArray[0]["Vendor"],
-                          "product_type": masterArray[0]["Type"],
-                          // "created_at": "2016-04-25T17:00:06-04:00",
-                          "handle": masterArray[0]["Handle"],
-                          // "updated_at": "2016-04-25T17:00:06-04:00",
-                          "published": masterArray[0]["Published"],
-                          "template_suffix": null,
-                          "published_scope": "global",
-                          "tags": masterArray[0]["Tags"],
-                          "variants": [
-                            {
-                              // "id": 1070325119,
-                              // "product_id": 1071559644,
-                              // "title": "Default Title",
-                              "price": masterArray[0]["Variant Price"],
-                              "sku": masterArray[0]["Variant SKU"],
-                              // "position": 1,
-                              "grams": masterArray[0]["Variant Grams"],
-                              "inventory_policy": "deny",
-                              "compare_at_price": null,
-                              "fulfillment_service": "manual",
-                              "inventory_management": null,
-                              "option1": masterArray[0]["Option1 Value"],
-                              "option2": masterArray[0]["Option2 Value"],
-                              // "option3": masterArray[0]["Option3 Value"],
-                              // "created_at": "2016-04-25T17:00:06-04:00",
-                              // "updated_at": "2016-04-25T17:00:06-04:00",
-                              "taxable": true,
-                              "barcode": null,
-                              "image_id": null,
-                              "inventory_quantity": 1,
-                              // "weight": 0.0,
-                              "weight_unit": "oz",
-                              "old_inventory_quantity": 1,
-                              "requires_shipping": true
-                            }
-                          ],
-                          "options": [
-                            // COLOR
-                            {
-                              // "id": 1022828722,
-                              // "product_id": 1071559644,
-                              "name": masterArray[0]["Option1 Name"],
-                              "position": 1,
-                              "values": [
-                                // colors
-                                masterArray[0]["Option1 Value"]
-                              ]
-                            },
-                            // is this how you specify more options?
-                            // size?
-                            {
-                              // "id": 1022828722,
-                              // "product_id": 1071559644,
-                              "name": masterArray[0]["Option2 Name"],
-                              "position": 2,
-                              "values": [
-                                // colors
-                                masterArray[0]["Option2 Value"]
-                              ]
-                            }
-                          ],
-                          "images": [
-                            {
-                              // "id": 850703190,
-                              // "product_id": 632910392,
-                              "position": 1,
-                              // "created_at": "2016-04-25T16:58:42-04:00",
-                              // "updated_at": "2016-04-25T16:58:42-04:00",
-                              "src": masterArray[0]["Variant Image"]
-                              // "variant_ids": [
-                              // ]
-                            }
-                          ],
-                          // "image": {
-                          //   // "id": 850703190,
-                          //   // "product_id": 632910392,
-                          //   // "position": 1,
-                          //   // "created_at": "2016-04-25T16:58:42-04:00",
-                          //   // "updated_at": "2016-04-25T16:58:42-04:00",
-                          //   "src": masterArray[0]["IMGSRC"]
-                          //   // "variant_ids": [
-                          //   // ]
-                          // }
-                        }
-                      }
+  var testProductPost =  {
+    "product": {
+      // "id": 1071559644,
+      "title": masterArray[0]["Title"],
+      "body_html": masterArray[0]["Body (HTML)"],
+      "vendor": masterArray[0]["Vendor"],
+      "product_type": masterArray[0]["Type"],
+      // "created_at": "2016-04-25T17:00:06-04:00",
+      "handle": masterArray[0]["Handle"],
+      // "updated_at": "2016-04-25T17:00:06-04:00",
+      "published": masterArray[0]["Published"],
+      "template_suffix": null,
+      "published_scope": "global",
+      "tags": masterArray[0]["Tags"],
+      "variants": [
+        {
+          // "id": 1070325119,
+          // "product_id": 1071559644,
+          // "title": "Default Title",
+          "price": masterArray[0]["Variant Price"],
+          "sku": masterArray[0]["Variant SKU"],
+          // "position": 1,
+          "grams": masterArray[0]["Variant Grams"],
+          "inventory_policy": "deny",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": null,
+          "option1": masterArray[0]["Option1 Value"],
+          "option2": masterArray[0]["Option2 Value"],
+          // "option3": masterArray[0]["Option3 Value"],
+          // "created_at": "2016-04-25T17:00:06-04:00",
+          // "updated_at": "2016-04-25T17:00:06-04:00",
+          "taxable": true,
+          "barcode": null,
+          "image_id": null,
+          "inventory_quantity": 1,
+          // "weight": 0.0,
+          "weight_unit": "oz",
+          "old_inventory_quantity": 1,
+          "requires_shipping": true
+        }
+      ],
+      "options": [
+        // COLOR
+        {
+          // "id": 1022828722,
+          // "product_id": 1071559644,
+          "name": masterArray[0]["Option1 Name"],
+          "position": 1,
+          "values": [
+            // colors
+            masterArray[0]["Option1 Value"]
+          ]
+        },
+        // is this how you specify more options?
+        // size?
+        {
+          // "id": 1022828722,
+          // "product_id": 1071559644,
+          "name": masterArray[0]["Option2 Name"],
+          "position": 2,
+          "values": [
+            // colors
+            masterArray[0]["Option2 Value"]
+          ]
+        }
+      ],
+      // OLD
+      // "images": [
+      //   {
+      //     // "id": 850703190,
+      //     // "product_id": 632910392,
+      //     "position": 1,
+      //     // "created_at": "2016-04-25T16:58:42-04:00",
+      //     // "updated_at": "2016-04-25T16:58:42-04:00",
+      //     "src": masterArray[0]["Variant Image"]
+      //     // "variant_ids": [
+      //     // ]
+      //   }
+      // ],
+      // "image": {
+      //   // "id": 850703190,
+      //   // "product_id": 632910392,
+      //   // "position": 1,
+      //   // "created_at": "2016-04-25T16:58:42-04:00",
+      //   // "updated_at": "2016-04-25T16:58:42-04:00",
+      //   "src": masterArray[0]["IMGSRC"]
+      //   // "variant_ids": [
+      //   // ]
+      // }
+      // PUT TEST:
+       "images": [
+                  {
+                    "position": 1,
+                    "updated_at": "2016-04-25T16:58:42-04:00",
+                    "src": "https:\/\/cdn.shopify.com\/s\/files\/1\/0006\/9093\/3842\/products\/ipod-nano.png?v=1461617922",
+                    "variant_ids": [
+                    ]
+                  },
+                  {
+                    "position": 2,
+                    "src": "https:\/\/cdn.shopify.com\/s\/files\/1\/0006\/9093\/3842\/products\/ipod-nano-2.png?v=1461617922",
+                    "variant_ids": [
+                    ]
+                  }
+                ],
+                "image": {
+                  "position": 1,
+                  "src": "https:\/\/cdn.shopify.com\/s\/files\/1\/0006\/9093\/3842\/products\/ipod-nano.png?v=1461617922",
+                  "variant_ids": [
+                  ]
+                }
+        }
+      }
 
 uploadController = {
   postProduct: function (req, res) {
