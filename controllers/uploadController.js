@@ -7,10 +7,10 @@ var request = require('request');
 var apiPostUrl = "https://9852e9327df153b6303e9d74c09077b4:78f1c269ac2e9642240f588bec8548fd@printing-site.myshopify.com/admin/products.json"
 var testProductPost = {
                       "product": {
-                        "title": "test2",
-                        "body_html": "<strong>Good test2!<\/strong>",
+                        "title": "test3",
+                        "body_html": "<strong>Good test3!<\/strong>",
                         "vendor": "biz3",
-                        "product_type": "thrashplank2",
+                        "product_type": "thrashplank3",
                         "published": false
                       }
                     }
@@ -32,6 +32,7 @@ uploadController = {
             console.log(error);
         } else {
             console.log(response.statusCode, body);
+            res.send(response)
         }
     });
   },
