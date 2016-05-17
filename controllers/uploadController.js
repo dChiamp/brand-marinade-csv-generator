@@ -174,51 +174,22 @@ var masterArray  = [ { 'Variant SKU': 'json-upload-hoodie-heather-sm',
           ]
         }
       ],
-      // OLD
-      // "images": [
-      //   {
-      //     // "id": 850703190,
-      //     // "product_id": 632910392,
-      //     "position": 1,
-      //     // "created_at": "2016-04-25T16:58:42-04:00",
-      //     // "updated_at": "2016-04-25T16:58:42-04:00",
-      //     "src": masterArray[0]["Variant Image"]
-      //     // "variant_ids": [
-      //     // ]
-      //   }
-      // ],
-      // "image": {
-      //   // "id": 850703190,
-      //   // "product_id": 632910392,
-      //   // "position": 1,
-      //   // "created_at": "2016-04-25T16:58:42-04:00",
-      //   // "updated_at": "2016-04-25T16:58:42-04:00",
-      //   "src": masterArray[0]["IMGSRC"]
-      //   // "variant_ids": [
-      //   // ]
-      // }
       // PUT TEST:
        "images": [
                   {
-                    "position": 1,
-                    "updated_at": "2016-04-25T16:58:42-04:00",
-                    "src": "https:\/\/cdn.shopify.com\/s\/files\/1\/0006\/9093\/3842\/products\/ipod-nano.png?v=1461617922",
+                    // "position": 1,
+                    // "updated_at": "2016-04-25T16:58:42-04:00",
+                    "src": masterArray[0]["Image Src"],
                     "variant_ids": [
                     ]
                   },
                   {
-                    "position": 2,
-                    "src": "https:\/\/cdn.shopify.com\/s\/files\/1\/0006\/9093\/3842\/products\/ipod-nano-2.png?v=1461617922",
+                    // "position": 2,
+                    "src": masterArray[0]["Image Src"],
                     "variant_ids": [
                     ]
                   }
-                ],
-                "image": {
-                  "position": 1,
-                  "src": "https:\/\/cdn.shopify.com\/s\/files\/1\/0006\/9093\/3842\/products\/ipod-nano.png?v=1461617922",
-                  "variant_ids": [
-                  ]
-                }
+                ]
         }
       }
 
