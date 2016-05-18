@@ -15,7 +15,7 @@ router.route('/api/products')
 
 router.route('/api/convert')
   .get(jsonexportController.convertJson)
-  .post(jsonexportController.helperFncReturnArrayTest)
+  .post(jsonexportController.generateProductObj)
   // .post(jsonexportController.updateProduct)
 
 router.route('/api/upload')

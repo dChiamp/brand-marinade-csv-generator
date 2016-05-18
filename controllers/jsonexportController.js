@@ -27,28 +27,20 @@ jsonexportController = {
 
     });
   },
-  test: function (req, res) {
-    json2csv({ data: testing(), fields: csvTemplateHeaderFields }, 
-      function(err, csv) {
-        if (err) console.log(err);
-        console.log(csv);
-        // masterArray.push(csv)
-        res.send(csv);
-    });
-  },
-  helperFncReturnArrayTest: function(req, res) {
+  // test: function (req, res) {
+  //   json2csv({ data: testing(), fields: csvTemplateHeaderFields }, 
+  //     function(err, csv) {
+  //       if (err) console.log(err);
+  //       console.log(csv);
+  //       // masterArray.push(csv)
+  //       res.send(csv);
+  //   });
+  // },
+  generateProductObj: function(req, res) {
     // console.log("1CHAIN")
     var product = req.body
     // console.log("Product Returned:", testing(product))
     masterArray.push(testing(product) );
-
-
-
-
-
-
-
-    
     console.log("masterArray", masterArray)
     res.send("hit")
   }
