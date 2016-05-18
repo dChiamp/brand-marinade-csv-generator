@@ -1,12 +1,4 @@
-// var json2csv = require('json2csv');
-// var merge = require('merge');
-// var moment = require('moment');
-// var request = require('request');
-
-// var apiUrl = "https://9852e9327df153b6303e9d74c09077b4:78f1c269ac2e9642240f588bec8548fd@printing-site.myshopify.com/admin/products.json"
-
 var shopifyProductObj = {}
-
 var masterArray = []
 
 // first row (main product obj info)
@@ -19,7 +11,7 @@ function createLocalProductArray(array) {
 }
 
 function createShopifyProduct (array) {
-  console.log("master array?", masterArray)
+  // console.log("master array?", masterArray)
   // console.log("hello from upload helper fnc")
   shopifyProductObj =  {
       "product": {
@@ -56,8 +48,8 @@ function createShopifyProduct (array) {
 
 // product variants (each row / product obj)
 function addProductVariant (array) {
-  console.log("shopifyProductObj***" ,shopifyProductObj)
-  console.log("yo from addProductVariant fnc")
+  // console.log("shopifyProductObj***" ,shopifyProductObj)
+  // console.log("yo from addProductVariant fnc")
   for (i = 0; i < array.length; i++) {
     var productVariant = {
           "id": i,
@@ -106,19 +98,8 @@ function addVariantImgIds (productObj) {
     productObj.product.images[0]["variant_ids"].push(productObj.product.variants[i]["id"])
   }
 
-  console.log("base Obj POSTING TO SHOPIFY:", shopifyProductObj);
+  // console.log("base Obj POSTING TO SHOPIFY:", shopifyProductObj);
   return shopifyProductObj
 }
-
-// if local sku === request sku
-// get variant id, push it to images
-
-// createShopifyProduct(masterArray)
-// addProductVariant(masterArray);
-// addProductVariantOptions(masterArray);
-// addVariantImgIds(shopifyProductObj)
-
-// console.log("VARIANT Obj POSTING TO SHOPIFY:", shopifyProductObj.product.options);
-// console.log("IMGS POSTING TO SHOPIFY:", shopifyProductObj.product.images);
 
 module.exports = createLocalProductArray;

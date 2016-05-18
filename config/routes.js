@@ -18,9 +18,13 @@ router.route('/api/convert')
   .post(jsonexportController.generateProductObj)
   // .post(jsonexportController.updateProduct)
 
+// router.route('/api/upload')
+//   .get(uploadController.getAllProducts)
+//   .post(uploadController.postProduct);
+
 router.route('/api/upload')
-  .get(uploadController.getAllProducts)
-  .post(uploadController.postProduct);
+  .get(jsonexportController.getAllProducts)
+  .post(jsonexportController.postProduct);
 
 router.route('/api/test')
   .get(jsonexportController.testHelperFnc)
