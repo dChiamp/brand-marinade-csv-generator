@@ -100,14 +100,19 @@ var masterArray  = [ { 'Variant SKU': 'json-upload-hoodie-heather-sm',
       defaultImgColor: 'Heather Grey',
       item: 'Hoodie',
       size: 'Medium',
-      'Variant Grams': 369 } 
-      ]
+      'Variant Grams': 369 
+    } 
+
+]
 
 // got to iterate through array 
 // variants are each product
 // iterate through (starting at 1)
 
-  var testProductPost =  {
+// var shopifyProductObj = {};
+
+// first row (main product obj info)
+var  shopifyProductObj =  {
     "product": {
       // "id": 1071559644,
       "title": masterArray[0]["Title"],
@@ -121,34 +126,7 @@ var masterArray  = [ { 'Variant SKU': 'json-upload-hoodie-heather-sm',
       "template_suffix": null,
       "published_scope": "global",
       "tags": masterArray[0]["Tags"],
-      "variants": [
-        {
-          // "id": 1070325119,
-          // "product_id": 1071559644,
-          // "title": "Default Title",
-          "price": masterArray[0]["Variant Price"],
-          "sku": masterArray[0]["Variant SKU"],
-          // "position": 1,
-          "grams": masterArray[0]["Variant Grams"],
-          "inventory_policy": "deny",
-          "compare_at_price": null,
-          "fulfillment_service": "manual",
-          "inventory_management": null,
-          "option1": masterArray[0]["Option1 Value"],
-          "option2": masterArray[0]["Option2 Value"],
-          // "option3": masterArray[0]["Option3 Value"],
-          // "created_at": "2016-04-25T17:00:06-04:00",
-          // "updated_at": "2016-04-25T17:00:06-04:00",
-          "taxable": true,
-          "barcode": null,
-          "image_id": null,
-          "inventory_quantity": 1,
-          // "weight": 0.0,
-          "weight_unit": "oz",
-          "old_inventory_quantity": 1,
-          "requires_shipping": true
-        }
-      ],
+      "variants": [],
       "options": [
         // COLOR
         {
@@ -158,7 +136,7 @@ var masterArray  = [ { 'Variant SKU': 'json-upload-hoodie-heather-sm',
           "position": 1,
           "values": [
             // colors
-            masterArray[0]["Option1 Value"]
+            // masterArray[0]["Option1 Value"]
           ]
         },
         // is this how you specify more options?
@@ -170,28 +148,68 @@ var masterArray  = [ { 'Variant SKU': 'json-upload-hoodie-heather-sm',
           "position": 2,
           "values": [
             // colors
-            masterArray[0]["Option2 Value"]
+            // masterArray[0]["Option2 Value"]
           ]
         }
-      ],
-      // PUT TEST:
-       "images": [
-                  {
-                    // "position": 1,
-                    // "updated_at": "2016-04-25T16:58:42-04:00",
-                    "src": masterArray[0]["Image Src"],
-                    "variant_ids": [
-                    ]
-                  },
-                  {
-                    // "position": 2,
-                    "src": masterArray[0]["Image Src"],
-                    "variant_ids": [
-                    ]
-                  }
-                ]
+      ]
+    }
+  }
+
+// product variants (each row / product obj)
+function addProductVariant (array) {
+  for (i = 0; i < array.length; i++) {
+    // console.log("color", array[i]["Option1 Name"])
+    var productVariant = {
+
+          "handle": array[i]["Handle"],
+          "price": array[i]["Variant Price"],
+          "sku": array[i]["Variant SKU"],
+          // "position": 1,
+          "grams": array[i]["Variant Grams"],
+          "inventory_policy": "deny",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": null,
+          // color
+          "option1": array[i]["Option1 Value"],
+          // size
+          "option2": array[i]["Option2 Value"],
+          "taxable": true,
+          "barcode": null,
+          "image_id": null,
+          "inventory_quantity": 1,
+          // "weight": 0.0,
+          "weight_unit": "oz",
+          "old_inventory_quantity": 1,
+          "requires_shipping": true
         }
-      }
+    shopifyProductObj.product.variants.push(productVariant);
+      // ]
+    }
+  }
+
+
+  // FILTER OUT DUPLICATES!!
+  // variant options (size and color)
+  function addProductVariantOptions (array) {
+    for (i = 0; i < array.length; i++) { 
+      // cannot have doubles :(
+      if (shopifyProductObj.product.options[0].values.indexOf(array[i]["Option1 Value"]) === -1) {
+        shopifyProductObj.product.options[0].values.push(array[i]["Option1 Value"]);
+      } 
+      if (shopifyProductObj.product.options[1].values.indexOf(array[i]["Option2 Value"]) === -1 )
+        shopifyProductObj.product.options[1].values.push(array[i]["Option2 Value"])
+    }
+  }
+
+
+  addProductVariant(masterArray);
+  addProductVariantOptions(masterArray);
+  // addProductVariantOptionSize(masterArray);
+
+  console.log("base Obj POSTING TO SHOPIFY:", shopifyProductObj);
+  console.log("VARIANT Obj POSTING TO SHOPIFY:", shopifyProductObj.product.variants);
+  console.log("OPTIONS Obj POSTING TO SHOPIFY:", shopifyProductObj.product.options);
 
 uploadController = {
   postProduct: function (req, res) {
@@ -204,7 +222,7 @@ uploadController = {
           'Content-Type': 'application/json',
           // 'Custom-Header': 'Custom Value'
       },
-      body: JSON.stringify(testProductPost) //Set the body product obj
+      body: JSON.stringify(shopifyProductObj) //Set the body product obj
     }, function(error, response, body){
         if(error) {
             console.log(error);
