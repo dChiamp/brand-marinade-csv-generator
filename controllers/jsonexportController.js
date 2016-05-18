@@ -3,12 +3,15 @@ var json2csv = require('json2csv');
 var merge = require('merge');
 var testing = require("../converterHelperFunctions.js");
 var moment = require('moment');
+
 // moment().format();
 // , original, cloned;
 
 var csvTemplateHeaderFields = require('../csvTemplateHeaderFields')
 var sizeWeight = require('../sizeWeight');
 var colorAbrevs = require('../colorAbrevs');
+
+var createLocalProductArray = require('../uploadHelperFunctions.js')
 
 var masterProductCsvTemplate = [];
 
@@ -27,15 +30,6 @@ jsonexportController = {
 
     });
   },
-  // test: function (req, res) {
-  //   json2csv({ data: testing(), fields: csvTemplateHeaderFields }, 
-  //     function(err, csv) {
-  //       if (err) console.log(err);
-  //       console.log(csv);
-  //       // masterArray.push(csv)
-  //       res.send(csv);
-  //   });
-  // },
   generateProductObj: function(req, res) {
     // console.log("1CHAIN")
     var product = req.body
@@ -43,6 +37,10 @@ jsonexportController = {
     masterArray.push(testing(product) );
     console.log("masterArray", masterArray)
     res.send("hit")
+  },
+  testHelperFnc: function (req, res) {
+    console.log("test controller");
+    res.send(createLocalProductArray(masterArray));
   }
 }
 
