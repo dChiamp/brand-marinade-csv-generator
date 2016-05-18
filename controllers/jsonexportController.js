@@ -41,6 +41,14 @@ jsonexportController = {
     var product = req.body
     // console.log("Product Returned:", testing(product))
     masterArray.push(testing(product) );
+
+
+
+
+
+
+
+    
     console.log("masterArray", masterArray)
     res.send("hit")
   }

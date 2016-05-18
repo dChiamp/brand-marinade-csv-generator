@@ -4,11 +4,12 @@ var testing = require("../converterHelperFunctions.js");
 var moment = require('moment');
 var request = require('request');
 
-var apiPostUrl = "https://9852e9327df153b6303e9d74c09077b4:78f1c269ac2e9642240f588bec8548fd@printing-site.myshopify.com/admin/products.json"
+var apiUrl = "https://9852e9327df153b6303e9d74c09077b4:78f1c269ac2e9642240f588bec8548fd@printing-site.myshopify.com/admin/products.json"
 
 var masterArray  = [ 
     { 'Variant SKU': 'json-upload-hoodie-heather-sm',
-      'Variant Image': 'http://productuploader.com/product/uploader/json-upload-hoodie-heather.jpg',
+      // 'Variant Image': 'http://productuploader.com/product/uploader/json-upload-hoodie-heather.jpg',
+      'Variant Image': "https://kickz.akamaized.net/en/media/images/p/288/urban_classics-blank_hoodie-grey-1.jpg",
       IMGSRC: 'http://productuploader.com/product/uploader/json-upload-hoodie-heather.jpg',
       Item: 'Hoodie',
       'Option1 Value': 'Heather Grey',
@@ -25,7 +26,8 @@ var masterArray  = [
       item: 'Hoodie',
       size: 'Small',
       'Variant Grams': 340,
-      'Image Src': 'http://productuploader.com/product/uploader/json-upload-hoodie-heather.jpg',
+      // 'Image Src': 'http://productuploader.com/product/uploader/json-upload-hoodie-heather.jpg',
+      'Image Src': "http://science-all.com/images/blue/blue-08.jpg",
       Title: 'upload json formatting Hoodie',
       'Body (HTML)': 'upload json formatting Hoodie',
       Vendor: 'tuckers uploads',
@@ -37,7 +39,8 @@ var masterArray  = [
       'Gift Card': 'FALSE' },
 
     { 'Variant SKU': 'json-upload-hoodie-heather-md',
-      'Variant Image': 'http://productuploader.com/product/uploader/json-upload-hoodie-heather.jpg',
+      // 'Variant Image': 'http://productuploader.com/product/uploader/json-upload-hoodie-heather.jpg',
+      'Variant Image': "http://i3.stycdn.net/images/2012/11/47/article/kk54/kk5430603/carhartt-hooded-holbrook-hoodie-grey-heather-1540-zoom-0.jpg",
       IMGSRC: 'http://productuploader.com/product/uploader/json-upload-hoodie-heather.jpg',
       Item: 'Hoodie',
       'Option1 Value': 'Heather Grey',
@@ -56,7 +59,8 @@ var masterArray  = [
       'Variant Grams': 369 },
 
     { 'Variant SKU': 'json-upload-hoodie-ash-sm',
-      'Variant Image': 'http://productuploader.com/product/uploader/json-upload-hoodie-ash.jpg',
+      // 'Variant Image': 'http://productuploader.com/product/uploader/json-upload-hoodie-ash.jpg',
+      'Variant Image': "http://www.theadairgroup.com/images/Adult-Crewneck-Sweatshirt-Sport-Grey_large.jpg",
       IMGSRC: 'http://productuploader.com/product/uploader/json-upload-hoodie-heather.jpg',
       Item: 'Hoodie',
       'Option1 Value': 'Ash',
@@ -75,7 +79,8 @@ var masterArray  = [
       'Variant Grams': 340 },
 
     { 'Variant SKU': 'json-upload-hoodie-ash-md',
-      'Variant Image': 'http://productuploader.com/product/uploader/json-upload-hoodie-ash.jpg',
+      // 'Variant Image': 'http://productuploader.com/product/uploader/json-upload-hoodie-ash.jpg',
+      'Variant Image': "http://www.theadairgroup.com/images/Adult-Crewneck-Sweatshirt-Sport-Grey_large.jpg",
       IMGSRC: 'http://productuploader.com/product/uploader/json-upload-hoodie-heather.jpg',
       Item: 'Hoodie',
       'Option1 Value': 'Ash',
@@ -93,13 +98,11 @@ var masterArray  = [
       size: 'Medium',
       'Variant Grams': 369 
     } 
-
 ]
 
 var shopifyProductObj = {}
-
 // first row (main product obj info)
-function createProduct (array) {
+function createShopifyProduct (array) {
   shopifyProductObj =  {
       "product": {
         // "id": 1071559644,
@@ -115,27 +118,21 @@ function createProduct (array) {
         "variants": [],
         "options": [
           // COLOR
-          {
-            "name": array[0]["Option1 Name"],
+          { "name": array[0]["Option1 Name"],
             "position": 1,
-            "values": [// array[i]["Option1 Value"]
-            ]
-          },
+            "values": [/* array[i]["Option1 Value"] */] },
           // size
-          {
-            "name": array[0]["Option2 Name"],
+          { "name": array[0]["Option2 Name"],
             "position": 2,
-            "values": []
-          }
+            "values": [] }
         ],
-         "images" : {
-            "src": [array[0]["Image Src"]],
+         "images": [ {
+            "src": array[0]["Image Src"],
             "variant_ids": []
-        }
+          } ]
       }
     }
 }
-
 
 // product variants (each row / product obj)
 function addProductVariant (array) {
@@ -167,39 +164,41 @@ function addProductVariant (array) {
     }
   }
   // variant options (size and color)
-  function addProductVariantOptions (array) {
-    for (i = 0; i < array.length; i++) { 
-      // cannot have doubles
-      if (shopifyProductObj.product.options[0].values.indexOf(array[i]["Option1 Value"]) === -1) {
-        shopifyProductObj.product.options[0].values.push(array[i]["Option1 Value"]);
-      } 
-      if (shopifyProductObj.product.options[1].values.indexOf(array[i]["Option2 Value"]) === -1 )
-        shopifyProductObj.product.options[1].values.push(array[i]["Option2 Value"])
-    }
+function addProductVariantOptions (array) {
+  for (i = 0; i < array.length; i++) { 
+    // cannot have doubles
+    if (shopifyProductObj.product.options[0].values.indexOf(array[i]["Option1 Value"]) === -1) {
+      shopifyProductObj.product.options[0].values.push(array[i]["Option1 Value"]);
+    } 
+    if (shopifyProductObj.product.options[1].values.indexOf(array[i]["Option2 Value"]) === -1 )
+      shopifyProductObj.product.options[1].values.push(array[i]["Option2 Value"])
   }
+}
 
-  function addImageSrc (array) {
-    for (i = 0; i < array.length; i++) {
-      shopifyProductObj.product.images.src.push(array[i]["Image Src"])
-      shopifyProductObj.product.images["variant_ids"].push(array[i]["Variant Image"])
-    }
+function addVariantImgIds (productObj) {
+  for (i = 0; i < productObj.product.variants.length; i++) {
+    // the problem is they dont exist yet
+    productObj.product.images[0]["variant_ids"].push(productObj.product.variants[i]["id"])
   }
+}
 
-  createProduct(masterArray)
-  addProductVariant(masterArray);
-  addProductVariantOptions(masterArray);
-  addImageSrc(masterArray)
+// if local sku === request sku
+// get variant id, push it to images
 
+createShopifyProduct(masterArray)
+addProductVariant(masterArray);
+addProductVariantOptions(masterArray);
+addVariantImgIds(shopifyProductObj)
 
-  // console.log("base Obj POSTING TO SHOPIFY:", shopifyProductObj);
-  console.log("VARIANT Obj POSTING TO SHOPIFY:", shopifyProductObj.product.variants);
-  console.log("VARIANT Obj POSTING TO SHOPIFY:", shopifyProductObj.product.images);
+// console.log("base Obj POSTING TO SHOPIFY:", shopifyProductObj);
+// console.log("VARIANT Obj POSTING TO SHOPIFY:", shopifyProductObj.product.options);
+console.log("IMGS POSTING TO SHOPIFY:", shopifyProductObj.product.images);
 
 uploadController = {
   postProduct: function (req, res) {
       console.log("POST REQ FNC HIT!")
       request({
-      url: apiPostUrl, //URL to hit
+      url: apiUrl, //URL to hit
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
@@ -216,7 +215,7 @@ uploadController = {
   },
   getAllProducts: function (req, res) {
       request({
-      url: apiPostUrl, //URL to hit
+      url: apiUrl, //URL to hit
       method: 'GET',
       headers: {
           'Content-Type': 'application/json',
