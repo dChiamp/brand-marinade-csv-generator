@@ -19,7 +19,7 @@ function WomenstController ($scope, $http, productService, $filter, toastr) {
                             Medium: true,
                             Large: true},
                     brands: ["American Apparel"],
-                    tags: ["hella cool"],
+                    productTags: "",
                     price: 20,
                     short: "wtee",
                     primaryImgColor: "White"

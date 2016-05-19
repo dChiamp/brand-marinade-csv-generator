@@ -33,7 +33,7 @@ function MensvController ($scope, $http, productService, $filter, toastr) {
                             "2XL": true,
                             "3XL": true},
                     brands: ["American Apparel"],
-                    tags: "hella cool",
+                    productTags: "",
                     price: 25,
                     short: "mv",
                     primaryImgColor: "White"

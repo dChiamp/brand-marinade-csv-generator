@@ -11,7 +11,7 @@ function TotebagController ($scope, $http, productService, $filter, toastr) {
                             },
                     sizes: {"One-size": true},
                     brands: ["American Apparel"],
-                    tags: ["hella cool"],
+                    productTags: "",
                     price: 20,
                     short: "tote",
                     primaryImgColor: "Natural"

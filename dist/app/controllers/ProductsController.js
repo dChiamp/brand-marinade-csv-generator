@@ -9,31 +9,18 @@ function ProductsController ($scope, $http, productService, FileSaver, Blob, $fi
   vm.getAllProducts = getAllProducts;
 
   vm.allProducts = [];
-
-
-  // $scope.selected = [];
-  // $scope.data = {};
   // refactor items as objects to nest atrributes onCheck
-
   // $scope.designName;
   $scope.product = {}
   $scope.hideForms = true;
-
-  
-   $scope.boggle = function() {
-      // $scope.submitted = !true
-      console.log("submitted?")
-  } 
-  // $scope.submitted = false
-  // $scope.product.title = {}
  
-  $scope.skuGenerator = function () {
-    // var sku = $scope.product.clientName + "-" + $scope.newProduct.designTitle;
-    var designTitle = $scope.product.title
-    // $scope.product.title = {title: designTitle}
-    // console.log("TITLE:", $scope.product)
-    productService.saveProductSettings($scope.product);
-  }
+  // $scope.skuGenerator = function () {
+  //   // var sku = $scope.product.clientName + "-" + $scope.newProduct.designTitle;
+  //   var designTitle = $scope.product.title
+  //   // $scope.product.title = {title: designTitle}
+  //   // console.log("TITLE:", $scope.product)
+  //   productService.saveProductSettings($scope.product);
+  // }
 
   $scope.designNames = {"Published": false};
   $scope.submitted = false
@@ -43,12 +30,14 @@ function ProductsController ($scope, $http, productService, FileSaver, Blob, $fi
     var designHandle = $scope.designNames.designHandle
     var marketplace = $scope.designNames.marketplace
     var designTags = $scope.designNames.tags
+    // var productTags = $scope.product.productTags
 
     $scope.submitted = !$scope.submitted;
     $scope.hideForms = !$scope.hideForms;
 
-    console.log("submitted?", $scope.submitted)
-    console.log("TITLE:", $scope.designNames)
+    // console.log("submitted?", $scope.submitted)
+    // console.log("TITLE:", $scope.designNames)
+    // console.log("prodTAGS", designTags )
     productService.addNameToProd($scope.designNames);
   }
 

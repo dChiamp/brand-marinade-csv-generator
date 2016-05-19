@@ -22,7 +22,7 @@ function OnesieController ($scope, $http, productService, $filter, toastr) {
                           "18M": true,
                           "24M": true},
                   brands: ["American Apparel"],
-                  tags: "hella cool",
+                  productTags: "",
                   price: 18,
                   short: "onesie",
                   primaryImgColor: "White"

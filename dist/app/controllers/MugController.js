@@ -14,7 +14,7 @@ function MugController ($scope, $http, productService, $filter, toastr) {
                            },
                     price: 20,
                     brands: "American Apparel",
-                    tags: "hella cool",
+                    productTags: "",
                     short: "mug",
                     primaryImgColor: "White"
                   }

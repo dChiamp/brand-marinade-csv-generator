@@ -21,7 +21,7 @@ function TanktopController ($scope, $http, productService, $filter, toastr) {
                           "2XL": true,
                           "3XL": false},
                     brands: ["American Apparel"],
-                    tags: ["hella cool"],
+                    productTags: "",
                     price: 20,
                     short: "tank",
                     primaryImgColor: "White"

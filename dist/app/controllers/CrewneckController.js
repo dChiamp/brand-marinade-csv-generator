@@ -17,7 +17,7 @@ function CrewneckController ($scope, $http, productService, $filter, toastr) {
                              "2XL": true,
                              "3XL": true},
                       // brands: ["American Apparel"],
-                      tags: "hella cool",
+                      productTags: "",
                       price: 40,
                       short: "crew",
                       primaryImgColor: "Heather Grey"
@@ -39,6 +39,7 @@ function CrewneckController ($scope, $http, productService, $filter, toastr) {
       return toastr.error("Default color selected does not match")
     } else {
       productService.saveProductSettings($scope.product);
+      console.log("PRODUCT TAGS", $scope.product.productTags)
       $scope.isChecked = !$scope.isChecked
     }
   };

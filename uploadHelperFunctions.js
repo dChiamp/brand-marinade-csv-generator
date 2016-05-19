@@ -93,7 +93,6 @@ function addProductVariantOptions (array) {
     if (shopifyProductObj.product.options[0].values.indexOf(array[i]["Option1 Value"]) === -1) {
       // console.log("COLORS#:", array[i]["Option1 Value"])
       shopifyProductObj.product.options[0].values.push(array[i]["Option1 Value"]);
-      // console.log("color variant option$", shopifyProductObj.product.options[0].values)
     } 
     // sizes
     if (shopifyProductObj.product.options[1].values.indexOf(array[i]["Option2 Value"]) === -1 )

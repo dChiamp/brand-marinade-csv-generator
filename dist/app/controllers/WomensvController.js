@@ -21,7 +21,7 @@ function WomensvController ($scope, $http, productService, $filter, toastr) {
                             "XL": true,
                             "2XL": true},
                     brands: ["American Apparel"],
-                    tags: ["hella cool"],
+                    productTags: "",
                     price: 25,
                     short: "wv",
                     primaryImgColor: "White"

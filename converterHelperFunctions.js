@@ -76,7 +76,7 @@ function testing (product) {
     // var yearMonthDay = moment().format("YYYY-MM-DD");
     var dateFormatted = moment().format("YYYY-MMDD");
     var defaultTags = product.item + "," + "design_" + product.handle + "," + dateFormatted + ",";
-    var tags =  defaultTags + product.tags
+    var tags =  defaultTags + product.tags + "," + product.productTags
     var primaryImgColor = product.primaryImgColor
     // format published for csv
     var published = product.Published.toString().toUpperCase();
@@ -99,6 +99,8 @@ function testing (product) {
                   "Option2 Name": "Size",
                   "Gift Card": "FALSE"
                   }
+
+    console.log("TAGS", productAttributesDetailed.Tags)
 
     // defualt to merge each colorsize prod obj with
     // add to every obj

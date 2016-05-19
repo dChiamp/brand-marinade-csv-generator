@@ -23,6 +23,7 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter, toastr) {
     designHandle = designName.handle;
     marketplace = designName.marketplace;
     tags = designName.tags
+
     publish = designName.Published;
 
     // console.log("PROD SERVICE TITLE:", designHandle)
@@ -43,7 +44,7 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter, toastr) {
       // } 
     // * return promise so that scope.isChecked only === true if product is saved
     // MOVED TO INDIV CONTROLLERS TO BYPASS PROMISE FOR NOW
-
+    console.log("productData.productTags", productData.productTags)
     productData.price = $filter('currency')(productData.price, "")
     console.log("productData.PRICE", productData.price)
 
@@ -57,7 +58,7 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter, toastr) {
       productData.tags = tags
       productData.Published = publish
 
-      // console.log("productData.PRICE", publish)
+      console.log("productData.TAGS", tags)
 
       console.log("PRODUCT W/ NAME FIELDS", productData.handle)
 

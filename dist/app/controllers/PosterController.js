@@ -14,7 +14,7 @@ function PosterController ($scope, $http, productService, $filter, toastr) {
                             "Large": true },
                     // brands: ["American Apparel"],
                     price: 50,
-                    tags: "hella cool",
+                    productTags: "",
                     short:  "poster",
                     primaryImgColor: "Red"
                   }
