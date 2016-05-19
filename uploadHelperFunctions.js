@@ -3,10 +3,15 @@ var masterArray = []
 
 // first row (main product obj info)
 function createLocalProductArray(array) {
+  console.log("INCOMING ARRAY OF OBJS", array)
   for (i = 0; i < array.length; i++ ) {
-    // console.log("each master array index", array[0][i])
-    masterArray.push(array[0][i]);
+    for(j = 0; j < array[i].length; j++) {
+      masterArray.push(array[i][j]);
+      // masterArray.push(array[i]);
+    }
+    // need to iterate through
   }
+  // console.log("FOrmatted master Array", masterArray)
   return createShopifyProduct(masterArray)
 }
 
@@ -50,6 +55,7 @@ function createShopifyProduct (array) {
 function addProductVariant (array) {
   // console.log("shopifyProductObj***" ,shopifyProductObj)
   // console.log("yo from addProductVariant fnc")
+  // console.log("MASTER ARRAY BEFORE ADDING VARIANTS", array)
   for (i = 0; i < array.length; i++) {
     var productVariant = {
           "id": i,
@@ -76,15 +82,20 @@ function addProductVariant (array) {
         }
     shopifyProductObj.product.variants.push(productVariant);
     }
+    console.log()
     return addProductVariantOptions(array);
   }
   // variant options (size and color)
 function addProductVariantOptions (array) {
   for (i = 0; i < array.length; i++) { 
     // cannot have doubles
+    // colors
     if (shopifyProductObj.product.options[0].values.indexOf(array[i]["Option1 Value"]) === -1) {
+      // console.log("COLORS#:", array[i]["Option1 Value"])
       shopifyProductObj.product.options[0].values.push(array[i]["Option1 Value"]);
+      // console.log("color variant option$", shopifyProductObj.product.options[0].values)
     } 
+    // sizes
     if (shopifyProductObj.product.options[1].values.indexOf(array[i]["Option2 Value"]) === -1 )
       shopifyProductObj.product.options[1].values.push(array[i]["Option2 Value"])
   }
@@ -98,7 +109,7 @@ function addVariantImgIds (productObj) {
     productObj.product.images[0]["variant_ids"].push(productObj.product.variants[i]["id"])
   }
 
-  // console.log("base Obj POSTING TO SHOPIFY:", shopifyProductObj);
+  console.log(" total Obj POSTING TO SHOPIFY:", shopifyProductObj);
   return shopifyProductObj
 }
 

@@ -17,6 +17,7 @@ var masterArray = []
 
 jsonexportController = {
   convertJson: function (req, res) {
+    // flatten array
     var finalCsvArray = [].concat.apply([], masterArray);
     json2csv({ data: finalCsvArray, fields: csvTemplateHeaderFields }, 
       function(err, csv) {
@@ -41,25 +42,27 @@ jsonexportController = {
     res.send(createLocalProductArray(masterArray));
   },
   postProduct: function (req, res) {
-      console.log("POST REQ FNC HIT!")
+    console.log("POST REQ FNC HIT!");
+    // for(i=0; i <= masterArray.length; i++) { 
+      // var shopfiyProduct = createLocalProductArray(masterArray[i]);
       var shopfiyProduct = createLocalProductArray(masterArray);
-      // console.log("shopfiyProduct***", shopfiyProduct);
-      // res.send(JSON.stringify(shopfiyProduct))
+      res.send(JSON.stringify(shopfiyProduct));
       request({
-      url: apiUrl, //URL to hit
-      method: 'POST',
-      headers: {
+        url: apiUrl, //URL to hit
+        method: 'POST',
+        headers: {
           'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(shopfiyProduct) //stringify the body product obj
-    }, function(error, response, body){
-        if(error) {
-            console.log(error);
-        } else {
+        },
+        body: JSON.stringify(shopfiyProduct) //stringify the body product obj
+      }, function(error, response, body){
+          if(error) {
+              console.log(error);
+          } else {
             console.log(response.statusCode, body);
             res.send(response)
-        }
-    });
+          }
+      });
+    // }
   },
   getAllProducts: function (req, res) {
       request({
