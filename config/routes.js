@@ -18,15 +18,19 @@ router.route('/api/convert')
   .post(jsonexportController.generateProductObj)
   // .post(jsonexportController.updateProduct)
 
+router.route('/api/printing')
+  .get(jsonexportController.getPrintProducts)
+  .post(jsonexportController.postPrintProduct);
+
+router.route('/api/stoned')
+  .post(jsonexportController.postStonedProduct)
+  .get(jsonexportController.getStonedProducts)
+
 // router.route('/api/upload')
 //   .get(uploadController.getAllProducts)
 //   .post(uploadController.postProduct);
 
-router.route('/api/upload')
-  .get(jsonexportController.getAllProducts)
-  .post(jsonexportController.postProduct);
-
-router.route('/api/test')
-  .get(jsonexportController.testHelperFnc)
+// router.route('/api/test')
+//   .get(jsonexportController.testHelperFnc)
 
 module.exports = router;

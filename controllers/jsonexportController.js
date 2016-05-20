@@ -1,18 +1,18 @@
 var Product = require('../models/products')
 var json2csv = require('json2csv');
 var merge = require('merge');
-var testing = require("../converterHelperFunctions.js");
 var moment = require('moment');
 var request = require('request');
-
+// api keys
+var printingSiteApiEndpt = process.env.PRINTING_SITE + "/admin/products.json"
+var stonedMgApiEndpt = process.env.STONED_MG + "/admin/products.json"
+// helper functions
+var testing = require("../converterHelperFunctions.js");
+var createLocalProductArray = require('../uploadHelperFunctions.js')
+// required objects
 var csvTemplateHeaderFields = require('../csvTemplateHeaderFields')
 var sizeWeight = require('../sizeWeight');
 var colorAbrevs = require('../colorAbrevs');
-
-var createLocalProductArray = require('../uploadHelperFunctions.js')
-// var apiUrl = "https://9852e9327df153b6303e9d74c09077b4:78f1c269ac2e9642240f588bec8548fd@printing-site.myshopify.com/admin/products.json"
-var printingSiteApiEndpt = process.env.PRINTING_SITE + "/admin/products.json"
-
 var masterProductCsvTemplate = [];
 var masterArray = []
 
@@ -25,9 +25,9 @@ jsonexportController = {
         if (err) console.log(err);
         console.log("FINAL CSV", csv);
         res.send(csv);
+        // clear them out
         masterArray = [];
         finalCsvArray = [];
-
     });
   },
   generateProductObj: function(req, res) {
@@ -42,7 +42,7 @@ jsonexportController = {
     console.log("test controller");
     res.send(createLocalProductArray(masterArray));
   },
-  postProduct: function (req, res) {
+  postPrintProduct: function (req, res) {
     console.log("POST REQ FNC HIT!");
     // for(i=0; i <= masterArray.length; i++) { 
       // var shopfiyProduct = createLocalProductArray(masterArray[i]);
@@ -65,9 +65,43 @@ jsonexportController = {
       });
     // }
   },
-  getAllProducts: function (req, res) {
+  getPrintProducts: function (req, res) {
       request({
       url: printingSiteApiEndpt, //URL to hit
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+    }, function(error, response, body){
+        if(error) {
+            console.log(error);
+        } else {
+            console.log("response:", response, "BODY", body);
+            res.send(response)
+        }
+    });
+  },
+  postStonedProduct: function (req, res) {
+    console.log("Stoned post")
+    request({
+      url: stonedMgApiEndpt, //URL to hit
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+    }, function(error, response, body){
+        if(error) {
+            console.log(error);
+        } else {
+            console.log("response:", response, "BODY", body);
+            res.send(response)
+        }
+    });
+  },
+  getStonedProducts: function (req, res) {
+    console.log("Stoned post")
+    request({
+      url: stonedMgApiEndpt, //URL to hit
       method: 'GET',
       headers: {
           'Content-Type': 'application/json',
