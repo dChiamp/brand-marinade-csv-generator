@@ -7,8 +7,7 @@ var moment = require('moment');
 
   console.log("TESTIN from inside sandbox");
 
-  // var masterProductCsvTemplate = [];
-
+  // objs to convert size abreviations
   var sizeNameAbreviation = {
     "Small": "sm",
     "Medium": "md",
@@ -49,6 +48,7 @@ var moment = require('moment');
     "160z": "16oz"
   }
 
+  // initialize product vars
   var product = {};
   
   var productAttributesDetailed;
@@ -60,6 +60,7 @@ var moment = require('moment');
   var sizeWeightArray = [];
 
 
+// create first row of csv product obj
 function testing (product) {
     // clear out templates b/t calls
     masterProductCsvTemplate = [];
@@ -80,11 +81,6 @@ function testing (product) {
     var primaryImgColor = product.primaryImgColor
     // format published for csv
     var published = product.Published.toString().toUpperCase();
-    // var capsPublishedBoolean = published.toUpperCase()
-
-    // console.log("TAGS", tags)
-    // console.log("FULL PRODUCT", product)
-
 
     // add only to first row obj
     productAttributesDetailed = {
@@ -128,16 +124,14 @@ function testing (product) {
 
     function createColorSizeObj (product) {
       // colorSizeArray = [];
-      console.log("hi from createColorSizeObj fnc", productAttributesDefaults);
+      // console.log("hi from createColorSizeObj fnc", productAttributesDefaults);
       for (colorName in product.colors) { 
         var colorBoolean = product.colors[colorName]
         console.log("colorName", colorName, "colorBoolean", colorBoolean);
         // if color is true, iterate through sizes
         if (colorBoolean) {
           for (sizeName in product.sizes) {
-
-            console.log("sizeName", sizeName)
-
+            // console.log("sizeName", sizeName)
             var sizeBoolean = product.sizes[sizeName]
             //if both are true, create obj and bind
             if(colorBoolean && sizeBoolean) {
@@ -154,7 +148,6 @@ function testing (product) {
               console.log("colorSize", colorSize)
 
               // need to append size abrevs instead of sizename
-
               var defaultsAndColorSize = merge(colorSize, productAttributesDefaults)
               colorSizeArray.push(defaultsAndColorSize)
               
