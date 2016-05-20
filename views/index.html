@@ -22,7 +22,7 @@
 
       <!--Javascripts -->
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
 
     <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-css-only/css/bootstrap.css">
     <!-- angular file saver -->
@@ -52,6 +52,7 @@
     <script type="text/javascript" src="/app/controllers/WomenstController.js"></script>
     <script type="text/javascript" src="/app/controllers/WomensvController.js"></script>
     <script type="text/javascript" src="/app/controllers/UploadController.js"></script>
+    <script type="text/javascript" src="/app/controllers/ShopifyController.js"></script>
   </head>
   <body>
     <header>
@@ -141,10 +142,12 @@
 
         <hr>
         
-        <div class="col-lg-6 col-centered" ng-controller="UploadController">
-          <button class="btn btn-success" ng-click="getAllProducts()">GET ALL PRODUCTS </button>
+        <div class="col-lg-6 col-centered" ng-controller="ShopifyController">
+          <md-checkbox ng-repeat="(key, value) in shops" ng-model="shops[key]">{{key}} |  {{value}} </md-checkbox>
 
-          <button class="btn btn-success" ng-click="uploadProduct()">UPLOAD PRODUCT </button>
+          <button class="btn btn-success" ng-click="getProducts()">GET PRODUCTS </button>
+
+          <button class="btn btn-success" ng-click="postProducts()">Post PRODUCT </button>
         </div>
 
         <hr>
