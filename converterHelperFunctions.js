@@ -74,10 +74,12 @@ function testing (product) {
   var title = product.title + " " + product.item
   var vendor = product["Vendor"]
   var handle = product.handle + "-" + product.short
-  // var yearMonthDay = moment().format("YYYY-MM-DD");
   var dateFormatted = moment().format("YYYY-MMDD");
   var defaultTags = product.item + "," + "design_" + product.handle + "," + dateFormatted + ",";
   var tags =  defaultTags + product.tags + "," + product.productTags
+  // add freeish tag
+  if (product.freeish) {  tags += 'freeish' }
+  
   var primaryImgColor = product.primaryImgColor
   // format published for csv
   var published = product.Published.toString().toUpperCase();
