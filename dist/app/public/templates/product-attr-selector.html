@@ -18,20 +18,30 @@
                     </md-checkbox>
                     <!-- <h5>POOP</h5> -->
                   
-                <div ng-if="showSizes">
-                  <p> Sizes </p>
-                  <md-switch class="blue" ng-repeat="(key, value) in product.sizes" ng-model="product.sizes[key]"> 
-                    <p> {{key}} | {{value}} </p>
-                  </md-switch>
+                <div ng-if="showSizes" >
+                  <div id="sizes">
+                    <p> Sizes </p>
+                    <md-switch class="blue" ng-repeat="(key, value) in product.sizes" ng-model="product.sizes[key]"> 
+                      <p> {{key}} | {{value}} </p>
+                    </md-switch>
+                  </div>
 
                   </div>
 
                 </div>
-                <div>
+                <div id="colors">
                   <hr>
                   <p> Colors </p>
                   <md-switch ng-repeat="(key, value) in product.colors" ng-model="product.colors[key]">
                     <p> {{key}} | {{value}} </p>
+                  </md-switch>
+                </div>
+
+                <div>
+                  <hr>
+                  <!-- <p> Freeish </p> -->
+                  <md-switch id="freeish" ng-model="product.freeish">
+                    <label> <b> Freeish </b>  | {{product.freeish}} </label>
                   </md-switch>
                 </div>
 
@@ -60,14 +70,6 @@
                   <select ng-model= "product.primaryImgColor" > 
                     <option ng-repeat="(key, value) in product.colors" value="{{::key}}">{{::key}}</option>
                   </select>
-                </div>
-
-                <div>
-                  <hr>
-                  <p> Freeish </p>
-                  <md-switch ng-model="product.freeish">
-                    <label> {{product.freeish}} </label>
-                  </md-switch>
                 </div>
 
                 <button class="btn btn-button-ghost" ng-click="save()"> save </button>
