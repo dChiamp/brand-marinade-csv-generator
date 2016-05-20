@@ -22,11 +22,11 @@ function HoodieController ($scope, $http, productService, toastr, $filter) {
                             "2XL": true,
                             "3XL": true},
                     // brands: "American Apparel",
-                    tags: "",
+                    productTags: "",
                     price: 48,
                     short: "hoodie",
                     primaryImgColor: "Heather Grey",
-                    Published: false
+                    freeish: false
                   }
 
 

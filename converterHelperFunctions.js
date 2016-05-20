@@ -100,6 +100,8 @@ function testing (product) {
 
   // defualt to merge each colorsize prod obj with
   // add to every obj
+
+  //** add freeish boolean here 
   productAttributesDefaults = {
                 // "Published": "False",
                 // "Option1 Name": "Color",
@@ -113,7 +115,8 @@ function testing (product) {
                 "Variant Requires Shipping": "TRUE",
                 "Variant Taxable": "TRUE",
                 "Variant Weight Unit": "oz",
-                "defaultImgColor":  primaryImgColor
+                "defaultImgColor":  primaryImgColor,
+                "freeish": product.freeish
                 }
 
   return createColorSizeObj(product);
@@ -142,13 +145,11 @@ function testing (product) {
                 "Option2 Value": sizeName,
               }
 
-              console.log("colorSize", colorSize)
-
+              // console.log("colorSize", colorSize)
               // need to append size abrevs instead of sizename
               var defaultsAndColorSize = merge(colorSize, productAttributesDefaults)
               colorSizeArray.push(defaultsAndColorSize)
-              
-              console.log("colorSizeArray:", colorSizeArray);
+              // console.log("colorSizeArray:", colorSizeArray);
             }
           }
         }
@@ -218,7 +219,7 @@ function abrevsSizeNames (array) {
                 var prodUrl = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg"
                 var imageSrc = prodUrl;
               } 
-                      // generate defualt color Img Src
+              // generate defualt color Img Src
               if (product.defaultImgColor === colorKey ) {
                 // then create image src
                 var defaultImgSrc = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg";
@@ -250,7 +251,7 @@ function abrevsSizeNames (array) {
                 // then create image src
                 var defaultImgSrc = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg";
               }
-              console.log ("Onesie SKU", sku)
+              // console.log ("Onesie SKU", sku)
             }
           }
         }
@@ -277,7 +278,7 @@ function abrevsSizeNames (array) {
                 // then create image src
                 var defaultImgSrc = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg";
               }
-              console.log ("Onesie SKU", sku)
+              // console.log ("Onesie SKU", sku)
             }
           }
         }
@@ -304,7 +305,7 @@ function abrevsSizeNames (array) {
                 // then create image src
                 var defaultImgSrc = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg";
               }
-              console.log ("Onesie SKU", sku)
+              // console.log ("Onesie SKU", sku)
             }
           }
         }
@@ -339,7 +340,7 @@ function abrevsSizeNames (array) {
       } 
       
       // console.log("Color size array before merge with sku", colorSizeArray)
-      console.log("****defaultImgSrc****", defaultImgSrc)
+      // console.log("****defaultImgSrc****", defaultImgSrc)
       var mergeSkuUrlObj = {"Variant SKU": sku,
                             "Variant Image": prodUrl,
                             "IMGSRC": defaultImgSrc
@@ -347,7 +348,7 @@ function abrevsSizeNames (array) {
       // if (defaultImgObj) {
       //   console.log("@@defaultImgObj@@", defaultImgObj)
       // }
-      console.log("@mergeSkuUrlObj", mergeSkuUrlObj)
+      // console.log("@mergeSkuUrlObj", mergeSkuUrlObj)
       var productAttributesDetailedImgSrc = merge(mergeSkuUrlObj, colorSizeArray[i])                          
       sizeAbrevArray.push(productAttributesDetailedImgSrc)
       // console.log("SIZEABREVARRAY IN AbrevsSIZENAMES", sizeAbrevArray)
@@ -361,24 +362,60 @@ function abrevsSizeNames (array) {
 function addSizeWeights (array) {
 
   // sizeWeightArray = []
-  console.log("hola from add addSizeWeights")
-  console.log("SIZEABREVARRAY", sizeAbrevArray)
+  // console.log("hola from add addSizeWeights")
+  // console.log("@SIZEABREVARRAY", array)
+
+  // make sure free boolean in sizeAbrev array
+  // if freeish == true
+  //  and if size = sm || md || lg || xl
+  //    then add freeish / wheight
+  //  else (2xl, 3xl) 
+  //    price = +$5,
+  //    freeish wieght
+  // else :
 
   for(var i = 0; i < array.length; i++) {
+    if(array[i].freeish && array[i]['Option2 Value'] === 'Small' || 
+      array[i].freeish && array[i]['Option2 Value'] === 'Medium' || 
+      array[i].freeish && array[i]['Option2 Value'] === 'Large' || 
+      array[i].freeish && array[i]['Option2 Value'] === 'XL' ) {
 
-    // console.log("array[i].Item", array[i]["Item"])
+      var freeishSizeWeight = {
+        'Variant Grams': 367,
+        // 'size': array[i]['Option2 Value']
+      }
 
-    for (var j = 0; j < sizeWeight.length; j++) { 
-      // console.log("sizeWeight[j]", sizeWeight[j])
-      // if items match and sizes match
-    if(array[i]["Item"] === sizeWeight[j]["item"] 
-      && array[i]["Option2 Value"] === sizeWeight[j]["size"] ) {
-        var sizeWeightObj = merge(array[i], sizeWeight[j])
-        // console.log("colorSizeWight****", sizeWeightObj)
-        sizeWeightArray.push(sizeWeightObj)
+      var freeishSizeWeightObj = merge(array[i], freeishSizeWeight)
+      sizeWeightArray.push(freeishSizeWeightObj)
+
+    } else if(array[i].freeish && array[i]['Option2 Value'] === '2XL' || 
+      array[i].freeish && array[i]['Option2 Value'] === '3XL') {
+
+      var freeishBigSizeWeight = {
+        'Variant Grams': 367,
+        'Variant Price': (Number(array[i]['Variant Price']) + 5)
+      }
+
+      var freeishBigSizeWeightObj = merge(array[i], freeishBigSizeWeight)
+      sizeWeightArray.push(freeishBigSizeWeightObj)
+
+
+    } else if (!array[i].freeish) {
+      console.log("EFREESISH FSALE")
+      // console.log("array[i].Item", array[i]["Item"])
+      for (var j = 0; j < sizeWeight.length; j++) { 
+        // console.log("sizeWeight[j]", sizeWeight[j])
+        // if items match and sizes match
+        if(array[i]["Item"] === sizeWeight[j]["item"] 
+          && array[i]["Option2 Value"] === sizeWeight[j]["size"] ) {
+            var sizeWeightObj = merge(array[i], sizeWeight[j])
+            // console.log("colorSizeWight****", sizeWeightObj)
+            sizeWeightArray.push(sizeWeightObj)
+        }
       }
     }
   }
+  console.log("sizeWeightARR$", sizeWeightArray)
   return addFirstRowDetails(sizeWeightArray);
 }
 
@@ -387,13 +424,12 @@ function addFirstRowDetails (array) {
   // 1. merge colorsizearray[0] w/ productAttributesDetailed then productAttributesDefaults 
   // get primary color
   // var primaryImgColor = array[0]["ImgSrc"]
-  console.log("sizeWeightArray[0]", sizeWeightArray[0]);
+  // console.log("sizeWeightArray[0]", sizeWeightArray[0]);
   // match color to 
 
   var imageSrc = {"Image Src": array[0]["IMGSRC"]}
   console.log("REAL IMG SRC", imageSrc)
   
-
   // var imageSrc = {"Image Src": array[0]["Variant Image"]}
   var mergeImgSrc = merge(array[0], imageSrc)
   var firstRow = merge(array[0], productAttributesDetailed);
@@ -408,9 +444,9 @@ function addFirstRowDetails (array) {
     masterProductCsvTemplate.push(array[i])
   }
   
-  console.log("MASTER TEMPLATE", masterProductCsvTemplate)
+  // console.log("MASTER TEMPLATE", masterProductCsvTemplate)
 
   return masterProductCsvTemplate
 }
-
+  
 module.exports = testing;

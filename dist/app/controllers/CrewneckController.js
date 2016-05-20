@@ -20,7 +20,8 @@ function CrewneckController ($scope, $http, productService, $filter, toastr) {
                       productTags: "",
                       price: 40,
                       short: "crew",
-                      primaryImgColor: "Heather Grey"
+                      primaryImgColor: "Heather Grey",
+                      freeish: false
                     }
   // console.log("product scope:", $scope.product)
 

@@ -55,20 +55,19 @@
                   </form>
                 </div>
 
- <!--                <div>
-                  <p> Enter Default Display Image </p>
-                   <form ng-submit="addDesignName()">
-                    <div class="form-group">
-                        <input type="text" ng-model="product.primaryImgColor" placeholder="product.primaryImgColor">
-                      </div>
-                  </form>
-                </div> -->
-
                 <div>
                   <p> Select Default Color </p>
                   <select ng-model= "product.primaryImgColor" > 
                     <option ng-repeat="(key, value) in product.colors" value="{{::key}}">{{::key}}</option>
                   </select>
+                </div>
+
+                <div>
+                  <hr>
+                  <p> Freeish </p>
+                  <md-switch ng-model="product.freeish">
+                    <label> {{product.freeish}} </label>
+                  </md-switch>
                 </div>
 
                 <button class="btn btn-button-ghost" ng-click="save()"> save </button>

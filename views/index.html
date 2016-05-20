@@ -134,19 +134,25 @@
         <product-directive ng-controller="MugController"> </product-directive>
 
         <hr>
+
         <div class="wrapper">
           <button type="button" class="btn btn-success" ng-click="generateCsvName(designNames.handle)"> Download CSV </button>
         </div>
-      
+
+        <hr>
+        
+        <div class="col-lg-6 col-centered" ng-controller="UploadController">
+          <button class="btn btn-success" ng-click="getAllProducts()">GET ALL PRODUCTS </button>
+
+          <button class="btn btn-success" ng-click="uploadProduct()">UPLOAD PRODUCT </button>
+        </div>
+
+        <hr>
+
       </div>
 
     </div>
 
-    <div class="col-lg-6 col-centered" ng-controller="UploadController">
-      <button class="btn btn-success" ng-click="getAllProducts()">GET ALL PRODUCTS </button>
-
-      <button class="btn btn-success" ng-click="uploadProduct()">UPLOAD PRODUCT </button>
-    </div>
 
   </body>
 
