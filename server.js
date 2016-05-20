@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
 
+require('dotenv').config();
+
 mongoose.connect( process.env.MONGODB_URI  || process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/brand-marinade');
 
 

@@ -10,7 +10,8 @@ var sizeWeight = require('../sizeWeight');
 var colorAbrevs = require('../colorAbrevs');
 
 var createLocalProductArray = require('../uploadHelperFunctions.js')
-var apiUrl = "https://9852e9327df153b6303e9d74c09077b4:78f1c269ac2e9642240f588bec8548fd@printing-site.myshopify.com/admin/products.json"
+// var apiUrl = "https://9852e9327df153b6303e9d74c09077b4:78f1c269ac2e9642240f588bec8548fd@printing-site.myshopify.com/admin/products.json"
+var printingSiteApiEndpt = process.env.PRINTING_SITE + "/admin/products.json"
 
 var masterProductCsvTemplate = [];
 var masterArray = []
@@ -48,7 +49,7 @@ jsonexportController = {
       var shopfiyProduct = createLocalProductArray(masterArray);
       res.send(JSON.stringify(shopfiyProduct));
       request({
-        url: apiUrl, //URL to hit
+        url: printingSiteApiEndpt, //URL to hit
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -66,7 +67,7 @@ jsonexportController = {
   },
   getAllProducts: function (req, res) {
       request({
-      url: apiUrl, //URL to hit
+      url: printingSiteApiEndpt, //URL to hit
       method: 'GET',
       headers: {
           'Content-Type': 'application/json',
