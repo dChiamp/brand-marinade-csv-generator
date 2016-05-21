@@ -200,7 +200,7 @@ function abrevsSizeNames (array) {
                 // then create image src
                 var defaultImgSrc = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg";
               }
-              console.log ("KidsT SKU", sku)
+              // console.log ("KidsT SKU", sku)
             }
           }
         }
@@ -226,7 +226,7 @@ function abrevsSizeNames (array) {
                 // then create image src
                 var defaultImgSrc = "http://productuploader.com/product/uploader/" + product.Handle + "-" + colorAbrev + ".jpg";
               }
-              console.log ("Onesie SKU", sku)
+              // console.log ("Onesie SKU", sku)
             }
           }
         }
@@ -403,7 +403,7 @@ function addSizeWeights (array) {
 
 
     } else if (!array[i].freeish) {
-      console.log("EFREESISH FSALE")
+      console.log("not EFREESISH FSALE")
       // console.log("array[i].Item", array[i]["Item"])
       for (var j = 0; j < sizeWeight.length; j++) { 
         // console.log("sizeWeight[j]", sizeWeight[j])
@@ -417,7 +417,7 @@ function addSizeWeights (array) {
       }
     }
   }
-  console.log("sizeWeightARR$", sizeWeightArray)
+  // console.log("sizeWeightARR$", sizeWeightArray)
   return addFirstRowDetails(sizeWeightArray);
 }
 

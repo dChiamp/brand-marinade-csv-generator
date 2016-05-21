@@ -5,11 +5,11 @@ var localProductArray = []
 function createLocalProductArray(array) {
 
   // clear out old
-  var shopifyProductObj = {}
+  shopifyProductObj = {}
   // var localProductArray = []
 
   // push each obj in array to local master array
-  console.log("INCOMING ARRAY OF OBJS", array)
+  // console.log("INCOMING ARRAY OF OBJS", array)
   for (i = 0; i < array.length; i++ ) {
     // for(j = 0; j < array[i].length; j++) {
       // localProductArray.push(array[i][j]);
@@ -54,7 +54,7 @@ function createShopifyProduct (array) {
       }
     }
     // array.push(localProductArray)
-    console.log("shopifyProductObj ", shopifyProductObj)
+    // console.log("shopifyProductObj ", shopifyProductObj)
     return addProductVariant(localProductArray)
 }
 
@@ -115,10 +115,10 @@ function addVariantImgIds (productObj) {
     productObj.product.images[0]["variant_ids"].push(productObj.product.variants[i]["id"])
   }
 
-  console.log(" total Obj POSTING TO SHOPIFY:", shopifyProductObj);
+  // console.log(" total Obj POSTING TO SHOPIFY:", shopifyProductObj);
 
   // clear out master array in last fnc
-  var localProductArray = []
+  localProductArray = []
   return shopifyProductObj
 }
 

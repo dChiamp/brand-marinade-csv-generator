@@ -59,11 +59,12 @@ jsonexportController = {
           if(error) {
               console.log(error);
           } else {
-            console.log(response.statusCode, body);
-            res.send(response)
+            console.log("response", response);
           }
       });
     }
+      // what should i send as response???
+      res.send()
   },
   getPrintProducts: function (req, res) {
       request({
@@ -95,19 +96,17 @@ jsonexportController = {
         body: JSON.stringify(shopfiyProduct) //stringify the body product obj
       }, function(error, response, body){
           if(error) {
-              console.log(error);
+              console.log("ERROR:", error);
           } else {
               // console.log("response:", response, "BODY", body);
-              console.log("responseBOdy:", response.body);
-              res.send(response)
+            console.log("response:", response);
           }
       });
     }
+    res.send()
   },
   getStonedProducts: function (req, res) {
-    
     console.log("Stoned post")
-
     request({
       url: stonedMgApiEndpt, //URL to hit
       method: 'GET',
