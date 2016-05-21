@@ -380,7 +380,9 @@ function addSizeWeights (array) {
     if(array[i].freeish && array[i]['Option2 Value'] === 'Small' || 
       array[i].freeish && array[i]['Option2 Value'] === 'Medium' || 
       array[i].freeish && array[i]['Option2 Value'] === 'Large' || 
-      array[i].freeish && array[i]['Option2 Value'] === 'XL' ) {
+      array[i].freeish && array[i]['Option2 Value'] === 'XL' 
+      // add specialty sizes here too
+      ) {
 
       var freeishSizeWeight = {
         'Variant Grams': 367,
