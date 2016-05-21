@@ -25,7 +25,8 @@ function OnesieController ($scope, $http, productService, $filter, toastr) {
                   productTags: "",
                   price: 18,
                   short: "onesie",
-                  primaryImgColor: "White"
+                  primaryImgColor: "White",
+                  freeish: false
                 }
   
   // $scope.product.price = $filter('currency')($scope.product.price, "$")

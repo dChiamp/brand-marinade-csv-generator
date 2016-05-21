@@ -16,7 +16,8 @@ function PosterController ($scope, $http, productService, $filter, toastr) {
                     price: 50,
                     productTags: "",
                     short:  "poster",
-                    primaryImgColor: "Red"
+                    primaryImgColor: "Red",
+                    freeish: false
                   }
 
 

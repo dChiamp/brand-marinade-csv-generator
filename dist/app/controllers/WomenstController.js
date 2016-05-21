@@ -22,7 +22,8 @@ function WomenstController ($scope, $http, productService, $filter, toastr) {
                     productTags: "",
                     price: 20,
                     short: "wtee",
-                    primaryImgColor: "White"
+                    primaryImgColor: "White",
+                    freeish: false
                   }
                   
   // $scope.product.price = $filter('currency')($scope.product.price, "$")

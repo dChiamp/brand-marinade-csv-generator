@@ -5,7 +5,7 @@ var methodOverride = require('method-override');
 
 var productsController = require('../controllers/productsController');
 var jsonexportController = require('../controllers/jsonexportController');
-var uploadController = require('../controllers/uploadController');
+// var uploadController = require('../controllers/uploadController');
 
 router.route('/api/products')
   .get(productsController.productsIndex)

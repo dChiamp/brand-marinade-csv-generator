@@ -1,23 +1,29 @@
 var shopifyProductObj = {}
-var masterArray = []
+var localProductArray = []
 
 // first row (main product obj info)
 function createLocalProductArray(array) {
+
+  // clear out old
+  var shopifyProductObj = {}
+  // var localProductArray = []
+
+  // push each obj in array to local master array
   console.log("INCOMING ARRAY OF OBJS", array)
   for (i = 0; i < array.length; i++ ) {
-    for(j = 0; j < array[i].length; j++) {
-      masterArray.push(array[i][j]);
-      // masterArray.push(array[i]);
-    }
+    // for(j = 0; j < array[i].length; j++) {
+      // localProductArray.push(array[i][j]);
+      localProductArray.push(array[i]);
+    // }
     // need to iterate through
   }
-  // console.log("FOrmatted master Array", masterArray)
-  return createShopifyProduct(masterArray)
+  // console.log("FOrmatted master Array", localProductArray)
+  return createShopifyProduct(localProductArray)
 }
 
 function createShopifyProduct (array) {
-  // console.log("master array?", masterArray)
-  // console.log("hello from upload helper fnc")
+  // console.log("master array?", localProductArray)
+  // build shopifyProductObj parent product obj (first row) in csv
   shopifyProductObj =  {
       "product": {
         // "id": 1071559644,
@@ -47,14 +53,14 @@ function createShopifyProduct (array) {
           } ]
       }
     }
-    // array.push(masterArray)
-    return addProductVariant(masterArray)
+    // array.push(localProductArray)
+    console.log("shopifyProductObj ", shopifyProductObj)
+    return addProductVariant(localProductArray)
 }
 
-// product variants (each row / product obj)
+// product variants (each row / to product obj)
 function addProductVariant (array) {
   // console.log("shopifyProductObj***" ,shopifyProductObj)
-  // console.log("yo from addProductVariant fnc")
   // console.log("MASTER ARRAY BEFORE ADDING VARIANTS", array)
   for (i = 0; i < array.length; i++) {
     var productVariant = {
@@ -82,7 +88,9 @@ function addProductVariant (array) {
         }
     shopifyProductObj.product.variants.push(productVariant);
     }
-    console.log()
+    // console.log('MASTER ARR@Y after variants', array)
+    // console.log('Shopify 0bj after variants', shopifyProductObj)
+    
     return addProductVariantOptions(array);
   }
   // variant options (size and color)
@@ -98,7 +106,6 @@ function addProductVariantOptions (array) {
     if (shopifyProductObj.product.options[1].values.indexOf(array[i]["Option2 Value"]) === -1 )
       shopifyProductObj.product.options[1].values.push(array[i]["Option2 Value"])
   }
-
   return addVariantImgIds(shopifyProductObj)
 }
 
@@ -109,6 +116,9 @@ function addVariantImgIds (productObj) {
   }
 
   console.log(" total Obj POSTING TO SHOPIFY:", shopifyProductObj);
+
+  // clear out master array in last fnc
+  var localProductArray = []
   return shopifyProductObj
 }
 

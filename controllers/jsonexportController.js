@@ -43,10 +43,10 @@ jsonexportController = {
     res.send(createLocalProductArray(masterArray));
   },
   postPrintProduct: function (req, res) {
-    console.log("POST REQ FNC HIT!");
-    // for(i=0; i <= masterArray.length; i++) { 
-      // var shopfiyProduct = createLocalProductArray(masterArray[i]);
-      var shopfiyProduct = createLocalProductArray(masterArray);
+    for(var i=0; i < masterArray.length; i++) { 
+      console.log("POST REQ FNC HIT!");
+      var shopfiyProduct = createLocalProductArray(masterArray[i]);
+      // var shopfiyProduct = createLocalProductArray(masterArray);
       console.log("SHOPFIFY PRODUCT:", JSON.stringify(shopfiyProduct))
       request({
         url: printingSiteApiEndpt, //URL to hit
@@ -63,7 +63,7 @@ jsonexportController = {
             res.send(response)
           }
       });
-    // }
+    }
   },
   getPrintProducts: function (req, res) {
       request({
@@ -83,24 +83,26 @@ jsonexportController = {
   },
   postStonedProduct: function (req, res) {
     console.log("Stoned post")
-    var shopfiyProduct = createLocalProductArray(masterArray);
-    console.log("SHOPFIFY PRODUCT:", JSON.stringify(shopfiyProduct))
-    request({
-      url: stonedMgApiEndpt, //URL to hit
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(shopfiyProduct) //stringify the body product obj
-    }, function(error, response, body){
-        if(error) {
-            console.log(error);
-        } else {
-            // console.log("response:", response, "BODY", body);
-            console.log("responseBOdy:", response.body);
-            res.send(response)
-        }
-    });
+    for(var i=0; i < masterArray.length; i++) { 
+      var shopfiyProduct = createLocalProductArray(masterArray[i]);
+      console.log("SHOPFIFY PRODUCT:", JSON.stringify(shopfiyProduct))
+      request({
+        url: stonedMgApiEndpt, //URL to hit
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(shopfiyProduct) //stringify the body product obj
+      }, function(error, response, body){
+          if(error) {
+              console.log(error);
+          } else {
+              // console.log("response:", response, "BODY", body);
+              console.log("responseBOdy:", response.body);
+              res.send(response)
+          }
+      });
+    }
   },
   getStonedProducts: function (req, res) {
     

@@ -30,7 +30,8 @@ function KidtController ($scope, $http, productService, $filter, toastr) {
                     productTags: "hella cool",
                     price: 18,
                     short: "ktee",
-                    primaryImgColor: "White"
+                    primaryImgColor: "White",
+                    freeish: false
                   }
 
   // $scope.product.price = $filter('currency')($scope.product.price, "$")

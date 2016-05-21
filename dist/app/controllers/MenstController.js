@@ -36,7 +36,8 @@ $scope.product = {
                     productTags: "",
                     price: 25,
                     short: "mtee",
-                    primaryImgColor: "White"
+                    primaryImgColor: "White",
+                    freeish: false
                   }
 
   // $scope.product.price = $filter('currency')($scope.product.price, "$")

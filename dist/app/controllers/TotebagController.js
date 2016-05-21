@@ -14,7 +14,8 @@ function TotebagController ($scope, $http, productService, $filter, toastr) {
                     productTags: "",
                     price: 20,
                     short: "tote",
-                    primaryImgColor: "Natural"
+                    primaryImgColor: "Natural",
+                    freeish: false
                   }
 
   // $scope.product.price = $filter('currency')($scope.product.price, "$")

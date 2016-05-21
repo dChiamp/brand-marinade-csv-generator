@@ -16,7 +16,8 @@ function MugController ($scope, $http, productService, $filter, toastr) {
                     brands: "American Apparel",
                     productTags: "",
                     short: "mug",
-                    primaryImgColor: "White"
+                    primaryImgColor: "White",
+                    freeish: false
                   }
 
  $scope.save = function() {

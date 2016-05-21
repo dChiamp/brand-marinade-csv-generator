@@ -36,7 +36,8 @@ function MensvController ($scope, $http, productService, $filter, toastr) {
                     productTags: "",
                     price: 25,
                     short: "mv",
-                    primaryImgColor: "White"
+                    primaryImgColor: "White",
+                    freeish: false
                   }
                   
   // $scope.product.price = $filter('currency')($scope.product.price, "$")
