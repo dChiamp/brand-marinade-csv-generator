@@ -38,6 +38,7 @@ function ProductsController ($scope, $http, productService, FileSaver, Blob, $fi
     // console.log("submitted?", $scope.submitted)
     // console.log("TITLE:", $scope.designNames)
     // console.log("prodTAGS", designTags )
+    toastr.success("Design submitted");
     productService.addNameToProd($scope.designNames);
   }
 
