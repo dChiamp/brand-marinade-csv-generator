@@ -76,9 +76,10 @@ function testing (product) {
   var handle = product.handle + "-" + product.short
   var dateFormatted = moment().format("YYYY-MMDD");
   var defaultTags = product.item + "," + "design_" + product.handle + "," + dateFormatted + ",";
-  var tags =  defaultTags + product.tags + "," + product.productTags
+  
+  var tags =  defaultTags + product.tags + "," + product.productTags;
   // add freeish tag
-  if (product.freeish) {  tags += 'freeish' }
+  if (product.freeish) {  tags +=  "," + 'freeish' }
   
   var primaryImgColor = product.primaryImgColor
   // format published for csv
@@ -380,8 +381,23 @@ function addSizeWeights (array) {
     if(array[i].freeish && array[i]['Option2 Value'] === 'Small' || 
       array[i].freeish && array[i]['Option2 Value'] === 'Medium' || 
       array[i].freeish && array[i]['Option2 Value'] === 'Large' || 
-      array[i].freeish && array[i]['Option2 Value'] === 'XL' 
-      // add specialty sizes here too
+      array[i].freeish && array[i]['Option2 Value'] === 'XL' ||
+      // onesie
+      array[i].freeish && array[i]['Option2 Value'] === 'Onesie' ||
+      array[i].freeish && array[i]['Option2 Value'] === '6M' ||
+      array[i].freeish && array[i]['Option2 Value'] === '12M' ||
+      array[i].freeish && array[i]['Option2 Value'] === '18M' ||
+      array[i].freeish && array[i]['Option2 Value'] === 'Size 24M' ||
+      // kids
+      array[i].freeish && array[i]['Option2 Value'] === 'Size 2' ||
+      array[i].freeish && array[i]['Option2 Value'] === 'Size 3' ||
+      array[i].freeish && array[i]['Option2 Value'] === 'Size 4' ||
+      array[i].freeish && array[i]['Option2 Value'] === 'Size 5/6' ||
+      // totes
+      array[i].freeish && array[i]['Option2 Value'] === 'One-size'
+      // add specialty sizes here too:
+      // Mug
+      // Post
       ) {
 
       var freeishSizeWeight = {
@@ -393,7 +409,10 @@ function addSizeWeights (array) {
       sizeWeightArray.push(freeishSizeWeightObj)
 
     } else if(array[i].freeish && array[i]['Option2 Value'] === '2XL' || 
-      array[i].freeish && array[i]['Option2 Value'] === '3XL') {
+      array[i].freeish && array[i]['Option2 Value'] === '3XL'
+      // kids
+      // onesie
+      ) {
 
       var freeishBigSizeWeight = {
         'Variant Grams': 367,
@@ -402,7 +421,7 @@ function addSizeWeights (array) {
 
       var freeishBigSizeWeightObj = merge(array[i], freeishBigSizeWeight)
       sizeWeightArray.push(freeishBigSizeWeightObj)
-
+  
 
     } else if (!array[i].freeish) {
       console.log("not EFREESISH FSALE")

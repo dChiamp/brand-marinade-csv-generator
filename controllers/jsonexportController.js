@@ -100,10 +100,12 @@ jsonexportController = {
           } else {
               // console.log("response:", response, "BODY", body);
             console.log("response:", response);
+            // res.send(response)
           }
       });
     }
-    res.send()
+    // look in to other response options
+    res.JSON({upload: "complete"})
   },
   getStonedProducts: function (req, res) {
     console.log("Stoned post")

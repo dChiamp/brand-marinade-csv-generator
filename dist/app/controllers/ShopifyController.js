@@ -29,6 +29,7 @@ function ShopifyController ($scope, $http, productService, FileSaver, Blob, $fil
               .then(function(response) {
                 console.log("all products from shopify:", response)
                 // console.log("shopify res body:", response.data.body)
+                // add catch instead
               }, function error (response) {
                 console.log("ERROR", response)
               });

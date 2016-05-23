@@ -27,7 +27,7 @@ function KidtController ($scope, $http, productService, $filter, toastr) {
                             "Size 5/6": true
                            },
                     brands: ["American Apparel"],
-                    productTags: "hella cool",
+                    productTags: "",
                     price: 18,
                     short: "ktee",
                     primaryImgColor: "White",

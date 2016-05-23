@@ -55,7 +55,8 @@ function productService ($rootScope, $http, FileSaver, Blob, $filter, toastr) {
       productData.title = title;
       productData.handle = designHandle;
       productData["Vendor"] = marketplace;
-      productData.tags = tags
+      productData.tags = tags 
+      // if(productData.tags) { productData.tags = tags  }
       productData.Published = publish
 
       console.log("productData.TAGS", tags)
