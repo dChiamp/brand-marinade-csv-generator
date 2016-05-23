@@ -75,10 +75,14 @@ function testing (product) {
   var vendor = product["Vendor"]
   var handle = product.handle + "-" + product.short
   var dateFormatted = moment().format("YYYY-MMDD");
-  var defaultTags = product.item + "," + "design_" + product.handle + "," + dateFormatted + ",";
+  var defaultTags = product.item + "," + "design_" + product.handle + "," + dateFormatted;
   
-  var tags =  defaultTags + product.tags + "," + product.productTags;
+  if( product.tags) {
+    var tags =  defaultTags + "," + product.tags + "," + product.productTags;
   // add freeish tag
+  } else {
+    var tags = defaultTags + "," + product.productTags;
+  }
   if (product.freeish) {  tags +=  "," + 'freeish' }
   
   var primaryImgColor = product.primaryImgColor
